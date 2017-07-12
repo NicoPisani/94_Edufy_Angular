@@ -36,6 +36,31 @@ angular
         controller: 'DetalleCursoCtrl',
         controllerAs: 'detalleCurso'
       })
+      .when('/panel/user-home', {
+        templateUrl: 'views/users/user-home.html',
+        controller: 'UserHomeCtrl',
+        controllerAs: 'UserHome'
+      })
+      .when('/panel/user-perfil', {
+        templateUrl: 'views/users/user-perfil.html',
+        controller: 'UserPerfilCtrl',
+        controllerAs: 'UserPerfil'
+      })
+      .when('/panel/user-favoritos', {
+        templateUrl: 'views/users/user-favoritos.html',
+        controller: 'UserFavoritosCtrl',
+        controllerAs: 'UserFavoritos'
+      })
+      .when('/panel/user-pagos', {
+        templateUrl: 'views/users/user-pagos.html',
+        controller: 'UserPagosCtrl',
+        controllerAs: 'UserPagos'
+      })
+      .when('/panel/user-cursos', {
+        templateUrl: 'views/users/user-cursos.html',
+        controller: 'UserCursosCtrl',
+        controllerAs: 'UserCursos'
+      })
       .when('/login',{
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
