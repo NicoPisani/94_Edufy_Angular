@@ -1,0 +1,362 @@
+/*------------------------------ Generales -------------------------------*/
+
+
+html,body
+	background-color: #fff
+
+.disabled
+	display: none
+
+@media only screen and (max-width : 768px)
+	html,body
+		font-size: 12px
+@media only screen and (max-width : 480px)
+	html,body
+		font-size: 10px
+/*-------------------------------Navbar------------------------------------*/
+
+
+nav
+	height: 88px
+.navbar
+	margin-bottom: 0px
+.navbar-collapse
+	background-color: #fff
+.navbar-default
+	border: 0
+.navbar-brand
+	padding: 0 0 0 70px
+.navbar-form
+	padding: 18px 0 18px 50px
+	width: 500px
+.navbar-right
+	padding: 18px 0
+	vertical-align: middle
+	li 
+		padding-left: 10px
+		padding-right: 10px
+		a
+			font-size: 0.875rem
+			color: $black
+			font-weight: $bold
+			padding-top: 10px
+			padding-bottom: 10px
+		.dropdown-toggle
+			padding-top: 0px
+			padding-bottom: 0px
+		.nav-right-icon-user
+			background-color: $iris
+			border-radius: 50%
+			max-width: 60px
+			padding: 15px 20px
+			text-align: center
+			i 
+				color: $white
+				font-size: 1.2rem
+				text-align: center
+		.navbar-right-dropdown-menu
+			li 
+				a
+					font-size: 0.875rem
+					color: $black
+					font-weight: $bold
+					padding-top: 10px
+					padding-bottom: 10px 
+					&:hover > i 
+						color: $iris
+					i 
+						margin-right: 5px
+						font-size: 1rem
+	.borde-right
+		border-right: 2px solid $purpley-grey
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover
+	background-color: transparent!important
+
+@media only screen and (max-width: 2000px)
+	.navbar-form
+		max-width: 400px
+@media only screen and (max-width: 1000px)
+	.navbar
+		.container
+			margin-left: auto
+			margin-right: auto
+			width: 100%
+			padding-left: 15px
+			padding-right: 15px
+	.navbar-form
+		max-width: 300px
+		padding-left: 10px
+@media only screen and (max-width : 768px)
+	.navbar
+		max-height: 50px
+		img 
+			max-height: 50px
+			padding-left: 10px
+	.navbar-form
+		border: 0
+		margin: 0
+		padding: 0 0 0 10px
+		position: absolute
+		top: 5px
+		left: 170px
+	.nav-right-icon-user
+		margin: 10px auto
+@media only screen and (max-width : 560px)
+	.navbar-brand
+		padding-left: 20px
+	.navbar-form
+		max-width: 250px
+		left: 100px
+@media only screen and (max-width : 465px)
+	.navbar-form
+		border: 0
+		margin: 0
+		padding: 0 0 0 10px
+		position: absolute
+		top: 5px
+		left: 70px
+		width: 200px
+@media only screen and (max-width : 350px)
+	.navbar-form
+		display: none
+
+
+/*------------------------------ Sidebar --------------------------------*/
+
+
+#wrapper
+	min-height: 70vh
+	#sidebar-wrapper
+		background-color: $white!important
+		.sidebar-brand
+			color: $black
+			font-weight: $bold
+			&:hover
+				background-color: $white!important
+		.sidebar-nav 
+			margin-top: 50px
+			li 
+				margin-bottom: 20px
+				&:hover
+					background-color: #fff
+				a
+					color: $purpley-grey
+					font-size: 1.125rem
+					&:hover
+						color: $black
+					&:hover i
+						color: $iris
+
+/*----------------------cursos box-------------------------------*/
+
+
+.item_box
+	background-color: #fbfbfb
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12)
+	border-radius: 2px
+	display: inline-block
+	margin: 20px
+	max-width: 350px
+	min-height: 200px
+	min-width: 263px
+	padding-bottom: 16px
+	.item_box:hover .team_member_info 
+		background: #008FD5 none repeat scroll 0% 0%
+	.item_box:hover .team_member_info h5
+		color: #FFF
+	.item_box:hover .team_member_info
+		color: #FFF
+	.team_member_info, .pic
+		display: block
+		position: relative
+	.hover-effect 
+		position: absolute
+		top: 0px
+		left: 0px
+		opacity: 0
+		width: 100%
+		height: 100%
+		background: rgba(0, 0, 0, 0.2) none repeat scroll 0% 0%
+		&:hover, .hover-effect 
+			opacity: 1
+			background: rgba(0, 0, 0, 0.2) none repeat scroll 0% 0%
+			transition: all 0.2s ease 0s
+		i
+			position: absolute
+			top: 40%
+			left: 0
+			right: 0
+			margin: 0 auto
+			text-align: center
+			font-size: 3rem
+			color: $grey
+	figure
+		height: 200px
+		overflow: hidden
+		img 
+			width: 100%
+			height: 100%
+			max-height: 250px!important
+	.iconolink
+		background-color: rgba(0,0,0,0.5)
+		border-radius: 5px
+		font-size: 18px
+		line-height: 1rem
+		letter-spacing: 1px
+		padding: 7px 8px
+		position: absolute
+		right: 5%
+		top: 5%
+		.heart,i
+			color: #fff
+	.price 
+		position: absolute
+		top: 5%
+		left: 5%
+		font-size: 18px
+		line-height: 1rem
+		background-color: rgba(0,0,0,0.5)
+		border-radius: 5px
+		color: #FFF
+		padding: 7px 8px
+		letter-spacing: 1px
+		.amount
+			color: $real-white
+			i 
+				color: $real-white
+	.mini-descrip
+		height: 200px
+		margin-bottom: 10px
+		overflow: hidden
+		text-align: left
+		.entry-title
+			margin-top: 18px
+			margin-bottom: 0px
+			margin-left: 10px
+			margin-right: 10px
+			line-height: 1.3rem
+			font-style: normal
+			color: #000
+			opacity: 1
+			visibility: visible
+			transition: opacity 0.24s ease-in-out 0s
+			a
+				line-height: 1.3rem
+				font-style: normal
+				color: #000!important
+				text-decoration: none
+				&:hover
+					color: #3ABFDF!important
+		.entry-data
+			margin-top: 18px
+			margin-bottom: 0px
+			margin-left: 10px
+			margin-right: 10px
+			line-height: 1.3rem
+			font-size: 0.8rem
+			font-style: normal
+			label, i
+				display: inline-block
+				color: $iris
+			label
+				margin-right: 10px
+		.entry-summary
+			margin: 10px 10px 0 10px!important
+			font-size: 13px
+			color: #999!important
+			line-height: 23px
+	.proof 
+		text-align: center
+		a
+			font-family: $primary-font
+			font-size: 0.75rem!important
+		.progress
+			text-align: left!important
+		.progress-profes
+			width: 95%
+			margin: 0 0 10px 0
+		.trophy
+			display: inline-block
+			vertical-align: middle
+			width: 10px
+			.complete-trophy
+				color: $iris
+		.incomplete
+			font-family: $second-font
+			margin: 0 10px
+			text-align: left
+			font-size: 0.7rem
+		.complete
+			font-family: $second-font
+			margin: 0 10px
+			text-align: left
+			font-size: 0.7rem
+			color: $iris!important
+			text-transform: uppercase
+
+/*---------------------------- Sidebar ----------------------------------*/
+
+#profes,#users
+	overflow: hidden
+	min-height: 100vh
+#page-content, #sidebar
+	padding-bottom: 32767px
+	margin-bottom: -32767px
+
+#sidebar
+	max-width: 250px
+	min-width: 50px
+	width: auto
+	background-color: $white
+	.sidebar-nav
+		list-style: none
+		margin: 0
+		padding: 100px 0 0 0
+		position: absolute
+		top: 0
+
+.sidebar-nav li
+	text-indent: 20px
+	line-height: 40px
+
+.sidebar-nav li a
+	display: block
+	text-decoration: none
+	color: #999999
+
+.sidebar-nav li a:hover
+	text-decoration: none
+	color: #fff
+	background: rgba(255,255,255,0.2)
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus
+	text-decoration: none
+
+.sidebar-nav > .sidebar-brand
+	height: 65px
+	font-size: 18px
+	line-height: 60px
+
+.sidebar-nav > .sidebar-brand a
+	color: #999999
+
+.sidebar-nav > .sidebar-brand a:hover
+	color: #fff
+	background: none
+
+@media only screen and (max-width : 1050px)
+	.sidebar-nav li a span
+		display: none
+@media only screen and (max-width : 670px)
+	.sidebar-nav > .sidebar-brand
+		font-size: 12px
+	.sidebar-nav li
+		text-indent: 12px
+/*----------------------------- Footer -----------------------------------*/
+
+
+.footer
+	background-color: $purpley-grey
+	color: $white
+	height: 100px
