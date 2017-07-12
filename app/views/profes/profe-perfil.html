@@ -1,0 +1,107 @@
+ <div ng-include = "ProfePerfil.menuTemplate.url" ></div>
+
+ <section id="users" class="container-fluid">
+        <div class="row">
+            <div class="col-xs-2 col-sm-2 col-md-3 col-lg-3">
+                <!-- Sidebar -->
+                <div ng-include = "ProfePerfil.sidebarTemplate.url" ></div>
+                <!-- /#sidebar-wrapper -->
+            </div>
+             <div class="col-xs-10 col-sm-10 col-md-9 col-lg-9">
+                <!-- Page Content -->
+                <div id="page-content">
+                        <div id="page-content-wrapper-float-perfil">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 text-left cpanel-user-container-titulo">
+                                <h3>MI PERFIL</h3>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 cpanel-user-info">
+                                <div class="cpanel-user-info-picture">
+                                    <figure>
+                                        <figcaption><i class="fa fa-camera" aria-hidden="true"></i><br> Cargar Foto</figcaption>
+                                    </figure>
+                                </div>
+
+                                <div class="cpanel-user-info-data">
+                                    <form action="" method="POST" accept-charset="utf-8">
+                                        <div class="input-group">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido">
+                                            <span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                                        </div>
+                                    </form>
+                                    <form action="" method="POST" accept-charset="utf-8">
+                                        <div class="input-group">
+                                            <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+                                            <input type="text" name="nombre" id="nombre" placeholder="DD/MM/YYYY">
+                                            <span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                                        </div>
+                                    </form>
+                                    <form action="" method="POST" accept-charset="utf-8">
+                                        <div class="input-group">
+                                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                            <label>email_prueba@gmail.com</label>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
+                                <div class="line-full"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 bio-profe">
+                                <h3>Acerca de vos</h3>
+                                <p>Escribí una breve biografía que estará visible para los alumnos.</p>
+                                <div class="bio-profe-form">
+                                   <form action="" method="POST" accept-charset="utf-8">
+                                        <textarea name="bio-profe" id="bio-profe" class="form-control" placeholder="Escribe aquí"></textarea>
+                                        <input type="submit" class="btn btn-primary" value="GUARDAR">  
+                                    </form> 
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
+                                <div class="line-full"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 reestablecer">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <a href="javascript:;" onclick="mostrar_sub_sidebar('cpanel-user-subcontainer')"><h3>Restablecer Contraseña <i class="fa fa-angle-down" id="cpanel-user-icon-fa-angle" aria-hidden="true"></i></h3></a>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cpanel-user-subcontainer" id="cpanel-user-subcontainer">
+                                        <p>Si presionas el botón guardar cambios, tu contraseña se reestablecerá.</p>
+                                        <form action="" method="get" accept-charset="utf-8">
+                                            <div class="row form-group">
+                                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                                    <label for="old_pass" id="label_old_pass">Contraseña actual</label><br>
+                                                    <input type="password" name="old_pass" id="old_pass" class="form-control input">
+                                                </div>
+                                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"></div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                                    <label for="new_pass" id="label_new_pass">Contraseña nueva</label><br>
+                                                    <input type="password" name="new_pass" id="new_pass" class="form-control input">
+                                                </div>
+                                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                                    <label for="re_pass" id="label_re_pass">Repetir contraseña</label><br>
+                                                    <input type="password" name="re_pass" id="re_pass" class="form-control input">
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <input type="submit" class="btn btn-primary" value="RESTABLECER">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>                    
+                        </div>
+                    </div>
+                <!-- /#page-content-wrapper -->
+            </div>
+        </div>
+    </section>
+
+<div ng-include = "ProfePerfil.footerTemplate.url" ></div>

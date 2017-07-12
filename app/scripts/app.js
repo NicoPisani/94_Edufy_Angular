@@ -35,12 +35,7 @@ angular
         templateUrl: 'views/detalle-curso.html',
         controller: 'DetalleCursoCtrl',
         controllerAs: 'detalleCurso'
-      })
-      .when('/panel/user-home', {
-        templateUrl: 'views/users/user-home.html',
-        controller: 'UserHomeCtrl',
-        controllerAs: 'UserHome'
-      })
+      })//------------------------------------------------------------
       .when('/panel/user-perfil', {
         templateUrl: 'views/users/user-perfil.html',
         controller: 'UserPerfilCtrl',
@@ -60,7 +55,27 @@ angular
         templateUrl: 'views/users/user-cursos.html',
         controller: 'UserCursosCtrl',
         controllerAs: 'UserCursos'
+      })//------------------------------------------------------------
+       .when('/panel/profe-cursos', {
+        templateUrl: 'views/profes/profe-cursos.html',
+        controller: 'ProfeCursosCtrl',
+        controllerAs: 'ProfeCursos'
       })
+       .when('/panel/profe-perfil', {
+        templateUrl: 'views/profes/profe-perfil.html',
+        controller: 'ProfePerfilCtrl',
+        controllerAs: 'ProfePerfil'
+      })
+       .when('/panel/profe-nuevo', {
+        templateUrl: 'views/profes/profe-nuevo.html',
+        controller: 'ProfeNuevoCtrl',
+        controllerAs: 'ProfeNuevo'
+      })
+       .when('/panel/profe-archivos', {
+        templateUrl: 'views/profes/profe-archivos.html',
+        controller: 'ProfeArchivosCtrl',
+        controllerAs: 'ProfeArchivos'
+      })//------------------------------------------------------------
       .when('/login',{
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
