@@ -13,17 +13,9 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <navbar></navbar> <!-- /navbar -->
-
-    <header></header><!-- /header -->
-
-    <section-Cursos></section-Cursos> 
-
-    <section-Funcionamiento></section-Funcionamiento>  
-
-    <div ng-view=""></div>
-
-    <div class="footer"></div><!-- /footer -->
+    <div class="container-fluid">
+      <div ng-view=""></div>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -49,14 +41,10 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/satellizer/dist/satellizer.js"></script>
 
-    <script src="scripts/components/navbar/navbar.js"></script>
-    <script src="scripts/components/header/header.js"></script>
-    <script src="scripts/components/mainHome/sectionCursos/sectionCursos.js"></script>
-    <script src="scripts/components/mainHome/sectionFuncionamiento/sectionFuncionamiento.js"></script>
-    <script src="scripts/components/footer/footer.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/detalleCurso.js"></script>
     <script src="scripts/controllers/loginController.js"></script>
-
     <script src="scripts/services/authService.js"></script>
 </body>
 </html>

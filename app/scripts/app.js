@@ -10,12 +10,7 @@
  */
 angular
   .module('yeomanApp', [
-    //'authService',
-    'navbar',
-    'header',
-    'sectionCursos',
-    'sectionFuncionamiento',
-    'footer',
+    'authService',
     'ngAnimate',
     'ngAria',
     'ngCookies',
@@ -26,16 +21,20 @@ angular
     'ngTouch',
     'satellizer'
   ])
-  .config(function ($routeProvider, $authProvider) {
-  //.config(function ($routeProvider, $locationProvider) {
-  //  $locationProvider.hashPrefix(''); //Arreglo el codigo de la URL por la version de Angular
+  .config(function ($routeProvider, $locationProvider, $authProvider) {
+    $locationProvider.hashPrefix('');
     $authProvider.loginUrl = "http://127.0.0.1:8000/api/auth/login";
     $routeProvider
       
+      .when('/', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl',
+        controllerAs: 'main'
+      })
       .when('/detalle-curso', {
         templateUrl: 'views/detalle-curso.html',
         controller: 'DetalleCursoCtrl',
-        controllerAs: 'DetalleCurso'
+        controllerAs: 'detalleCurso'
       })
       .when('/login',{
         templateUrl: 'views/login.html',
