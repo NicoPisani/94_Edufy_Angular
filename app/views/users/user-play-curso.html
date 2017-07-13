@@ -1,28 +1,55 @@
  <div ng-include = "UserPlayCurso.menuTemplate.url" ></div>
 
  <section id="users" class="play-video">
+        <i class="fa fa-bars sidenav-toggle" aria-hidden="true"></i>
+
         <nav class="side-nav-videos">
-            <h1>Algo</h1>
+            <div class="row">
+                <i class="fa fa-times close" aria-hidden="true"></i>
+            </div>
             <div class="modulo">
                 <h2>> MÓDULO 1</h2>
                 <div class="clase">
-                    <h3>CLASE 1: INTRODUCCIÓN A LA ORATORIA</h3>
+                    <h3><img src="images/play-primary.svg" alt="Play">CLASE 1: INTRODUCCIÓN A LA ORATORIA</h3>
                     <p>02:45 <i class="fa fa-cloud-download" aria-hidden="true"></i> Descarga los archivos de la clase </p>
+                    <i class="fa fa-check-circle checked" aria-hidden="true"></i>
+                    
                 </div>  
-                <div class="clase">
-                    <h3>CLASE 2: INTRODUCCIÓN A LA ORATORIA</h3>
+                <div class="clase active">
+                    <h3><img src="images/play-primary.svg" alt="Play">CLASE 2: INTRODUCCIÓN A LA ORATORIA</h3>
                     <p>07:45 <i class="fa fa-cloud-download" aria-hidden="true"></i> Descarga los archivos de la clase </p>
+                    <i class="fa fa-circle-thin unchecked" aria-hidden="true"></i>
+                    
                 </div>  
                 <div class="clase">
-                    <h3>CLASE 3: INTRODUCCIÓN A LA ORATORIA</h3>
+                    <h3><img src="images/play-primary.svg" alt="Play">CLASE 3: INTRODUCCIÓN A LA ORATORIA</h3>
                     <p>03:35 <i class="fa fa-cloud-download" aria-hidden="true"></i> Descarga los archivos de la clase </p>
+                    <i class="fa fa-circle-thin unchecked" aria-hidden="true"></i>
                 </div>    
+            </div>
 
+            <div class="modulo">
+                <h2>> MÓDULO 2</h2>   
+            </div>
+
+            <div class="modulo">
+                <h2>> MÓDULO 3</h2>   
+            </div>
+
+            <div class="modulo">
+                <h2>> MÓDULO 4</h2>   
+            </div>
+
+            <div class="modulo">
+                <h2>> MÓDULO 5</h2>   
+            </div>
+
+            <div class="modulo">
+                <h2>> MÓDULO 6</h2>   
             </div>
         </nav>
         <div class="row">
            <iframe src="https://player.vimeo.com/video/169309392?color=ffffff&badge=0" width="100%" height="700px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
-    </section>
+</section>
 
-<div ng-include = "UserPlayCurso.footerTemplate.url" ></div>

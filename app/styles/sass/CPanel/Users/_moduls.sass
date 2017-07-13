@@ -138,8 +138,17 @@
 
 .play-video
 	position: relative
+	.sidenav-toggle
+		position: absolute
+		font-size: 30px
+		left: 25px
+		top: 100px
+		z-index: 100
+		color: $white
+
 	.side-nav-videos 
-		width: 300px
+		display: block
+		width: 450px
 		background-color: rgba(255,255,255,0.7)
 		height: 100vh
 		overflow-y: scroll
@@ -148,17 +157,58 @@
 		left: 0
 		z-index: 10
 
-	.modulo
-		h2 
+		.close
 			margin-top: 50px
-			color: #fff
+			font-size: 30px
+			float: right
+			margin-right: 50px
+			color: #000
+			cursor: pointer
+
+	.modulo
+		background-color: #f1f1f1
+		margin: 25px 5px
+		h2 
+			padding: 25px 0
+			color: $dark-grey
 			margin-left: 25px
+			font-size: 18px
 
 		.clase
-			margin: 25px
+			margin: 10px
+			padding: 20px 10px
+			position: relative
 			h3 
-				color: $light-grey
-				font-size: 16px
+				color: $dark-grey
+				font-size: 14px
+				margin-bottom: 10px
+				img 
+					margin-bottom: -8px 
+					margin-right: 8px
+			hr 
+				width: 100%
+				border: 1px solid $grey
+
+			.checked 
+				color: $primary-color
+				position: absolute
+				top: 25px
+				right: 5px
+				font-size: 20px
+			.unchecked
+				@extend .checked
+				color: $grey
+				
+			&.active 
+				background-color: #fff
+			&:last-child 
+				padding-bottom: 20px
+			&:hover 
+				background-color: $white
+				cursor: pointer
+
+		&:last-child 
+			margin-bottom: 75px
 
 
 

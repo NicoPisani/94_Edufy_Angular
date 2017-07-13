@@ -93,10 +93,6 @@ span {
 /*-------------------------------1.-ELEMENTS-------------------------------- */
 a {
   text-decoration: none !important;
-  -webkit-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out; }
 
 input[type='text'] {
@@ -1182,16 +1178,8 @@ nav {
 /*----------------------- Videos --------------------------- */
 .play-video {
   position: relative; }
-  .play-video .sidenav-toggle {
-    position: absolute;
-    font-size: 30px;
-    left: 25px;
-    top: 100px;
-    z-index: 100;
-    color: #fbfbfb; }
   .play-video .side-nav-videos {
-    display: block;
-    width: 450px;
+    width: 400px;
     background-color: rgba(255, 255, 255, 0.7);
     height: 100vh;
     overflow-y: scroll;
@@ -1199,52 +1187,22 @@ nav {
     top: 50px;
     left: 0;
     z-index: 10; }
-    .play-video .side-nav-videos .close {
-      margin-top: 50px;
-      font-size: 30px;
-      float: right;
-      margin-right: 50px;
-      color: black;
-      cursor: pointer; }
   .play-video .modulo {
     background-color: #f1f1f1;
-    margin: 25px 5px; }
+    margin: 25px; }
     .play-video .modulo h2 {
-      padding: 25px 0;
+      margin-top: 50px;
       color: #444444;
-      margin-left: 25px;
-      font-size: 18px; }
+      margin-left: 25px; }
     .play-video .modulo .clase {
-      margin: 10px;
-      padding: 20px 10px;
-      position: relative; }
+      margin: 25px; }
       .play-video .modulo .clase h3 {
         color: #444444;
-        font-size: 14px;
+        font-size: 16px;
         margin-bottom: 10px; }
-        .play-video .modulo .clase h3 img {
-          margin-bottom: -8px;
-          margin-right: 8px; }
       .play-video .modulo .clase hr {
         width: 100%;
         border: 1px solid #d4d4d4; }
-      .play-video .modulo .clase .checked, .play-video .modulo .clase .unchecked {
-        color: #ffd300;
-        position: absolute;
-        top: 25px;
-        right: 5px;
-        font-size: 20px; }
-      .play-video .modulo .clase .unchecked {
-        color: #d4d4d4; }
-      .play-video .modulo .clase.active {
-        background-color: white; }
-      .play-video .modulo .clase:last-child {
-        padding-bottom: 20px; }
-      .play-video .modulo .clase:hover {
-        background-color: #fbfbfb;
-        cursor: pointer; }
-    .play-video .modulo:last-child {
-      margin-bottom: 75px; }
 
 /*--------------------------- Profes --------------------- */
 #page-content {
