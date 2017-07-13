@@ -1,4 +1,4 @@
-@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Lato|Montserrat");
 /*----------------------------- 0.1.-VARIABLES -------------------------------- */
 /* COLORS */
@@ -34,7 +34,7 @@ footer, header, hgroup, menu, nav, section {
 body, html {
   line-height: 1;
   width: 100%;
-  background-color: #fff;
+  background-color: white;
   font-size: 12pt; }
 
 ol, ul {
@@ -58,18 +58,18 @@ a {
 
 /* TEXT STYLES */
 h1 {
-  color: #000000;
+  color: black;
   font-size: 1.7rem;
   font-family: "Montserrat", sans-serif;
   text-transform: capitalize; }
 
 h2 {
-  color: #000000;
+  color: black;
   font-family: "Montserrat", sans-serif;
   font-size: 1.5rem; }
 
 h3 {
-  color: #000000;
+  color: black;
   font-family: "Montserrat", sans-serif;
   font-size: 1.25rem; }
 
@@ -107,18 +107,19 @@ textarea {
     box-shadow: none !important; }
 
 .btn-primary {
-  background-color: #5e6ebf;
-  color: #fff !important; }
+  background-color: #ffd300;
+  border: 1px solid #ffd300;
+  color: white !important; }
   .btn-primary:hover {
-    color: #5e6ebf !important;
+    color: #ffd300 !important;
     background-color: transparent;
-    border: 1px solid #5e6ebf; }
+    border: 1px solid #ffd300; }
 
 .btn-custom {
   background-color: #9b9b9b;
-  color: #ffffff; }
+  color: white; }
   .btn-custom:hover {
-    color: #ffffff;
+    color: white;
     background-color: #dedede; }
 
 .input-group {
@@ -152,9 +153,9 @@ textarea {
   font-size: 0.8rem;
   padding: 10px 40px; }
   .btn-light:hover {
-    color: #5e6ebf !important;
+    color: #ffd300 !important;
     background-color: transparent;
-    border: 2px solid #5e6ebf; }
+    border: 2px solid #ffd300; }
 
 .line {
   width: 150px;
@@ -167,7 +168,7 @@ textarea {
   margin-bottom: 20px; }
 
 .progress {
-  background-color: #f5f5f5;
+  background-color: whitesmoke;
   border-radius: 0;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   display: inline-block;
@@ -198,7 +199,7 @@ textarea {
  * color: $white */
 /*------------------------------ Generales ------------------------------- */
 html, body {
-  background-color: #fff; }
+  background-color: white; }
 
 .disabled {
   display: none; }
@@ -211,19 +212,26 @@ html, body {
     font-size: 10px; } }
 /*-------------------------------Navbar------------------------------------ */
 nav {
-  height: 88px; }
+  height: 88px;
+  color: black; }
 
 .navbar {
   margin-bottom: 0px; }
 
+.navbar-container {
+  background-color: #ffd300; }
+
 .navbar-collapse {
-  background-color: #fff; }
+  background-color: white;
+  background-color: #ffd300; }
 
 .navbar-default {
   border: 0; }
 
 .navbar-brand {
   padding: 0 0 0 70px; }
+  .navbar-brand img {
+    width: 100px; }
 
 .navbar-form {
   padding: 18px 0 18px 50px;
@@ -237,15 +245,18 @@ nav {
     padding-right: 10px; }
     .navbar-right li a {
       font-size: 0.875rem;
-      color: #000000;
+      color: black;
       font-weight: 700;
       padding-top: 10px;
       padding-bottom: 10px; }
+    .navbar-right li .btn-primary {
+      border: 1px solid black;
+      color: black !important; }
     .navbar-right li .dropdown-toggle {
       padding-top: 0px;
       padding-bottom: 0px; }
     .navbar-right li .nav-right-icon-user {
-      background-color: #5e6ebf;
+      background-color: #ffd300;
       border-radius: 50%;
       max-width: 60px;
       padding: 15px 20px;
@@ -256,12 +267,12 @@ nav {
         text-align: center; }
     .navbar-right li .navbar-right-dropdown-menu li a {
       font-size: 0.875rem;
-      color: #000000;
+      color: black;
       font-weight: 700;
       padding-top: 10px;
       padding-bottom: 10px; }
       .navbar-right li .navbar-right-dropdown-menu li a:hover > i {
-        color: #5e6ebf; }
+        color: #ffd300; }
       .navbar-right li .navbar-right-dropdown-menu li a i {
         margin-right: 5px;
         font-size: 1rem; }
@@ -327,7 +338,7 @@ nav {
   #wrapper #sidebar-wrapper {
     background-color: #fbfbfb !important; }
     #wrapper #sidebar-wrapper .sidebar-brand {
-      color: #000000;
+      color: black;
       font-weight: 700; }
       #wrapper #sidebar-wrapper .sidebar-brand:hover {
         background-color: #fbfbfb !important; }
@@ -336,14 +347,14 @@ nav {
       #wrapper #sidebar-wrapper .sidebar-nav li {
         margin-bottom: 20px; }
         #wrapper #sidebar-wrapper .sidebar-nav li:hover {
-          background-color: #fff; }
+          background-color: white; }
         #wrapper #sidebar-wrapper .sidebar-nav li a {
           color: #9b9b9b;
           font-size: 1.125rem; }
           #wrapper #sidebar-wrapper .sidebar-nav li a:hover {
-            color: #000000; }
+            color: black; }
           #wrapper #sidebar-wrapper .sidebar-nav li a:hover i {
-            color: #5e6ebf; }
+            color: #ffd300; }
 
 /*----------------------cursos box------------------------------- */
 .item_box {
@@ -357,11 +368,11 @@ nav {
   min-width: 263px;
   padding-bottom: 16px; }
   .item_box .item_box:hover .team_member_info {
-    background: #008FD5 none repeat scroll 0% 0%; }
+    background: #008fd5 none repeat scroll 0% 0%; }
   .item_box .item_box:hover .team_member_info h5 {
-    color: #FFF; }
+    color: white; }
   .item_box .item_box:hover .team_member_info {
-    color: #FFF; }
+    color: white; }
   .item_box .team_member_info, .item_box .pic {
     display: block;
     position: relative; }
@@ -404,7 +415,7 @@ nav {
     right: 5%;
     top: 5%; }
     .item_box .iconolink .heart, .item_box .iconolink i {
-      color: #fff; }
+      color: white; }
   .item_box .price {
     position: absolute;
     top: 5%;
@@ -413,13 +424,13 @@ nav {
     line-height: 1rem;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
-    color: #FFF;
+    color: white;
     padding: 7px 8px;
     letter-spacing: 1px; }
     .item_box .price .amount {
-      color: #ffffff; }
+      color: white; }
       .item_box .price .amount i {
-        color: #ffffff; }
+        color: white; }
   .item_box .mini-descrip {
     height: 200px;
     margin-bottom: 10px;
@@ -432,17 +443,17 @@ nav {
       margin-right: 10px;
       line-height: 1.3rem;
       font-style: normal;
-      color: #000;
+      color: black;
       opacity: 1;
       visibility: visible;
       transition: opacity 0.24s ease-in-out 0s; }
       .item_box .mini-descrip .entry-title a {
         line-height: 1.3rem;
         font-style: normal;
-        color: #000 !important;
+        color: black !important;
         text-decoration: none; }
         .item_box .mini-descrip .entry-title a:hover {
-          color: #3ABFDF !important; }
+          color: #3abfdf !important; }
     .item_box .mini-descrip .entry-data {
       margin-top: 18px;
       margin-bottom: 0px;
@@ -453,13 +464,13 @@ nav {
       font-style: normal; }
       .item_box .mini-descrip .entry-data label, .item_box .mini-descrip .entry-data i {
         display: inline-block;
-        color: #5e6ebf; }
+        color: #ffd300; }
       .item_box .mini-descrip .entry-data label {
         margin-right: 10px; }
     .item_box .mini-descrip .entry-summary {
       margin: 10px 10px 0 10px !important;
       font-size: 13px;
-      color: #999 !important;
+      color: #999999 !important;
       line-height: 23px; }
   .item_box .proof {
     text-align: center; }
@@ -476,7 +487,7 @@ nav {
       vertical-align: middle;
       width: 10px; }
       .item_box .proof .trophy .complete-trophy {
-        color: #5e6ebf; }
+        color: #ffd300; }
     .item_box .proof .incomplete {
       font-family: "Lato", sans-serif;
       margin: 0 10px;
@@ -487,7 +498,7 @@ nav {
       margin: 0 10px;
       text-align: left;
       font-size: 0.7rem;
-      color: #5e6ebf !important;
+      color: #ffd300 !important;
       text-transform: uppercase; }
 
 /*---------------------------- Sidebar ---------------------------------- */
@@ -522,7 +533,7 @@ nav {
 
 .sidebar-nav li a:hover {
   text-decoration: none;
-  color: #fff;
+  color: white;
   background: rgba(255, 255, 255, 0.2); }
 
 .sidebar-nav li a:active,
@@ -538,7 +549,7 @@ nav {
   color: #999999; }
 
 .sidebar-nav > .sidebar-brand a:hover {
-  color: #fff;
+  color: white;
   background: none; }
 
 @media only screen and (max-width: 1050px) {
@@ -582,7 +593,7 @@ nav {
     .slide-home .rectangle legend {
       font-size: 1.1rem;
       font-family: "Montserrat", sans-serif;
-      color: #000000;
+      color: black;
       font-weight: 700; }
     .slide-home .rectangle input {
       margin-top: 40px; }
@@ -662,12 +673,12 @@ nav {
     font-size: 1rem; }
   .details-curso-div-1 label {
     font-size: 1.15rem;
-    color: #000000;
+    color: black;
     padding-right: 15px;
     margin-bottom: 15px; }
   .details-curso-div-1 i {
     font-size: 1.15rem;
-    color: #000000; }
+    color: black; }
   .details-curso-div-1 .line {
     margin: 0 auto 30px auto; }
   .details-curso-div-1 .details-curso-div-1-progress .progress {
@@ -696,7 +707,7 @@ nav {
       right: 15%;
       top: 15%; }
       .details-curso-div-2 div .iconolink-2 .heart, .details-curso-div-2 div .iconolink-2 i {
-        color: #fff; }
+        color: white; }
     .details-curso-div-2 div .price-2 {
       position: absolute;
       top: 15%;
@@ -705,11 +716,11 @@ nav {
       line-height: 1rem;
       background-color: rgba(0, 0, 0, 0.5);
       border-radius: 5px;
-      color: #FFF;
+      color: white;
       padding: 10px;
       letter-spacing: 1px; }
       .details-curso-div-2 div .price-2 .amount {
-        color: #fff; }
+        color: white; }
 
 @media only screen and (max-width: 991px) {
   .details-curso-div-2 {
@@ -732,22 +743,22 @@ nav {
   padding: 20px 40px; }
 
 .nav-tabs > li.active > a {
-  color: #000000;
+  color: black;
   background-color: transparent;
   border: 2px solid transparent;
-  border-bottom-color: #5e6ebf;
+  border-bottom-color: #ffd300;
   cursor: default; }
   .nav-tabs > li.active > a:focus {
-    color: #000000;
+    color: black;
     background-color: transparent;
     border: 2px solid transparent;
-    border-bottom-color: #5e6ebf;
+    border-bottom-color: #ffd300;
     cursor: default; }
   .nav-tabs > li.active > a:hover {
-    color: #000000;
+    color: black;
     background-color: transparent;
     border: 2px solid transparent;
-    border-bottom-color: #5e6ebf;
+    border-bottom-color: #ffd300;
     cursor: default; }
 
 .nav-tabs > li > a:hover {
@@ -781,7 +792,7 @@ nav {
     .details-tabs-moduls-1 .details-tabs-moduls-1-2 p {
       padding: 15px 0; }
     .details-tabs-moduls-1 .details-tabs-moduls-1-2 a {
-      color: #5e6ebf;
+      color: #ffd300;
       font-family: "Montserrat", sans-serif; }
   .details-tabs-moduls-1 .details-tabs-moduls-1-3-active {
     border-top: 2px solid #dedede;
@@ -808,7 +819,7 @@ nav {
         padding-left: 15px;
         width: 90%; }
         .details-tabs-moduls-1 .details-tabs-moduls-1-3-active .details-tabs-moduls-1-3-clase .details-tabs-moduls-1-3-clase-active h4 {
-          color: #000000;
+          color: black;
           padding-bottom: 10px;
           font-family: "Montserrat", sans-serif;
           font-size: 1rem;
@@ -819,7 +830,7 @@ nav {
           .details-tabs-moduls-1 .details-tabs-moduls-1-3-active .details-tabs-moduls-1-3-clase .details-tabs-moduls-1-3-clase-active p a {
             padding-left: 15px; }
             .details-tabs-moduls-1 .details-tabs-moduls-1-3-active .details-tabs-moduls-1-3-clase .details-tabs-moduls-1-3-clase-active p a:hover {
-              color: #5e6ebf;
+              color: #ffd300;
               cursor: pointer; }
       .details-tabs-moduls-1 .details-tabs-moduls-1-3-active .details-tabs-moduls-1-3-clase .details-tabs-moduls-1-3-clase-inactive {
         display: inline-block;
@@ -827,7 +838,7 @@ nav {
         padding-left: 15px;
         width: 90%; }
         .details-tabs-moduls-1 .details-tabs-moduls-1-3-active .details-tabs-moduls-1-3-clase .details-tabs-moduls-1-3-clase-inactive h4 {
-          color: #000000;
+          color: black;
           padding-bottom: 10px;
           font-family: "Montserrat", sans-serif;
           font-size: 1rem;
@@ -852,14 +863,14 @@ nav {
   .details-tabs-div-2 .details-tabs-div-2-text h3 {
     margin-bottom: 5px; }
   .details-tabs-div-2 .details-tabs-div-2-text h4 {
-    color: #000000;
+    color: black;
     margin-bottom: 25px;
     font-size: 1.125rem; }
 .details-tabs-div-2 .details-tabs-div-2-img {
   display: inline-block;
   width: 10%; }
   .details-tabs-div-2 .details-tabs-div-2-img img {
-    border: 2px solid #5e6ebf;
+    border: 2px solid #ffd300;
     border-radius: 50%; }
 
 .details-tabs-div-3 {
@@ -871,7 +882,7 @@ nav {
     width: 30%;
     margin-bottom: 40px; }
     .details-tabs-div-3 .details-tabs-div-3-ul > li i {
-      color: #5e6ebf; }
+      color: #ffd300; }
 
 /*-- TAB Q&A -- */
 .details-tabs-qya-1 {
@@ -896,15 +907,15 @@ nav {
   .details-tabs-qya-1 .details-tabs-qya-1-box-1 .details-tabs-qya-1-box-1-box-float-active {
     float: right; }
     .details-tabs-qya-1 .details-tabs-qya-1-box-1 .details-tabs-qya-1-box-1-box-float-active i {
-      color: #5e6ebf;
+      color: #ffd300;
       font-size: 1.55rem; }
   .details-tabs-qya-1 .details-tabs-qya-1-box-1 .details-tabs-qya-1-box-1-box-float-inactive {
     display: none; }
 
 .details-tabs-qya-1-active {
-  background-color: #ffffff;
+  background-color: white;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.12);
-  border-left: 4px solid #5e6ebf; }
+  border-left: 4px solid #ffd300; }
   .details-tabs-qya-1-active .details-tabs-qya-1-box-2-active {
     border-top: 1px solid #dedede;
     margin-top: 25px;
@@ -913,7 +924,7 @@ nav {
       border-bottom: 1px solid #dedede;
       padding: 20px 0; }
       .details-tabs-qya-1-active .details-tabs-qya-1-box-2-active .details-tabs-qya-1-box-2-answers h4 {
-        color: #000000;
+        color: black;
         font-family: "Montserrat", sans-serif;
         font-size: 1rem; }
       .details-tabs-qya-1-active .details-tabs-qya-1-box-2-active .details-tabs-qya-1-box-2-answers p {
@@ -977,7 +988,7 @@ nav {
   margin-top: 100px; }
   .cpanel-user-container-titulo h3 {
     font-size: 1.7rem;
-    color: #5e6ebf;
+    color: #ffd300;
     text-transform: uppercase;
     font-weight: 400;
     padding: 30px 0; }
@@ -1005,7 +1016,7 @@ nav {
   .cpanel-user-info-data form .input-group {
     margin-top: 20px; }
     .cpanel-user-info-data form .input-group i {
-      color: #5e6ebf;
+      color: #ffd300;
       margin-right: 10px;
       font-size: 1.2rem; }
     .cpanel-user-info-data form .input-group span {
@@ -1061,7 +1072,7 @@ nav {
   margin-bottom: 5px;
   width: 700px; }
   .cpanel-user-container-table-pagos .thead ul li {
-    color: #000000;
+    color: black;
     font-family: "Montserrat", sans-serif;
     font-size: 1.2rem;
     font-weight: 700;
@@ -1137,8 +1148,8 @@ nav {
   min-height: 200px;
   min-width: 263px; }
   .block-box .block-box:hover {
-    background: #008FD5 none repeat scroll 0% 0%;
-    color: #FFF; }
+    background: #008fd5 none repeat scroll 0% 0%;
+    color: white; }
   .block-box .pic {
     display: block;
     position: relative; }
@@ -1176,15 +1187,15 @@ nav {
     left: 5%;
     font-size: 18px;
     line-height: 1rem;
-    color: #FFF;
+    color: white;
     padding: 7px 8px;
     letter-spacing: 1px; }
     .block-box .selected .amount {
-      color: #ffffff; }
+      color: white; }
       .block-box .selected .amount i {
-        color: #ffffff; }
+        color: white; }
   .block-box .selected-active i {
-    color: #5e6ebf !important; }
+    color: #ffd300 !important; }
 
 /*--------------- Nuevo Curso ------------------- */
 #page-content-wrapper {
@@ -1194,7 +1205,7 @@ nav {
   margin-top: 100px; }
   .cpanel-profes-container-titulo h3 {
     font-size: 1.7rem;
-    color: #5e6ebf;
+    color: #ffd300;
     text-transform: uppercase;
     font-weight: 400;
     padding: 30px 0; }
@@ -1204,7 +1215,7 @@ nav {
   .cpanel-profes-info .input-group {
     margin-top: 20px; }
     .cpanel-profes-info .input-group i {
-      color: #5e6ebf;
+      color: #ffd300;
       margin-right: 10px;
       font-size: 1.2rem; }
     .cpanel-profes-info .input-group span {
@@ -1261,7 +1272,7 @@ nav {
         display: inline-block;
         vertical-align: top; }
         .profes-nuevocurso-asides .profes-tabs-ul li .profes-tabs-ul-li-1 i {
-          color: #5e6ebf; }
+          color: #ffd300; }
       .profes-nuevocurso-asides .profes-tabs-ul li .profes-tabs-ul-li-2 {
         display: inline-block;
         border-bottom: 1px solid #9b9b9b; }
@@ -1306,7 +1317,7 @@ nav {
     .profes-tabs-moduls .profes-tabs-moduls-1-2 p {
       padding: 15px 0; }
     .profes-tabs-moduls .profes-tabs-moduls-1-2 a {
-      color: #5e6ebf;
+      color: #ffd300;
       font-family: "Montserrat", sans-serif; }
     .profes-tabs-moduls .profes-tabs-moduls-1-2 .profes-moduls-edit-active {
       display: none; }
@@ -1323,8 +1334,8 @@ nav {
     .profes-tabs-moduls .profes-tabs-moduls-1-3-active h3 {
       margin: 40px 0 20px 0; }
     .profes-tabs-moduls .profes-tabs-moduls-1-3-active .profes-tabs-moduls-1-3-clase {
-      background-color: #ffffff;
-      border-left: 4px solid #5e6ebf;
+      background-color: white;
+      border-left: 4px solid #ffd300;
       box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.12);
       margin-bottom: 20px;
       padding: 20px 0; }
@@ -1336,7 +1347,7 @@ nav {
         padding: 10px;
         width: auto; }
         .profes-tabs-moduls .profes-tabs-moduls-1-3-active .profes-tabs-moduls-1-3-clase .profes-tabs-moduls-1-3-clase-active h3 {
-          color: #000000;
+          color: black;
           margin-top: 2px;
           margin-bottom: 5px;
           padding-bottom: 0px; }
@@ -1346,7 +1357,7 @@ nav {
           .profes-tabs-moduls .profes-tabs-moduls-1-3-active .profes-tabs-moduls-1-3-clase .profes-tabs-moduls-1-3-clase-active p a {
             padding-left: 15px; }
             .profes-tabs-moduls .profes-tabs-moduls-1-3-active .profes-tabs-moduls-1-3-clase .profes-tabs-moduls-1-3-clase-active p a:hover {
-              color: #5e6ebf;
+              color: #ffd300;
               cursor: pointer; }
       .profes-tabs-moduls .profes-tabs-moduls-1-3-active .profes-tabs-moduls-1-3-clase .profes-tabs-moduls-1-3-clase-edit {
         display: inline-block;
@@ -1360,7 +1371,7 @@ nav {
         padding-left: 15px;
         width: 90%; }
         .profes-tabs-moduls .profes-tabs-moduls-1-3-active .profes-tabs-moduls-1-3-clase .profes-tabs-moduls-1-3-clase-inactive h4 {
-          color: #000000;
+          color: black;
           padding-bottom: 10px;
           font-family: "Montserrat", sans-serif;
           font-size: 1rem;
@@ -1373,9 +1384,9 @@ nav {
 
 .profes-nuevocurso-zona-buttons button {
   padding: 15px 40px;
-  color: #ffffff; }
+  color: white; }
 .profes-nuevocurso-zona-buttons i {
-  color: #ffffff; }
+  color: white; }
 
 @media only screen and (max-width: 1385px) {
   #page-content {
