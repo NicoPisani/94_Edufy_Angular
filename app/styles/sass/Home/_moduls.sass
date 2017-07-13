@@ -38,12 +38,15 @@
 
 .home-container-titulo
 	h2
-		font-size: 2.45rem
+		font-size: 30px
 		margin-bottom: 20px
 		margin-top: 80px
-	hr
-		border-bottom: 2px solid #d4d4d4
+		text-align: left
 
+	hr
+		border-bottom: 1px solid #d4d4d4
+		width: 100%
+	
 @media only screen and (max-width: 1000px)
 @media only screen and (max-width : 768px)
 	.slide-home
@@ -67,6 +70,51 @@
 			height: auto
 			input 
 				margin-top: 10px 
+
+/*----------- Nuevos Cursos -------------------*/
+
+.nuevos-cursos
+	text-align: center
+	padding: 50px 0
+	h1
+		padding-bottom: 50px
+		hr
+			width: 50px
+			height: 3px
+			background-color: #999
+
+	.curso-destacado
+		padding: 20px
+		&.left
+			height: 400px
+			text-align: left
+			padding-left: 50px
+			box-shadow: 1000px 1000px 100px rgba(0,0,0,0.5) inset 
+			h2
+				margin-top: 50px
+				color: #fff
+				padding-bottom: 10px
+			h4, label, p, i 
+				color: #fff
+				padding: 5px 0
+
+			label 
+				padding-right: 20px
+			p
+				padding-bottom: 30px
+		&.right
+			@extend .left
+			height: 190px
+			margin-bottom: 20px
+			text-align: center
+			h2
+				margin-top: 0px
+			.entry-data
+				margin-bottom: 20px
+
+
+
+
 
 /*----------- como funciona -------------------*/
 

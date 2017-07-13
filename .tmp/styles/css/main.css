@@ -109,9 +109,10 @@ textarea {
 .btn-primary {
   background-color: #ffd300;
   border: 1px solid #ffd300;
-  color: white !important; }
+  color: black !important;
+  cursor: pointer; }
   .btn-primary:hover {
-    color: #ffd300 !important;
+    color: black !important;
     background-color: transparent;
     border: 1px solid #ffd300; }
 
@@ -128,7 +129,7 @@ textarea {
 .input {
   background-color: transparent;
   border: 0;
-  border-bottom: 2px solid #9b9b9b !important;
+  border-bottom: 1px solid #9b9b9b !important;
   border-radius: 0px;
   box-shadow: none;
   font-family: "Lato", sans-serif;
@@ -144,18 +145,19 @@ textarea {
   box-shadow: none;
   border: none;
   border-radius: 0;
-  border-bottom: 2px solid #9b9b9b !important; }
+  border-bottom: 1px solid #9b9b9b !important; }
 
 .btn-light {
   background: transparent;
-  border: 2px solid #fbfbfb;
+  border: 1px solid #fbfbfb;
+  border-radius: 5px;
   color: #fbfbfb;
   font-size: 0.8rem;
   padding: 10px 40px; }
   .btn-light:hover {
     color: #ffd300 !important;
     background-color: transparent;
-    border: 2px solid #ffd300; }
+    border: 1px solid #ffd300; }
 
 .line {
   width: 150px;
@@ -258,7 +260,7 @@ nav {
     .navbar-right li a {
       font-size: 0.875rem;
       color: black;
-      font-weight: 700;
+      font-weight: 300;
       padding-top: 10px;
       padding-bottom: 10px; }
     .navbar-right li .btn-primary {
@@ -274,7 +276,7 @@ nav {
       padding: 15px 20px;
       text-align: center; }
       .navbar-right li .nav-right-icon-user i {
-        color: #fbfbfb;
+        color: black;
         font-size: 1.2rem;
         text-align: center; }
     .navbar-right li .navbar-right-dropdown-menu li a {
@@ -289,7 +291,7 @@ nav {
         margin-right: 5px;
         font-size: 1rem; }
   .navbar-right .borde-right {
-    border-right: 2px solid #9b9b9b; }
+    border-right: 1px solid #9b9b9b; }
 
 .nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
   background-color: transparent !important; }
@@ -375,7 +377,7 @@ nav {
   border-radius: 2px;
   display: inline-block;
   margin: 20px;
-  max-width: 350px;
+  max-width: 330px;
   min-height: 200px;
   min-width: 263px;
   padding-bottom: 16px; }
@@ -616,11 +618,13 @@ nav {
       font-size: 0.8rem; }
 
 .home-container-titulo h2 {
-  font-size: 2.45rem;
+  font-size: 30px;
   margin-bottom: 20px;
-  margin-top: 80px; }
+  margin-top: 80px;
+  text-align: left; }
 .home-container-titulo hr {
-  border-bottom: 2px solid #d4d4d4; }
+  border-bottom: 1px solid #d4d4d4;
+  width: 100%; }
 
 @media only screen and (max-width: 768px) {
   .slide-home {
@@ -644,6 +648,43 @@ nav {
       height: auto; }
       .slide-home .rectangle input {
         margin-top: 10px; } }
+/*----------- Nuevos Cursos ------------------- */
+.nuevos-cursos {
+  text-align: center;
+  padding: 50px 0; }
+  .nuevos-cursos h1 {
+    padding-bottom: 50px; }
+    .nuevos-cursos h1 hr {
+      width: 50px;
+      height: 3px;
+      background-color: #999999; }
+  .nuevos-cursos .curso-destacado {
+    padding: 20px; }
+    .nuevos-cursos .curso-destacado.left, .nuevos-cursos .curso-destacado.right {
+      height: 400px;
+      text-align: left;
+      padding-left: 50px;
+      box-shadow: 1000px 1000px 100px rgba(0, 0, 0, 0.5) inset; }
+      .nuevos-cursos .curso-destacado.left h2, .nuevos-cursos .curso-destacado.right h2 {
+        margin-top: 50px;
+        color: white;
+        padding-bottom: 10px; }
+      .nuevos-cursos .curso-destacado.left h4, .nuevos-cursos .curso-destacado.right h4, .nuevos-cursos .curso-destacado.left label, .nuevos-cursos .curso-destacado.right label, .nuevos-cursos .curso-destacado.left p, .nuevos-cursos .curso-destacado.right p, .nuevos-cursos .curso-destacado.left i, .nuevos-cursos .curso-destacado.right i {
+        color: white;
+        padding: 5px 0; }
+      .nuevos-cursos .curso-destacado.left label, .nuevos-cursos .curso-destacado.right label {
+        padding-right: 20px; }
+      .nuevos-cursos .curso-destacado.left p, .nuevos-cursos .curso-destacado.right p {
+        padding-bottom: 30px; }
+    .nuevos-cursos .curso-destacado.right {
+      height: 190px;
+      margin-bottom: 20px;
+      text-align: center; }
+      .nuevos-cursos .curso-destacado.right h2 {
+        margin-top: 0px; }
+      .nuevos-cursos .curso-destacado.right .entry-data {
+        margin-bottom: 20px; }
+
 /*----------- como funciona ------------------- */
 #home-como-funciona {
   margin-top: 100px;
