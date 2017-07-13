@@ -10,15 +10,26 @@
 angular.module('yeomanApp')
   .controller('UserPlayCursoCtrl', function () {
     var nv = this;
-    var fo = this;
-    var si = this;
     nv.menuTemplate = {
       url : 'views/navbar/navbar.html'
     },
-    si.sidebarTemplate = {
+    nv.sidebarTemplate = {
       url : 'views/sidebar/sidebar-user.html'
     },
-     fo.footerTemplate = {
-      url : 'views/footer/footer.html'
-    }
+    nv.footerTemplate = {
+     url : 'views/footer/footer.html'
+   }
+
+   nv.styleNavBar = {
+     display: 'true'
+   };
+
+   nv.setearActiveMenu = function() {
+     if(nv.styleNavBar.display === 'true') {
+
+       nv.styleNavBar.display = 'none'
+     } else {
+       nv.styleNavBar.display = 'true';
+     }
+   }
   });
