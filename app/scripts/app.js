@@ -56,7 +56,13 @@ angular
         templateUrl: 'views/users/user-cursos.html',
         controller: 'UserCursosCtrl',
         controllerAs: 'UserCursos'
-      })//------------------------------------------------------------
+      }).when('/panel/user/play-curso', {
+        templateUrl: 'views/users/user-play-curso.html',
+        controller: 'UserPagosCtrl',
+        controllerAs: 'UserPagos'
+      })
+
+      //------------------------------------------------------------
        .when('/panel/profesor/cursos', {
         templateUrl: 'views/profes/profe-cursos.html',
         controller: 'ProfeCursosCtrl',
