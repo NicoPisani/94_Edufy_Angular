@@ -100,7 +100,7 @@ angular
   })
   .run( function($rootScope, $location, authUser, toastr) {
     var rutasPrivadas = [
-      '/panel/user/perfil',
+/*      '/panel/user/perfil',
       '/panel/user/favoritos',
       '/panel/user/pagos',
       '/panel/user/cursos',
@@ -108,7 +108,7 @@ angular
       '/panel/profesor/perfil',
       '/panel/profesor/nuevo',
       '/panel/profesor/archivos',
-      '/panel/user/play-curso'
+      '/panel/user/play-curso'*/
       ];
     $rootScope.$on('$routeChangeStart', function() {
         if(($.inArray($location.path(), rutasPrivadas) !== -1) && !authUser.isLoggedIn()){
