@@ -546,8 +546,9 @@ nav {
   line-height: 40px; }
   .sidebar-nav li.active {
     color: #ffd300; }
-    .sidebar-nav li.active a, .sidebar-nav li.active i {
-      color: #ffd300; }
+    .sidebar-nav li.active a, .sidebar-nav li.active i, .sidebar-nav li.active span {
+      color: #ffd300;
+      font-weight: 700; }
 
 .sidebar-nav li a {
   display: block;
