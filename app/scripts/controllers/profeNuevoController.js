@@ -27,18 +27,35 @@ angular.module('yeomanApp')
       {
         'titulo' : 'MÓDULO 1 - PRÁCTICAS DE LENGUAJE',
         'descripcion' : "Let's take a look at the areas you should consider for security. Attack surfaces, data transmission and storage, and more.",
-        'visible' : true
+        'visible' : true,
+        clases : [
+          {
+            'titulo' : 'TITULO',
+            'visible' : true
+          }
+
+        ]
       }
     ];
 
     var modulo = {
       'titulo' : 'MODULO',
       'descripcion' : "Let's take a look at the areas you should consider for security. Attack surfaces, data transmission and storage, and more.",
+      'visible' : true,
+      clases : [
+        // {
+        //   'titulo' : 'TITULO',
+        //   'visible' : true
+        // }
+      ]
+    }
+    var clase = {
+      'titulo' : 'TITULO',
       'visible' : true
     }
 
-    //Funciones
-
+  //Funciones
+    //Modulos
     nv.removerModulo = function(idModulo) {
       nv.modulos.splice(idModulo, 1);
     }
@@ -52,7 +69,29 @@ angular.module('yeomanApp')
         value.visible = false;
       });
       nv.modulos.push(angular.copy(modulo));
+
     }
 
 
+    //Clases
+    nv.agregarClase = function(idModulo) {
+      angular.forEach(nv.modulos[idModulo].clases, function(value,key) {
+        value.visible = false;
+      })
+      nv.modulos[idModulo].clases.push(angular.copy(clase));
+    }
+
+    nv.setearClaseVisible = function(idModulo, idClase) {
+      nv.modulos[idModulo].clases[idClase].visible = !nv.modulos[idModulo].clases[idClase].visible
+    }
+
+    nv.removerModulo = function(idModulo, idClase) {
+      nv.modulos[idModulo].clases.splice(idModulo, 1);
+    }
+
+    nv.setearClaseVisibleYAgregarOtra = function(idModulo, idClase) {
+      nv.modulos[idModulo].clases[idClase].visible = !nv.modulos[idModulo].clases[idClase].visible
+
+      nv.agregarClase(idModulo, idClase);
+    }
   });
