@@ -16,9 +16,20 @@ angular.module('yeomanApp')
 
 		mu.user = {
 			email : sessionControl.get('email'),
-			name : sessionControl.get('username'),
+			name : sessionControl.get('name'),
 			avatar : sessionControl.get('avatar')
 		}
+
+		$scope.$watch(function(){
+			return sessionControl.get('name');
+		}, function(newVal){
+			if(typeof newVal !== 'undefined'){
+				mu.user.email = sessionControl.get('email');
+			}
+		});
+
+		var C = authUser.isLoggedIn();
+		$scope.IsAuthenticated = (C||null)==null?false:true;
 
 
 		mu.logout = function(){

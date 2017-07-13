@@ -23,23 +23,20 @@ angular.module('authService', [])
 		};
 		var unCacheSession = function(){
 			sessionControl.unset('userIsLogin', true);
-			sessionControl.unset('email', email);
 			sessionControl.unset('name', name);
-			sessionControl.unset('avatar', avatar);
+			//sessionControl.unset('email', email);
+			//sessionControl.unset('avatar', avatar);
 		};
 		var login = function(loginForm){
 			$auth.login(loginForm).then(
 				function (response){
-					//cacheSession(response);
 					cacheSession(response.data.user.email, response.data.user.name, loginForm.avatar );
-					//$location.path('#/panel/user/perfil');
+					$location.path('#/panel/user/perfil');
 					toastr.success('Sesión iniciada con éxito', 'Mensaje');
-					//console.log(response);
 				},
 				function(error){
 					unCacheSession();
 					toastr.error(error.data.error, 'Error');
-					//console.log(error);
 				}
 			);
 		};
