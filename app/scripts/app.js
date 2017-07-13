@@ -32,7 +32,7 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/detalle-curso', {
+      .when('/detalle/curso', {
         templateUrl: 'views/detalle-curso.html',
         controller: 'DetalleCursoCtrl',
         controllerAs: 'detalleCurso'
