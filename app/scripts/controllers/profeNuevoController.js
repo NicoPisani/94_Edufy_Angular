@@ -27,17 +27,7 @@ angular.module('yeomanApp')
       {
         'titulo' : 'MÓDULO 1 - PRÁCTICAS DE LENGUAJE',
         'descripcion' : "Let's take a look at the areas you should consider for security. Attack surfaces, data transmission and storage, and more.",
-        'visible' : false
-      },
-      {
-        'titulo' : 'MÓDULO 2 - PRÁCTICAS DE LENGUAJE',
-        'descripcion' : "Let's take a look at the areas you should consider for security. Attack surfaces, data transmission and storage, and more.",
-        'visible' : false
-      },
-      {
-        'titulo' : 'MÓDULO 3 - PRÁCTICAS DE LENGUAJE',
-        'descripcion' : "Let's take a look at the areas you should consider for security. Attack surfaces, data transmission and storage, and more.",
-        'visible' : false
+        'visible' : true
       }
     ];
 
@@ -58,6 +48,9 @@ angular.module('yeomanApp')
     }
 
     nv.agregarModulo = function() {
+      angular.forEach(nv.modulos, function(value, key) {
+        value.visible = false;
+      });
       nv.modulos.push(angular.copy(modulo));
     }
 

@@ -26,7 +26,7 @@ angular
     $locationProvider.hashPrefix('');
     $authProvider.loginUrl = "http://127.0.0.1:8000/api/auth/login";
     $routeProvider
-      
+
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
