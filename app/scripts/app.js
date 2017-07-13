@@ -19,7 +19,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'satellizer'
+    'satellizer',
+    'toastr'
   ])
   .config(function ($routeProvider, $locationProvider, $authProvider) {
     $locationProvider.hashPrefix('');
@@ -84,4 +85,13 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .run( function($rootScope, $location, authUser, toastr) {
+    var rutasPrivadas = ['/detalle-curso','/about'];
+    $rootScope.$on('$routeChangeStart', function() {
+        if(($.inArray($location.path(), rutasPrivadas) !== -1) && !authUser.isLoggedIn()){
+          toastr.error('Debe iniciar sesión para poder continuar', 'Mensaje');
+          $location.path('/login');
+        }
+    });
   });
