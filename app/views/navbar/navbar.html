@@ -26,10 +26,9 @@
         <!-- Right Side Of Navbar -->
         <ul class="nav navbar-nav navbar-right">
             <li class="borde-right"><a href="/">CURSOS</a></li>
-            <li><a href="#/login">INGRESAR</a></li>
-            <li><a href="/" class="btn btn-primary">REGISTRATE</a></li>
-
-            <li class="dropdown">
+            <li ng-if="!IsAuthenticated"><a href="#/login">INGRESAR</a></li>
+            <li ng-if="!IsAuthenticated"><a href="/" class="btn btn-primary">REGISTRATE</a></li>
+            <li ng-if="IsAuthenticated" class="dropdown">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                     <div class="nav-right-icon-user">
                         <i class="fa fa-user" aria-hidden="true"></i>
