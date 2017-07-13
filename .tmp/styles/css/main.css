@@ -212,7 +212,8 @@ html, body {
     font-size: 10px; } }
 /*-------------------------------Navbar------------------------------------ */
 nav {
-  height: 88px; }
+  height: 88px;
+  color: black; }
 
 .navbar {
   margin-bottom: 0px; }
