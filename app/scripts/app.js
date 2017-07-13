@@ -56,10 +56,11 @@ angular
         templateUrl: 'views/users/user-cursos.html',
         controller: 'UserCursosCtrl',
         controllerAs: 'UserCursos'
-      }).when('/panel/user/play-curso', {
+      })
+      .when('/panel/user/play-curso', {
         templateUrl: 'views/users/user-play-curso.html',
-        controller: 'UserPagosCtrl',
-        controllerAs: 'UserPagos'
+        controller: 'UserPlayCursoCtrl',
+        controllerAs: 'UserPlayCurso'
       })
 
       //------------------------------------------------------------
