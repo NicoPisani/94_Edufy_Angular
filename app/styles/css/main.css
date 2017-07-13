@@ -218,8 +218,21 @@ html, body {
 nav {
   height: 88px; }
 
+.main-nav {
+  background-color: #ffd300;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); }
+
 .navbar {
-  margin-bottom: 0px; }
+  margin-bottom: 0px;
+  background-color: #ffd300; }
+
+.navbar-header {
+  background-color: #ffd300; }
 
 .navbar-container {
   background-color: #ffd300; }
@@ -572,7 +585,8 @@ nav {
 
 /*---------------------------------Home------------------------------------ */
 .slide-home {
-  padding: 100px 0px; }
+  padding: 100px 0px;
+  margin-top: 50px; }
   .slide-home .slide-title {
     padding-top: 100px; }
     .slide-home .slide-title h1 {
@@ -662,7 +676,8 @@ nav {
 
 /*-------------------------------- Details ------------------------------ */
 .details {
-  background-color: #fbfbfb; }
+  background-color: #fbfbfb;
+  margin-top: 50px; }
 
 .details-curso-div-1 {
   margin-top: 75px;
