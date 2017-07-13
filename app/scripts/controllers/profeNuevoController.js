@@ -43,10 +43,10 @@ angular.module('yeomanApp')
       'descripcion' : "Let's take a look at the areas you should consider for security. Attack surfaces, data transmission and storage, and more.",
       'visible' : true,
       clases : [
-        {
-          'titulo' : 'TITULO',
-          'visible' : true
-        }
+        // {
+        //   'titulo' : 'TITULO',
+        //   'visible' : true
+        // }
       ]
     }
     var clase = {
@@ -68,7 +68,8 @@ angular.module('yeomanApp')
       angular.forEach(nv.modulos, function(value, key) {
         value.visible = false;
       });
-      nv.modulos.push(angular.copy(clase));
+      nv.modulos.push(angular.copy(modulo));
+
     }
 
 
@@ -88,4 +89,9 @@ angular.module('yeomanApp')
       nv.modulos[idModulo].clases.splice(idModulo, 1);
     }
 
+    nv.setearClaseVisibleYAgregarOtra = function(idModulo, idClase) {
+      nv.modulos[idModulo].clases[idClase].visible = !nv.modulos[idModulo].clases[idClase].visible
+
+      nv.agregarClase(idModulo, idClase);
+    }
   });
