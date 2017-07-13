@@ -217,6 +217,9 @@ nav {
 .navbar {
   margin-bottom: 0px; }
 
+.navbar-container {
+  background-color: #ffd300; }
+
 .navbar-collapse {
   background-color: white;
   background-color: #ffd300; }
@@ -226,6 +229,8 @@ nav {
 
 .navbar-brand {
   padding: 0 0 0 70px; }
+  .navbar-brand img {
+    width: 100px; }
 
 .navbar-form {
   padding: 18px 0 18px 50px;
@@ -243,6 +248,9 @@ nav {
       font-weight: 700;
       padding-top: 10px;
       padding-bottom: 10px; }
+    .navbar-right li .btn-primary {
+      border: 1px solid black;
+      color: black !important; }
     .navbar-right li .dropdown-toggle {
       padding-top: 0px;
       padding-bottom: 0px; }
