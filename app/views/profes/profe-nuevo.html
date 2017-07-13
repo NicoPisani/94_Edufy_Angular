@@ -81,66 +81,53 @@
                                         <textarea name="detalle_largo" id="detalle_largo" class="form-control" placeholder="Escribe aquí"></textarea>
                                     </div>
                                 </div>
+
+
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profes-nuevocurso-asides">
                                     <h3>MODULOS</h3>
                                     <div class="container-fluid">
                                         <div class="row">
-                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profes-tabs-moduls">
+
+                                            <!-- Modulos -->
+                                            <div ng-repeat = "(key, value) in ProfeNuevo.modulos track by key" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profes-tabs-moduls">
+
+                                              <!-- Modulo Inactivo -->
+                                              <div ng-show = "!value.visible">
                                                 <div class="profes-tabs-moduls-box-float-active">
-                                                    <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                    <a ng-click = "ProfeNuevo.removerModulo(key)" ><i class="fa fa-times" aria-hidden="true"></i></a>
                                                 </div>
-                                                <div class="profes-tabs-moduls-1-1-inactive"></div>
+                                                <div ng-click="ProfeNuevo.setearVisible(key)" class="profes-tabs-moduls-1-1-inactive"></div>
                                                 <div class="profes-tabs-moduls-1-2">
                                                     <div class="profes-tabs-moduls-1-2-1">
                                                         <a href=""><i class="fa fa-ellipsis-v" aria-hidden="true"></i><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
                                                     </div>
                                                     <div class="profes-tabs-moduls-1-2-2">
-                                                        <h3>MÓDULO 1 - PRÁCTICAS DE LENGUAJE</h3>
-                                                        <p>Let's take a look at the areas you should consider for security. Attack surfaces, data transmission and storage, and more.</p>
+                                                        <h3>{{value.titulo}}</h3>
+                                                        <p>{{value.descripcion}}</p>
                                                         <a href="#" title=""><i class="fa fa-angle-down" id="cpanel-user-icon-fa-angle" aria-hidden="true"></i> 5 CLASES</a>
                                                     </div>
                                                 </div>
                                                 <div class="profes-tabs-moduls-1-3-inactive"></div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profes-tabs-moduls">
+                                              </div>
+                                              <!-- Modulo Inactivo-Wrapper -->
+
+                                              <!-- Modulo Activo -->
+                                              <div ng-show = "value.visible">
                                                 <div class="profes-tabs-moduls-box-float-active">
-                                                    <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                    <a ng-click = "ProfeNuevo.removerModulo(key)" ><i class="fa fa-times" aria-hidden="true"></i></a>
                                                 </div>
-                                                <div class="profes-tabs-moduls-1-1-inactive"></div>
+                                                <div ng-click="ProfeNuevo.setearVisible(key)"  class="profes-tabs-moduls-1-1-active"></div>
                                                 <div class="profes-tabs-moduls-1-2">
-                                                    <h3><a href=""><i class="fa fa-ellipsis-v" aria-hidden="true"></i><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>MÓDULO 2 - PRÁCTICAS DE LENGUAJE</h3>
-                                                    <p>Let's take a look at the areas you should consider for security. Attack surfaces, data transmission and storage, and more.</p>
-                                                    <a href="#" title=""><i class="fa fa-angle-down" id="cpanel-user-icon-fa-angle" aria-hidden="true"></i> 5 CLASES</a>
-                                                </div>
-                                                <div class="profes-tabs-moduls-1-3-inactive"></div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profes-tabs-moduls">
-                                                <div class="profes-tabs-moduls-box-float-active">
-                                                    <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                                </div>
-                                                <div class="profes-tabs-moduls-1-1-inactive"></div>
-                                                <div class="profes-tabs-moduls-1-2">
-                                                    <h3><a href=""><i class="fa fa-ellipsis-v" aria-hidden="true"></i><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>MÓDULO 3 - PRÁCTICAS DE LENGUAJE</h3>
-                                                    <p>Let's take a look at the areas you should consider for security. Attack surfaces, data transmission and storage, and more.</p>
-                                                    <a href="#" title=""><i class="fa fa-angle-down" id="cpanel-user-icon-fa-angle" aria-hidden="true"></i> 5 CLASES</a>
-                                                </div>
-                                                <div class="profes-tabs-moduls-1-3-inactive"></div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profes-tabs-moduls">
-                                                <div class="profes-tabs-moduls-box-float-inactive">
-                                                    <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                                </div>
-                                                <div class="profes-tabs-moduls-1-1-active"></div>
-                                                <div class="profes-tabs-moduls-1-2">
-                                                    <h3><a href="" class="profes-moduls-edit-active"><i class="fa fa-ellipsis-v" aria-hidden="true"></i><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>MÓDULO 4</h3>
+                                                    <h3><a href="" class="profes-moduls-edit-active"><i class="fa fa-ellipsis-v" aria-hidden="true"></i><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>{{value.titulo}}</h3>
                                                     <div class="input-group">
-                                                        <input type="text" name="titulo_modulo" id="titulo_modulo" class="form-control" placeholder="TITULO DEL MODULO">
+                                                        <input type="text" name="titulo_modulo" id="titulo_modulo" class="form-control" placeholder="TITULO DEL MODULO" ng-model = "value.titulo">
                                                     </div>
                                                     <div class="input-group">
                                                         <label>Descripción corta (máximo 200 caracteres)</label><br><br>
-                                                        <textarea name="detalle_corto" id="detalle_corto" class="form-control" placeholder="Descripción del curso"></textarea>
+                                                        <textarea name="detalle_corto" id="detalle_corto" class="form-control" placeholder="Descripción del curso" ng-model="value.descripcion">{{value.descripcion}}</textarea>
                                                     </div>
                                                 </div>
+
                                                 <div class="profes-tabs-moduls-1-3-active">
                                                     <h3>CLASES</h3>
                                                     <div class="profes-tabs-moduls-1-3-clase">
@@ -157,18 +144,27 @@
                                                     </div>
                                                     <div class="profes-tabs-moduls-1-3-clase"></div>
                                                 </div>
+                                              </div>
+                                              <!-- Modulo Activo-Wrapper -->
+
                                             </div>
+                                            <!-- Modulos-Wrapper -->
+
+
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profes-nuevocurso-zona-buttons">
-                                                <button class="btn btn-custom"><i class="fa fa-plus" aria-hidden="true"></i> AGREGAR MODULO</button>
+                                                <button type="button" ng-click = "ProfeNuevo.agregarModulo()" class="btn btn-custom"><i class="fa fa-plus" aria-hidden="true"></i> AGREGAR MODULO</button>
                                                 <hr>
                                                 <div class="pull-right">
                                                     <button class="btn btn-danger">ELIMINAR CURSO</button>
                                                     <button class="btn btn-primary">GUARDAR CAMBIOS</button>
                                                 </div>
                                             </div>
+
+
                                         </div>
                                     </div>
-                                </div>                 
+                                </div>
+
                             </form>
                         </div>
                     </div>
