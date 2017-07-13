@@ -72,6 +72,11 @@ angular
         controller: 'ProfeNuevoCtrl',
         controllerAs: 'ProfeNuevo'
       })
+       .when('/panel/profesor/pagos', {
+        templateUrl: 'views/profes/profe-pagos.html',
+        controller: 'ProfePagosCtrl',
+        controllerAs: 'ProfePagos'
+      })
        .when('/panel/profesor/archivos', {
         templateUrl: 'views/profes/profe-archivos.html',
         controller: 'ProfeArchivosCtrl',
@@ -86,12 +91,21 @@ angular
         redirectTo: '/'
       });
   })
-  .run( function($rootScope, $location, authUser, toastr) {
-    var rutasPrivadas = ['/detalle-curso','/about'];
+  /*.run( function($rootScope, $location, authUser, toastr) {
+    var rutasPrivadas = [
+      '/panel/user/perfil',
+      '/panel/user/favoritos',
+      '/panel/user/pagos',
+      '/panel/user/cursos',
+      '/panel/profesor/cursos',
+      '/panel/profesor/perfil',
+      '/panel/profesor/nuevo',
+      '/panel/profesor/archivos'
+      ];
     $rootScope.$on('$routeChangeStart', function() {
         if(($.inArray($location.path(), rutasPrivadas) !== -1) && !authUser.isLoggedIn()){
           toastr.error('Debe iniciar sesión para poder continuar', 'Mensaje');
           $location.path('/login');
         }
     });
-  });
+  });*/

@@ -30,8 +30,8 @@ angular.module('authService', [])
 		var login = function(loginForm){
 			$auth.login(loginForm).then(
 				function (response){
-					//cacheSession(response);
-					cacheSession(response.data.user.email, response.data.username, loginForm.avatar );
+					cacheSession(response);
+					//cacheSession(response.data.user.email, response.data.username, loginForm.avatar );
 					$location.path('#/panel/user-perfil');
 					toastr.success('Sesión iniciada con éxito', 'Mensaje');
 					//console.log(response);
@@ -47,6 +47,12 @@ angular.module('authService', [])
 		return {
 			loginApi: function(loginForm){
 				login(loginForm);
+			},
+			logout: function(){
+				$auth.logout();
+				unCacheSession();
+				toastr.success('Sesión cerrada con exito', 'Mensaje');
+				$location.path('/');
 			},
 			isLoggedIn: function(){
 				return sessionControl.get('userIsLogin') !== null;
