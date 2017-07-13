@@ -1,25 +1,25 @@
 <div ng-controller = "sidebarUserCtrl as sidebarUser" id="sidebar">
     <ul class="sidebar-nav">
         <li class="sidebar-brand"> MENU </li>
-        <li>
+        <li ng-class = "{active : sidebarUser.isActive('/panel/user/perfil')}">
             <a href="#/panel/user/perfil">
                 <i class="fa fa-user" aria-hidden="true"></i> 
                 <span class="hidden-xs hidden-sm">Mi Perfil</span>
             </a>
         </li>
-        <li>
+        <li ng-class = "{active : sidebarUser.isActive('/panel/user/cursos')}">
             <a href="#/panel/user/cursos">
                 <i class="fa fa-folder-o" aria-hidden="true"></i> 
                 <span class="hidden-xs hidden-sm">Mis Cursos</span>
             </a>
         </li>
-        <li>
+        <li ng-class = "{active : sidebarUser.isActive('/panel/user/favoritos')}">
             <a href="#/panel/user/favoritos">
                 <i class="fa fa-heart-o" aria-hidden="true"></i> 
                 <span class="hidden-xs hidden-sm">Mis Favoritos</span>
             </a>
         </li>
-        <li>
+        <li ng-class = "{active : sidebarUser.isActive('/panel/user/pagos')}">
             <a href="#/panel/user/pagos">
                 <i class="fa fa-money" aria-hidden="true"></i> 
                 <span class="hidden-xs hidden-sm">Historial de Pago</span>

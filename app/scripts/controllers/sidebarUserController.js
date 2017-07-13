@@ -14,5 +14,9 @@ angular.module('yeomanApp')
     si.logout = function(){
 		authUser.logout();
 	};
+
+	si.isActive = function(viewLocation) {
+      return viewLocation === $location.path();
+    }
    
   });
