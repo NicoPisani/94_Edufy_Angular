@@ -1246,6 +1246,8 @@ nav {
         cursor: pointer; }
     .play-video .modulo:last-child {
       margin-bottom: 75px; }
+  .play-video iframe {
+    height: 100vh !important; }
 
 /*--------------------------- Profes --------------------- */
 #page-content {
