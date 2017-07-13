@@ -8,8 +8,12 @@
  * Controller of the yeomanApp
  */
 angular.module('yeomanApp')
-  .controller('sidebarProfeCtrl', function ($location) {
+  .controller('sidebarProfeCtrl', function (authUser, $location, $scope) {
     var vm = this;
+
+    vm.logout = function(){
+		authUser.logout();
+	};
     
     vm.isActive = function(viewLocation) {
       return viewLocation === $location.path();
