@@ -12,8 +12,7 @@ angular.module('yeomanApp')
         $scope.IsVisible = true;
         $scope.ShowHide = function () {
             $scope.IsVisible = $scope.IsVisible ? false : true;
-        }
-
+        };
 
 	    //Array de Modulos
 	    $scope.modulos = [
