@@ -1382,6 +1382,10 @@ nav {
       .cpanel-profes-info .cpanel-profes-info-picture figure i {
         font-size: 1.4rem; }
 
+.titulo-clase {
+  padding-left: 80px;
+  padding-top: 50px; }
+
 .cpanel-profes-info-data {
   display: inline-block;
   vertical-align: top; }
@@ -1545,6 +1549,9 @@ nav {
   color: white; }
 .profes-nuevocurso-zona-buttons i {
   color: white; }
+
+.agregar-clase {
+  margin-left: 80px; }
 
 @media only screen and (max-width: 1385px) {
   #page-content {
