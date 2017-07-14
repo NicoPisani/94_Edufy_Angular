@@ -51,40 +51,45 @@
                 <li><a data-toggle="tab" data-target="#menu1">DESCRIPCIÓN DEL CURSO</a></li>
                 <li class="tab-inactive"><a data-toggle="tab" data-target="#menu2">Q&A</a></li>
             </ul>
-            <div class="tab-content">
+            <div class="tab-content" ng-controller="tabController">
                 <div id="home" class="tab-pane fade in active">
                     <!--TAB 1 -->
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 details-tabs-moduls-1">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 details-tabs-moduls-1" ng-repeat="m in modulos">
                             <div class="details-tabs-moduls-1-1-active"></div>
                             <div class="details-tabs-moduls-1-2">
-                                <h3>MÓDULO 1 - PRÁCTICAS DE LENGUAJE</h3>
-                                <p>Let's take a look at the areas you should consider for security. Attack surfaces, data transmission and storage, and more.</p>
-                                <a href="#" title=""><i class="fa fa-angle-up" id="cpanel-user-icon-fa-angle" aria-hidden="true"></i> 5 CLASES</a>
+                                <h3>{{m.titulo}}</h3>
+                                <p>{{m.descripcion}}</p>
+                                <a href="" ng-click="showDetails = ! showDetails"><i class="fa fa-angle-up" id="cpanel-user-icon-fa-angle" aria-hidden="true"></i> 5 CLASES</a>
                             </div>
-                            <div class="details-tabs-moduls-1-3-active">
+                            <div class="details-tabs-moduls-1-3-active" ng-show="showDetails">
                                 <div class="details-tabs-moduls-1-3-clase">
                                     <div class="details-tabs-moduls-1-3-icon-active"></div>
                                     <div class="details-tabs-moduls-1-3-clase-inactive">
-                                        <h4>CLASE 1: INTRODUCCIÓN AL CURSO</h4>
+                                        <h4>CLASE 0: INTRODUCCIÓN AL CURSO</h4>
                                         <p>02:45</p>
                                     </div>
                                 </div>
-                                <div class="details-tabs-moduls-1-3-clase">
+                                <div class="details-tabs-moduls-1-3-clase" ng-repeat="clase in m.clases">
                                     <div class="details-tabs-moduls-1-3-icon-inactive"></div>
                                     <div class="details-tabs-moduls-1-3-clase-inactive">
-                                        <h4>CLASE 1: INTRODUCCIÓN A LA ORATORIA</h4>
+                                        <h4>{{clase.titulo}}</h4>
                                         <p>02:45</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
+
+
+                    <!--     
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 details-tabs-moduls-1">
                             <div class="details-tabs-moduls-1-1-inactive"></div>
                             <div class="details-tabs-moduls-1-2">
                                 <h3>MÓDULO 2 - PRÁCTICAS DE LENGUAJE</h3>
                                 <p>Let's take a look at the areas you should consider for security. Attack surfaces, data transmission and storage, and more.</p>
-                                <a href="#" title=""><i class="fa fa-angle-down" id="cpanel-user-icon-fa-angle" aria-hidden="true"></i> 5 CLASES</a>
+                                <a href=""><i class="fa fa-angle-down" id="cpanel-user-icon-fa-angle" aria-hidden="true"></i> 5 CLASES</a>
                             </div>
                             <div class="details-tabs-moduls-1-3-inactive"></div>
                         </div>
@@ -93,7 +98,7 @@
                             <div class="details-tabs-moduls-1-2">
                                 <h3>MÓDULO 3 - PRÁCTICAS DE LENGUAJE</h3>
                                 <p>Let's take a look at the areas you should consider for security. Attack surfaces, data transmission and storage, and more.</p>
-                                <a href="#" title=""><i class="fa fa-angle-down" id="cpanel-user-icon-fa-angle" aria-hidden="true"></i> 5 CLASES</a>
+                                <a href=""><i class="fa fa-angle-down" id="cpanel-user-icon-fa-angle" aria-hidden="true"></i> 5 CLASES</a>
                             </div>
                             <div class="details-tabs-moduls-1-3-inactive"></div>
                         </div>
@@ -102,10 +107,10 @@
                             <div class="details-tabs-moduls-1-2">
                                 <h3>MÓDULO 4 - PRÁCTICAS DE LENGUAJE</h3>
                                 <p>Let's take a look at the areas you should consider for security. Attack surfaces, data transmission and storage, and more.</p>
-                                <a href="#" title=""><i class="fa fa-angle-down" id="cpanel-user-icon-fa-angle" aria-hidden="true"></i> 5 CLASES</a>
+                                <a href=""><i class="fa fa-angle-down" id="cpanel-user-icon-fa-angle" aria-hidden="true"></i> 5 CLASES</a>
                             </div>
                             <div class="details-tabs-moduls-1-3-inactive"></div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div id="menu1" class="tab-pane fade">
