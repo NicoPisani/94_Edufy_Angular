@@ -10,15 +10,13 @@
 angular.module('yeomanApp')
   .controller('UserPagosCtrl', function () {
     var nv = this;
-    var fo = this;
-    var si = this;
     nv.menuTemplate = {
       url : 'views/navbar/navbar.html'
     },
-    si.sidebarTemplate = {
+    nv.sidebarTemplate = {
       url : 'views/sidebar/sidebar-user.html'
     },
-     fo.footerTemplate = {
+     nv.footerTemplate = {
       url : 'views/footer/footer.html'
     }
   });

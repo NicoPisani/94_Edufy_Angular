@@ -18,11 +18,12 @@ angular.module('authService', [])
 		return sessionControl.get('rol');
 	})
 	.factory('authUser', function($auth, sessionControl, toastr, $location){
-		var cacheSession = function(email, name, rol, avatar){
+		var cacheSession = function(email, name, rol, birthday, avatar){
 			sessionControl.set('userIsLogin', true);
 			sessionControl.set('email', email);
 			sessionControl.set('name', name);
 			sessionControl.set('rol', rol);
+			sessionControl.set('birthday', birthday);
 			sessionControl.set('avatar', avatar);
 		};
 		var unCacheSession = function(){
@@ -35,7 +36,7 @@ angular.module('authService', [])
 		var login = function(loginForm){
 			$auth.login(loginForm).then(
 				function (response){
-					cacheSession(response.data.user.email, response.data.user.name, response.data.user.rol, loginForm.avatar );
+					cacheSession(response.data.user.email, response.data.user.name, response.data.user.rol, response.data.user.birthday, loginForm.avatar );
 					$location.path('#/panel/user/perfil');
 					toastr.success('Sesión iniciada con éxito', 'Mensaje');
 				},

@@ -4,8 +4,8 @@ angular.module('yeomanApp')
 	.controller('LoginCtrl', function(authUser){
 		var vm = this;
 		vm.loginForm = {
-			email: '',
-			password: ''
+			email: 'ferc_vcp@hotmail.com',
+			password: 'x28activada'
 		};
 
 		vm.login = function(){

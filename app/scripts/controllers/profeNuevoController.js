@@ -18,7 +18,7 @@ angular.module('yeomanApp')
     nv.sidebarTemplate = {
       url : 'views/sidebar/sidebar-profe.html'
     },
-   nv.footerTemplate = {
+    nv.footerTemplate = {
       url : 'views/footer/footer.html'
     }
 

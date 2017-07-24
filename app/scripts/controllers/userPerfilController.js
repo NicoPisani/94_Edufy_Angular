@@ -8,17 +8,24 @@
  * Controller of the yeomanApp
  */
 angular.module('yeomanApp')
-  .controller('UserPerfilCtrl', function () {
+  .controller('UserPerfilCtrl', function (authUser, sessionControl) {
     var nv = this;
-    var fo = this;
-    var si = this;
     nv.menuTemplate = {
       url : 'views/navbar/navbar.html'
     },
-    si.sidebarTemplate = {
+    nv.sidebarTemplate = {
       url : 'views/sidebar/sidebar-user.html'
     },
-     fo.footerTemplate = {
+    nv.footerTemplate = {
       url : 'views/footer/footer.html'
+    }
+
+
+    nv.user = {
+      email : sessionControl.get('email'),
+      name : sessionControl.get('name'),
+      rol : sessionControl.get('rol'),
+      birthday : sessionControl.get('birthday'),
+      avatar : sessionControl.get('avatar')
     }
   });
