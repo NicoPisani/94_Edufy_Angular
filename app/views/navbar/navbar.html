@@ -36,10 +36,16 @@
                 </a>
 
                 <ul class="dropdown-menu navbar-right-dropdown-menu" role="menu">
-                    <li><a href="#/panel/user/perfil"><i class="fa fa-user" aria-hidden="true"></i> Mi Perfil</a></li>
-                    <li><a href="#/panel/user/cursos"><i class="fa fa-folder-o" aria-hidden="true"></i> Mis Cursos</a></li>
-                    <li><a href="#/panel/user/favoritos"><i class="fa fa-heart-o" aria-hidden="true"></i> Mis Favoritos</a></li>
-                    <li><a href="#/panel/user/pagos"><i class="fa fa-money" aria-hidden="true"></i> Historial de Pago</a></li>
+                    <li ng-if="menu.getRol() == 2"><a href="#/panel/user/perfil"><i class="fa fa-user" aria-hidden="true"></i> Mi Perfil</a></li>
+                    <li ng-if="menu.getRol() == 2"><a href="#/panel/user/cursos"><i class="fa fa-folder-o" aria-hidden="true"></i> Mis Cursos</a></li>
+                    <li ng-if="menu.getRol() == 2"><a href="#/panel/user/favoritos"><i class="fa fa-heart-o" aria-hidden="true"></i> Mis Favoritos</a></li>
+                    <li ng-if="menu.getRol() == 2"><a href="#/panel/user/pagos"><i class="fa fa-money" aria-hidden="true"></i> Historial de Pago</a></li>
+
+                    <li ng-if="menu.getRol() == 3"><a href="#/panel/profesor/perfil"><i class="fa fa-user" aria-hidden="true"></i> Mi Perfil</a></li>
+                    <li ng-if="menu.getRol() == 3"><a href="#/panel/profesor/cursos"><i class="fa fa-folder-o" aria-hidden="true"></i> Mis Cursos</a></li>
+                    <li ng-if="menu.getRol() == 3"><a href="#/panel/profesor/nuevo"><i class="fa fa-heart-o" aria-hidden="true"></i> Nuevo Curso</a></li>
+                    <li ng-if="menu.getRol() == 3"><a href="#/panel/profesor/archivos"><i class="fa fa-paperclip" aria-hidden="true"></i> Mis Archivos</a></li>
+                    <li ng-if="menu.getRol() == 3"><a href="#/panel/profesor/pagos"><i class="fa fa-money" aria-hidden="true"></i> Historial de Pago</a></li>
                     <li><a href="" ng-click="menu.logout()"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Logout</a></li>
                 </ul>
             </li>

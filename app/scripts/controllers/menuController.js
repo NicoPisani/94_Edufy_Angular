@@ -17,6 +17,7 @@ angular.module('yeomanApp')
 		mu.user = {
 			email : sessionControl.get('email'),
 			name : sessionControl.get('name'),
+			rol : sessionControl.get('rol'),
 			avatar : sessionControl.get('avatar')
 		}
 
@@ -39,4 +40,15 @@ angular.module('yeomanApp')
 		mu.isActive = function(viewLocation){
 			return viewLocation === $location.path();
 		};
+
+		mu.getRol = authUser.getRol();
+
+	   $scope.$watch( function() {
+	     return authUser.getRol();
+	   }, function(newVal) {
+	     if(newVal !== undefined) {
+	       mu.getRol = authUser.getRol;
+	     }
+	   });
+
 	});
