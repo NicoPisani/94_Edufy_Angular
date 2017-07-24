@@ -22,124 +22,101 @@ angular
     'satellizer',
     'toastr'
   ])
-  .constant('CONFIG',{
-    TEMPLATE_DIR: "views/",
-    ROL_CURRENT_USER: 1
-  })
+
   .constant('ROLES', {
     ADMIN: {
       ROL: 4,
-      PATH: "/admin"
+      PATH: "admin"
     },
      PROFE: {
       ROL: 3,
-      PATH: "/profe"
+      PATH: "profes"
     },
     USER: {
-      ROL:2,
-      PATH: "/user"
+      ROL: 2,
+      PATH: "users"
     },
     GUEST: {
       ROL: 1,
       PATH: ""
     }
   })
-  .config(function ($routeProvider, CONFIG, ROLES, $locationProvider, $authProvider) {
+  .config(function ($routeProvider, ROLES, $locationProvider, $authProvider) {
     $locationProvider.hashPrefix('');
     $authProvider.loginUrl = "http://127.0.0.1:8000/api/auth/login";
     $routeProvider
 
       .when('/', {
-        templateUrl: CONFIG.TEMPLATE_DIR+'main.html',
+        templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
       .when('/detalle/curso', {
-        templateUrl: CONFIG.TEMPLATE_DIR+'detalle-curso.html',
+        templateUrl: 'views/detalle-curso.html',
         controller: 'DetalleCursoCtrl',
         controllerAs: 'detalleCurso'
       })//------------------------------------------------------------
       .when('/panel/user/perfil', {
-        templateUrl: CONFIG.TEMPLATE_DIR+'/users/user-perfil.html',
+        templateUrl: 'views/'+ROLES.USER.PATH+'/user-perfil.html',
         controller: 'UserPerfilCtrl',
         controllerAs: 'UserPerfil',
-        data: {
-          authorized: [ROLES.ADMIN.ROL, ROLES.USER.ROL]
-        }
+        authorized: ROLES.USER.ROL
       })
       .when('/panel/user/favoritos', {
-        templateUrl: CONFIG.TEMPLATE_DIR+'/users/user-favoritos.html',
+        templateUrl: 'views/'+ROLES.USER.PATH+'/user-favoritos.html',
         controller: 'UserFavoritosCtrl',
         controllerAs: 'UserFavoritos',
-        data: {
-          authorized: [ROLES.ADMIN.ROL, ROLES.USER.ROL]
-        }
+        authorized: ROLES.USER.ROL
       })
       .when('/panel/user/pagos', {
-        templateUrl: CONFIG.TEMPLATE_DIR+'/users/user-pagos.html',
+        templateUrl: 'views/'+ROLES.USER.PATH+'/user-pagos.html',
         controller: 'UserPagosCtrl',
         controllerAs: 'UserPagos',
-        data: {
-          authorized: [ROLES.ADMIN.ROL, ROLES.USER.ROL]
-        }
+        authorized: ROLES.USER.ROL
       })
       .when('/panel/user/cursos', {
-        templateUrl: CONFIG.TEMPLATE_DIR+'/users/user-cursos.html',
+        templateUrl: 'views/'+ROLES.USER.PATH+'/user-cursos.html',
         controller: 'UserCursosCtrl',
         controllerAs: 'UserCursos',
-        data: {
-          authorized: [ROLES.ADMIN.ROL, ROLES.USER.ROL]
-        }
+        authorized: ROLES.USER.ROL
       })
       .when('/panel/user/play-curso', {
-        templateUrl: CONFIG.TEMPLATE_DIR+'/users/user-play-curso.html',
+        templateUrl: 'views/'+ROLES.USER.PATH+'/user-play-curso.html',
         controller: 'UserPlayCursoCtrl',
         controllerAs: 'UserPlayCurso',
-        data: {
-          authorized: [ROLES.ADMIN.ROL, ROLES.USER.ROL]
-        }
+        authorized: ROLES.USER.ROL
       })
 
       //------------------------------------------------------------
        .when('/panel/profesor/cursos', {
-        templateUrl: CONFIG.TEMPLATE_DIR+'/profes/profe-cursos.html',
+        templateUrl: 'views/'+ROLES.PROFE.PATH+'/profe-cursos.html',
         controller: 'ProfeCursosCtrl',
         controllerAs: 'ProfeCursos',
-        data: {
-          authorized: [ROLES.ADMIN.ROL, ROLES.PROFE.ROL]
-        }
+        authorized: ROLES.PROFE.ROL
       })
        .when('/panel/profesor/perfil', {
-        templateUrl: CONFIG.TEMPLATE_DIR+'/profes/profe-perfil.html',
+        templateUrl: 'views/'+ROLES.PROFE.PATH+'/profe-perfil.html',
         controller: 'ProfePerfilCtrl',
         controllerAs: 'ProfePerfil',
-        data: {
-          authorized: [ROLES.ADMIN.ROL, ROLES.PROFE.ROL]
-        }
+        authorized: ROLES.PROFE.ROL
       })
        .when('/panel/profesor/nuevo', {
-        templateUrl: CONFIG.TEMPLATE_DIR+'/profes/profe-nuevo.html',
+        templateUrl:'views/'+ROLES.PROFE.PATH+'/profe-nuevo.html',
         controller: 'ProfeNuevoCtrl',
         controllerAs: 'ProfeNuevo',
-        data: {
-          authorized: [ROLES.ADMIN.ROL, ROLES.PROFE.ROL]
-        }
+        authorized: ROLES.PROFE.ROL
       })
        .when('/panel/profesor/pagos', {
-        templateUrl: CONFIG.TEMPLATE_DIR+'/profes/profe-pagos.html',
+        templateUrl: 'views/'+ROLES.PROFE.PATH+'/profe-pagos.html',
         controller: 'ProfePagosCtrl',
         controllerAs: 'ProfePagos',
-        data: {
-          authorized: [ROLES.ADMIN.ROL, ROLES.PROFE.ROL]
-        }
+        authorized: ROLES.PROFE.ROL
       })
        .when('/panel/profesor/archivos', {
-        templateUrl: CONFIG.TEMPLATE_DIR+'/profes/profe-archivos.html',
+        templateUrl: 'views/'+ROLES.PROFE.PATH+'/profe-archivos.html',
         controller: 'ProfeArchivosCtrl',
         controllerAs: 'ProfeArchivos',
-        data: {
-          authorized: [ROLES.ADMIN.ROL, ROLES.PROFE.ROL]
-        }
+        authorized: ROLES.PROFE.ROL
       })//------------------------------------------------------------
       .when('/login',{
         templateUrl: 'views/login.html',
@@ -150,38 +127,39 @@ angular
         redirectTo: '/'
       });
   })
-  .run( function($rootScope, $location, authUser, toastr, CONFIG, ROLES) {
+  .run( function($rootScope, $location, authUser, toastr, ROLES) {
+
     var rutasPrivadas = [
       '/panel/user/perfil',
       '/panel/user/favoritos',
       '/panel/user/pagos',
       '/panel/user/cursos',
+      '/panel/user/play-curso',
       '/panel/profesor/cursos',
       '/panel/profesor/perfil',
       '/panel/profesor/nuevo',
-      '/panel/profesor/archivos',
-      '/panel/user/play-curso'
+      '/panel/profesor/archivos'
       ];
     $rootScope.$on('$routeChangeStart', function(event, next){
       if(($.inArray($location.path(), rutasPrivadas) !== -1) && !authUser.isLoggedIn()){
         toastr.error('Debe iniciar sesión para poder continuar', 'Mensaje');
         $location.path('/login');
       }
-      if(next.data !== undefined){
-        if(next.data.authorized.indexOf(CONFIG.ROL_CURRENT_USER) !== -1){
-          CONFIG.ROL_CURRENT_USER=authUser.getRol();
-          console.log(CONFIG.ROL_CURRENT_USER);
-        }/*else{
-          if(CONFIG.ROL_CURRENT_USER == 4){
-            $location.path(ROLES.ADMIN.PATH); 
-          }else if(CONFIG.ROL_CURRENT_USER == 3){
-            $location.path(ROLES.PROFE.PATH);
-          }else if(CONFIG.ROL_CURRENT_USER == 2){
-              $location.path(ROLES.USER.PATH);
-          }else if(CONFIG.ROL_CURRENT_USER == 1){
-              $location.path(ROLES.GUEST.PATH);
-          }
-        }*/
+
+      if(authUser.isLoggedIn()){
+        var ROL_CURRENT_USER = authUser.getRol();
+      }else{
+        var ROL_CURRENT_USER  = 1;
       }
+
+      if(next.authorized !== undefined){
+        if(next.authorized == ROL_CURRENT_USER){
+
+        }else{
+          toastr.error('No tienes permitido ingresar a esa pagina ', 'Mensaje');
+          $location.path('/');
+        }
+      }
+  
     });
   });
