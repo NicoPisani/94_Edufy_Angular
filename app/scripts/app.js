@@ -127,7 +127,7 @@ angular
         redirectTo: '/'
       });
   })
-  .run( function($rootScope, $location, authUser, toastr, ROLES) {
+  .run( function($rootScope, $location, authUser, toastr) {
 
     var rutasPrivadas = [
       '/panel/user/perfil',
@@ -146,15 +146,9 @@ angular
         $location.path('/login');
       }
 
-      if(authUser.isLoggedIn()){
-        var ROL_CURRENT_USER = authUser.getRol();
-      }else{
-        var ROL_CURRENT_USER  = 1;
-      }
-
       if(next.authorized !== undefined){
-        if(next.authorized == ROL_CURRENT_USER){
-
+        if(next.authorized == authUser.getRol()){
+          //ingreso permitido
         }else{
           toastr.error('No tienes permitido ingresar a esa pagina ', 'Mensaje');
           $location.path('/');
