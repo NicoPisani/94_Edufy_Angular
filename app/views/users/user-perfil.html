@@ -19,27 +19,25 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cpanel-user-info">
                             <div class="cpanel-user-info-picture">
-                                <figure>
-                                    <figcaption><i class="fa fa-camera" aria-hidden="true"></i><br> Cargar Foto</figcaption>
+                                <figure style="background-image: url({{editProfile.user.avatar}});background-position: 50% 50%;background-size: cover;background-repeat: no-repeat;">
+                                    <figcaption><a href=""><i class="fa fa-camera" aria-hidden="true"></i><br> Cargar Foto</a></figcaption>
                                 </figure>
                             </div>
 
                             <div class="cpanel-user-info-data">
-                                <form action="" method="POST" accept-charset="utf-8">
+                                <form>
                                     <div class="input-group">
                                         <i class="fa fa-user" aria-hidden="true"></i>
                                         <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido" ng-model="editProfile.user.name">
-                                        <span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                                        <span class="input-group-addon" ng-click="update(editProfile)"><i class="fa fa-pencil" aria-hidden="true"></i></span>
                                     </div>
-                                </form>
-                                <form action="" method="POST" accept-charset="utf-8">
                                     <div class="input-group">
                                         <i class="fa fa-birthday-cake" aria-hidden="true"></i>
                                         <input type="text" name="birthday" id="birthday" placeholder="DD/MM/YYYY" ng-model="editProfile.user.birthday">
-                                        <span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                                        <span class="input-group-addon" ng-click="update()"><i class="fa fa-pencil" aria-hidden="true"></i></span>
                                     </div>
                                 </form>
-                                <form action="" method="POST" accept-charset="utf-8">
+                                <form>
                                     <div class="input-group">
                                         <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                          <input type="text" name="email" id="email" placeholder="email_prueba@gmail.com" ng-model="editProfile.user.email" readonly>

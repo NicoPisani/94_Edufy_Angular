@@ -10,11 +10,10 @@
 angular.module('yeomanApp')
   .controller('DetalleCursoCtrl', function () {
     var nv = this;
-    var fo = this;
     nv.menuTemplate = {
       url : 'views/navbar/navbar.html'
     },
-     fo.footerTemplate = {
+     nv.footerTemplate = {
       url : 'views/footer/footer.html'
     }
   });
