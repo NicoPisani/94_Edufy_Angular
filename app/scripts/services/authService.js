@@ -14,10 +14,10 @@ angular.module('authService', [])
 			}
 		}
 	})
-	.factory('getRol', function($auth, sessionControl, toastr, $location){
+	.factory('getRol', function ($auth, sessionControl, toastr, $location){
 		return sessionControl.get('rol');
 	})
-	.factory('authUser', function($auth, sessionControl, toastr, $location){
+	.factory('authUser', function ($auth, sessionControl, toastr, $location){
 		var cacheSession = function(id, email, name, rol, birthday, active, plataforma_id, avatar){
 			sessionControl.set('userIsLogin', true);
 			sessionControl.set('id', id);

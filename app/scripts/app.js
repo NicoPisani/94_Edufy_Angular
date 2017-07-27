@@ -22,7 +22,6 @@ angular
     'satellizer',
     'toastr'
   ])
-
   .constant('ROLES', {
     ADMIN: {
       ROL: 4,
