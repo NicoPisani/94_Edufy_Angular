@@ -5,36 +5,36 @@
           <div class="container">
               <div class="row">
                   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 details-curso-div-1">
-                      <h2>Introduccion al Lenguaje Humano</h2>
+                      <h2>{{ curso.nombre }}</h2>
                       <div class="line"></div>
                       <div class="col-xs-12 col-sm-12 hidden-md hidden-lg details-curso-div-2">
                           <div>
-                              <img src="http://lorempixel.com/640/480/business/" class="img-responsive">
+                              <img src="{{ curso.imagen }}" class="img-responsive">
                               <div class="iconolink-2">
                                   <span class="heart">
                                       <i class="fa fa-heart-o" aria-hidden="true"></i>
                                   </span>
                               </div>
                               <div class="price-2">
-                                  <span class="amount">$1200</span>
+                                  <span class="amount">$ {{ curso.precio }}</span>
                               </div>
                           </div>
                       </div>
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the book.</p>
-                      <label><i class="fa fa-clock-o" aria-hidden="true"></i> 46 horas</label>
-                      <label><i class="fa fa-user" aria-hidden="true"></i> Sebastian Olivera</label>
+                      <p>{{ curso.descripcion }}</p>
+                      <label><i class="fa fa-clock-o" aria-hidden="true"></i> {{ curso.horas }}</label>
+                      <label><i class="fa fa-user" aria-hidden="true"></i> {{ user.name }}</label>
                       <a href="" class="btn btn-primary">COMPRAR CURSO</a>
                   </div>
                   <div class="hidden-xs hidden-sm col-md-6 col-lg-6 details-curso-div-2">
                       <div>
-                          <img src="http://lorempixel.com/640/480/business/" class="img-responsive">
+                          <img src="{{ curso.imagen }}" class="img-responsive">
                           <div class="iconolink-2">
                               <span class="heart">
                                   <i class="fa fa-heart-o" aria-hidden="true"></i>
                               </span>
                           </div>
                           <div class="price-2">
-                              <span class="amount">$1200</span>
+                              <span class="amount">$ {{ curso.precio }}</span>
                           </div>
                       </div>
                   </div>

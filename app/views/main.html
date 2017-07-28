@@ -95,7 +95,7 @@
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
           <div class="item_box" ng-repeat="curso in cursos">
               <div class="pic">
-              <a href="#/detalle/curso">
+              <a href="#/detalle/curso/{{ curso.id }}">
                   <figure><img src="{{ curso.imagen }}" class="img-responsive"></figure>
                   <div class="hover-effect">
                       <i class="fa fa-play-circle-o" aria-hidden="true"></i>
@@ -110,18 +110,18 @@
               </div>
               <div class="mini-descrip">
                   <div class="entry-title">
-                      <a href="#/detalle/curso">
+                      <a href="#/detalle/curso/{{ curso.id }}">
                           <h3>{{ curso.nombre }}</h3>
                       </a>
                   </div>
                   <div class="entry-data">
                       <label><i class="fa fa-clock-o" aria-hidden="true"></i> {{ curso.horas }}</label>
-                      <label ng-repeat="user in users"><i class="fa fa-user" aria-hidden="true"></i> {{ user.name }}</label>
+                      <label><i class="fa fa-user" aria-hidden="true"></i> {{ user.name }}</label>
                   </div>
                   <p class="entry-summary">{{ curso.descripcion }}</p>
               </div>
               <div class="proof text-center">
-                  <a href="#/detalle/curso" class="btn btn-primary">COMPRAR CURSO</a>
+                  <a href="#/detalle/curso/{{ curso.id }}" class="btn btn-primary">COMPRAR CURSO</a>
               </div>
           </div>
       </div>

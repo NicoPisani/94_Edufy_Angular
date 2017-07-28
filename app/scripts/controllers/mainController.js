@@ -8,7 +8,7 @@
  * Controller of the yeomanApp
  */
 angular.module('yeomanApp')
-  .controller('MainCtrl', function ($scope, $resource, $auth, sessionControl,) {
+  .controller('MainCtrl', function ($scope, $resource, $routeParams) {
     var nv = this;
 
     nv.menuTemplate = {
@@ -19,8 +19,8 @@ angular.module('yeomanApp')
     },
 
    nv.Curso = $resource("http://localhost:8000/api/curso/:id", {id: "@id"});
-   //nv.User = $resource("http://localhost:8000/api/user/:id", {id: "@id"});
    $scope.cursos = nv.Curso.query(); // query() -> GET /post -> devuelve un arraglo de post
-   //$scope.users = nv.User.query(); // query() -> GET /post -> devuelve un arraglo de post
+   nv.User = $resource("http://localhost:8000/api/user-public/:id", {id: "@id"});
+   $scope.user = nv.User.get({id: $routeParams.id});
 
   });
