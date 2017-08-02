@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('yeomanApp')
-	.controller('LoginCtrl', function(authUser){
+	.controller('LoginCtrl', function (authUser){
 		var vm = this;
 		vm.loginForm = {
 			email: 'ferc_vcp@hotmail.com',

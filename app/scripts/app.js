@@ -22,6 +22,11 @@ angular
     'satellizer',
     'toastr'
   ])
+
+  .constant('GLOBAL',{
+    URL_API: 'http://localhost:8000/api/'
+  })
+
   .constant('ROLES', {
     ADMIN: {
       ROL: 4,
@@ -40,6 +45,7 @@ angular
       PATH: ""
     }
   })
+
   .config(function ($routeProvider, ROLES, $locationProvider, $authProvider) {
     $locationProvider.hashPrefix('');
     $authProvider.loginUrl = "http://127.0.0.1:8000/api/auth/login";
@@ -126,7 +132,8 @@ angular
         redirectTo: '/'
       });
   })
-  .run( function($rootScope, $location, authUser, toastr) {
+
+  .run( function ($rootScope, $location, authUser, toastr) {
 
     var rutasPrivadas = [
       '/panel/user/perfil',

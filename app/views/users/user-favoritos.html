@@ -20,10 +20,10 @@
                             <h3>MIS FAVORITOS</h3>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="item_box">
+                            <div class="item_box" ng-repeat="fav in favs">
                                 <div class="pic">
                                 <a href="#/detalle/curso">
-                                    <figure><img src="images/cursos3.jpg" class="img-responsive"></figure>
+                                    <figure><img ng-src="{{ fav.imagen }}" class="img-responsive"></figure>
                                     <div class="hover-effect">
                                         <i class="fa fa-play-circle-o" aria-hidden="true"></i>
                                     </div>
@@ -33,82 +33,19 @@
                                         <i class="fa fa-heart" aria-hidden="true"></i>
                                     </span>
                                 </div>
-                                <div class="price"><span class="amount">$1200</span></div>
+                                <div class="price"><span class="amount">{{ fav.precio | currency }}</span></div>
                                 </div>
                                 <div class="mini-descrip">
                                     <div class="entry-title">
                                         <a href="#/detalle/curso">
-                                            <h3>Introduccion al Lenguaje Humano</h3>
+                                            <h3>{{ fav.nombre }}</h3>
                                         </a>
                                     </div>
                                     <div class="entry-data">
-                                        <label><i class="fa fa-clock-o" aria-hidden="true"></i> 46 horas</label>
-                                        <label><i class="fa fa-user" aria-hidden="true"></i> Sebastian Olivera</label>
+                                        <label><i class="fa fa-clock-o" aria-hidden="true"></i> {{ fav.horas }}</label>
+                                        <label><i class="fa fa-user" aria-hidden="true"></i> {{ user.name }}</label>
                                     </div>
-                                    <p class="entry-summary">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the book.</p>
-                                </div>
-                                <div class="proof">
-                                    <a href="#/detalle/curso" class="btn btn-primary">COMPRAR CURSO</a>
-                                </div>
-                            </div>
-                            <div class="item_box">
-                                <div class="pic">
-                                <a href="#/detalle/curso">
-                                    <figure><img src="images/cursos1.jpg" class="img-responsive"></figure>
-                                    <div class="hover-effect">
-                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
-                                    </div>
-                                </a>
-                                <div class="iconolink">
-                                    <span class="heart">
-                                        <i class="fa fa-heart" aria-hidden="true"></i>
-                                    </span>
-                                </div>
-                                <div class="price"><span class="amount">$1200</span></div>
-                                </div>
-                                <div class="mini-descrip">
-                                    <div class="entry-title">
-                                        <a href="#/detalle/curso">
-                                            <h3>Introduccion al Lenguaje Humano</h3>
-                                        </a>
-                                    </div>
-                                    <div class="entry-data">
-                                        <label><i class="fa fa-clock-o" aria-hidden="true"></i> 46 horas</label>
-                                        <label><i class="fa fa-user" aria-hidden="true"></i> Sebastian Olivera</label>
-                                    </div>
-                                    <p class="entry-summary">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the book.</p>
-                                </div>
-                                <div class="proof">
-                                    <a href="#/detalle/curso" class="btn btn-primary">COMPRAR CURSO</a>
-                                </div>
-                            </div>
-                            <div class="item_box">
-                                <div class="pic">
-
-                                <a href="#/detalle/curso">
-                                    <figure><img src="images/cursos5.jpg" class="img-responsive"></figure>
-                                    <div class="hover-effect">
-                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
-                                    </div>
-                                </a>
-                                <div class="iconolink">
-                                    <span class="heart">
-                                        <i class="fa fa-heart" aria-hidden="true"></i>
-                                    </span>
-                                </div>
-                                <div class="price"><span class="amount">$1200</span></div>
-                                </div>
-                                <div class="mini-descrip">
-                                    <div class="entry-title">
-                                        <a href="#/detalle/curso">
-                                            <h3>Introduccion al Lenguaje Humano</h3>
-                                        </a>
-                                    </div>
-                                    <div class="entry-data">
-                                        <label><i class="fa fa-clock-o" aria-hidden="true"></i> 46 horas</label>
-                                        <label><i class="fa fa-user" aria-hidden="true"></i> Sebastian Olivera</label>
-                                    </div>
-                                    <p class="entry-summary">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the book.</p>
+                                    <p class="entry-summary">{{ fav.descripcion}}</p>
                                 </div>
                                 <div class="proof">
                                     <a href="#/detalle/curso" class="btn btn-primary">COMPRAR CURSO</a>

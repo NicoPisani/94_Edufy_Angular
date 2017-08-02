@@ -93,10 +93,10 @@
   </div>
   <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-          <div class="item_box" ng-repeat="curso in cursos">
+          <div class="item_box" ng-cloak class="ng-cloak" ng-repeat="curso in cursos">
               <div class="pic">
               <a href="#/detalle/curso/{{ curso.id }}">
-                  <figure><img src="{{ curso.imagen }}" class="img-responsive"></figure>
+                  <figure><img ng-src="{{ curso.imagen }}" class="img-responsive"></figure>
                   <div class="hover-effect">
                       <i class="fa fa-play-circle-o" aria-hidden="true"></i>
                   </div>
@@ -106,7 +106,7 @@
                       <i class="fa fa-heart-o" aria-hidden="true"></i>
                   </span>
               </div>
-              <div class="price"><span class="amount">${{ curso.precio }}</span></div>
+              <div class="price"><span class="amount">{{ curso.precio | currency }}</span></div>
               </div>
               <div class="mini-descrip">
                   <div class="entry-title">

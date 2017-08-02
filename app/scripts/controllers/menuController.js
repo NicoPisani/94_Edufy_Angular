@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('yeomanApp')
-	.controller('MenuCtrl', function(authUser, $location, $scope, sessionControl){
+	.controller('MenuCtrl', function (authUser, $location, $scope, sessionControl){
 		var mu = this;
 
 		mu.isLogin = authUser.isLoggedIn();
