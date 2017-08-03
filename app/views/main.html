@@ -2,7 +2,7 @@
 
 <header class="container-fluid" style="background: url('images/portada.jpg'); background-size: cover;background-position: top center;">
         <div class="row">
-            <div class="container">
+            <div class="container" ng-controller="Signup as reg">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 slide-home">
                         <div class="slide-title">
@@ -10,19 +10,19 @@
                             <a href="" class="btn btn-light">VER CURSOS</a>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 slide-home">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 slide-home" ng-if="!IsAuthenticated">
                         <form action="" method="POST" role="form" class="rectangle">
                             <legend>REGISTRATE EN UN SOLO PASO!</legend>
                             <div class="form-group">
-                                <input type="text" class="form-control input" name="nombre" id="nombre" placeholder="Nombre y Apellido">
+                                <input type="text" class="form-control input" name="name" id="name" placeholder="Nombre y Apellido" ng-model="reg.registerForm.name">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control input" name="email" id="email" placeholder="Email">
+                                <input type="email" class="form-control input" name="email" id="email"  placeholder="Email" ng-model="reg.registerForm.email">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control input" name="password" id="password" placeholder="Contraseña">
+                                <input type="password" class="form-control input" name="password"  id="password" placeholder="Contraseña" ng-model="reg.registerForm.password">
                             </div>
-                            <a href="#/panel/user/perfil" class="btn btn-primary">COMENZAR</a>
+                            <a href="#" class="btn btn-primary" ng-click="reg.registrar()">COMENZAR</a>
                         </form>
                     </div>
                 </div>
