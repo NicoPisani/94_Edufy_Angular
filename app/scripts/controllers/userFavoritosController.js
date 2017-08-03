@@ -35,5 +35,23 @@ angular.module('yeomanApp')
          console.log('error')
        }
      });
+  })
 
-  });
+  .controller('favController', function (GLOBAL, $scope, $http, sessionControl, toastr){
+    var fav = this;
+
+    fav.agregar = function (_curso){
+      $http({
+        url: GLOBAL.URL_API+"favorito/store",
+        method: "POST",
+        data:  {user_id: sessionControl.get('id'), curso_id: _curso },
+        /*headers: {'Content-Type': 'application/x-www-form-urlencoded'}*/
+      }).then(
+        function (respuesta){
+          toastr.success('Agregado a favoritos!', 'Mensaje');
+        },
+        function (error) {
+           toastr.error('Algo salio mal, vuelve a intentarlo', 'Mensaje');
+       });
+    }
+  })

@@ -68,11 +68,11 @@ angular.module('yeomanApp')
         /*headers: {'Content-Type': 'application/x-www-form-urlencoded'}*/
       }).then(
         function (respuesta){
-          toastr.success('Registro completado conrrectamente!', 'Mensaje');
+          toastr.success('Registro completado correctamente!', 'Mensaje');
           $location.path('/login');
         },
         function (error) {
-           toastr.error('Algo salio mal, vuelve a intentarlo', 'Mensaje');
+           toastr.error('Algo salio mal! vuelve a intentarlo', 'Mensaje');
        });
     }
 

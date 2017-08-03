@@ -22,9 +22,7 @@ angular.module('yeomanApp')
 	   //trae datos del curso
      //nv.Curso = $resource(GLOBAL.URL_API+"curso/:id", {id: "@id"});
      //$scope.curso = nv.Curso.get({id: $routeParams.id})
-/*------------------------------------------------------------*/
-
-
+    /*------------------------------------------------------------*/
     $http.get(GLOBAL.URL_API+"curso/"+$routeParams.id)    
     .then(
      function (response) {
@@ -42,12 +40,11 @@ angular.module('yeomanApp')
     $scope.comprar = function(_curso){
       alert("Gracias por comprar el curso -> "+_curso)
     }
-	
   })
 
   .controller('tabController', function ($scope) {
 
-	// modulos
+	 // modulos
     $scope.IsVisible = true;
     $scope.ShowHide = function () {
         $scope.IsVisible = $scope.IsVisible ? false : true;
@@ -104,4 +101,4 @@ angular.module('yeomanApp')
         ]
       }
     ];
-   });
+  })
