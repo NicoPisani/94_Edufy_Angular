@@ -1,4 +1,4 @@
-@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 @import url("https://fonts.googleapis.com/css?family=Lato|Montserrat");
 /*----------------------------- 0.1.-VARIABLES -------------------------------- */
 /* COLORS */
@@ -35,7 +35,7 @@ body, html {
   line-height: 1;
   width: 100%;
   max-width: 100%;
-  background-color: white;
+  background-color: #fff;
   font-size: 12pt; }
 
 ol, ul {
@@ -59,18 +59,18 @@ a {
 
 /* TEXT STYLES */
 h1 {
-  color: black;
+  color: #000000;
   font-size: 1.7rem;
   font-family: "Montserrat", sans-serif;
   text-transform: capitalize; }
 
 h2 {
-  color: black;
+  color: #000000;
   font-family: "Montserrat", sans-serif;
   font-size: 1.5rem; }
 
 h3 {
-  color: black;
+  color: #000000;
   font-family: "Montserrat", sans-serif;
   font-size: 1.25rem; }
 
@@ -108,22 +108,22 @@ textarea {
     box-shadow: none !important; }
 
 .btn-primary {
-  background-color: #ffd300;
-  border: 1px solid #ffd300;
-  color: black !important;
+  background-color: #FFD300;
+  border: 1px solid #FFD300;
+  color: #000 !important;
   cursor: pointer; }
   .btn-primary:hover {
-    color: black !important;
+    color: #000000 !important;
     background-color: transparent;
-    border: 1px solid #ffd300; }
+    border: 1px solid #FFD300; }
   .btn-primary:visited, .btn-primary:active, .btn-primary:focus {
-    background-color: #ffd300 !important; }
+    background-color: #FFD300 !important; }
 
 .btn-custom {
   background-color: #9b9b9b;
-  color: white; }
+  color: #ffffff; }
   .btn-custom:hover {
-    color: white;
+    color: #ffffff;
     background-color: #dedede; }
 
 .input-group {
@@ -158,9 +158,9 @@ textarea {
   font-size: 0.8rem;
   padding: 10px 40px; }
   .btn-light:hover {
-    color: #ffd300 !important;
+    color: #FFD300 !important;
     background-color: transparent;
-    border: 1px solid #ffd300; }
+    border: 1px solid #FFD300; }
 
 .line {
   width: 150px;
@@ -173,7 +173,7 @@ textarea {
   margin-bottom: 20px; }
 
 .progress {
-  background-color: whitesmoke;
+  background-color: #f5f5f5;
   border-radius: 0;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   display: inline-block;
@@ -204,7 +204,7 @@ textarea {
  * color: $white */
 /*------------------------------ Generales ------------------------------- */
 html, body {
-  background-color: white; }
+  background-color: #fff; }
 
 .disabled {
   display: none; }
@@ -220,7 +220,7 @@ nav {
   height: 88px; }
 
 .main-nav {
-  background-color: #ffd300;
+  background-color: #FFD300;
   position: fixed;
   width: 100%;
   left: 0;
@@ -230,17 +230,17 @@ nav {
 
 .navbar {
   margin-bottom: 0px;
-  background-color: #ffd300; }
+  background-color: #FFD300; }
 
 .navbar-header {
-  background-color: #ffd300; }
+  background-color: #FFD300; }
 
 .navbar-container {
-  background-color: #ffd300; }
+  background-color: #FFD300; }
 
 .navbar-collapse {
-  background-color: white;
-  background-color: #ffd300; }
+  background-color: #fff;
+  background-color: #FFD300; }
 
 .navbar-default {
   border: 0; }
@@ -264,34 +264,34 @@ nav {
     padding-right: 10px; }
     .navbar-right li a {
       font-size: 0.875rem;
-      color: black;
+      color: #000000;
       font-weight: 300;
       padding-top: 10px;
       padding-bottom: 10px; }
     .navbar-right li .btn-primary {
-      border: 1px solid black;
-      color: black !important; }
+      border: 1px solid #000000;
+      color: #000000 !important; }
     .navbar-right li .dropdown-toggle {
       padding-top: 0px;
       padding-bottom: 0px; }
     .navbar-right li .nav-right-icon-user {
-      background-color: #ffd300;
+      background-color: #FFD300;
       border-radius: 50%;
       max-width: 60px;
       padding: 15px 20px;
       text-align: center; }
       .navbar-right li .nav-right-icon-user i {
-        color: black;
+        color: #000000;
         font-size: 1.2rem;
         text-align: center; }
     .navbar-right li .navbar-right-dropdown-menu li a {
       font-size: 0.875rem;
-      color: black;
+      color: #000000;
       font-weight: 700;
       padding-top: 10px;
       padding-bottom: 10px; }
       .navbar-right li .navbar-right-dropdown-menu li a:hover > i {
-        color: #ffd300; }
+        color: #FFD300; }
       .navbar-right li .navbar-right-dropdown-menu li a i {
         margin-right: 5px;
         font-size: 1rem; }
@@ -357,7 +357,7 @@ nav {
   #wrapper #sidebar-wrapper {
     background-color: #fbfbfb !important; }
     #wrapper #sidebar-wrapper .sidebar-brand {
-      color: black;
+      color: #000000;
       font-weight: 700; }
       #wrapper #sidebar-wrapper .sidebar-brand:hover {
         background-color: #fbfbfb !important; }
@@ -366,14 +366,14 @@ nav {
       #wrapper #sidebar-wrapper .sidebar-nav li {
         margin-bottom: 20px; }
         #wrapper #sidebar-wrapper .sidebar-nav li:hover {
-          background-color: white; }
+          background-color: #fff; }
         #wrapper #sidebar-wrapper .sidebar-nav li a {
           color: #9b9b9b;
           font-size: 1.125rem; }
           #wrapper #sidebar-wrapper .sidebar-nav li a:hover {
-            color: black; }
+            color: #000000; }
           #wrapper #sidebar-wrapper .sidebar-nav li a:hover i {
-            color: #ffd300; }
+            color: #FFD300; }
 
 /*----------------------cursos box------------------------------- */
 .item_box {
@@ -387,11 +387,11 @@ nav {
   min-width: 263px;
   padding-bottom: 16px; }
   .item_box .item_box:hover .team_member_info {
-    background: #008fd5 none repeat scroll 0% 0%; }
+    background: #008FD5 none repeat scroll 0% 0%; }
   .item_box .item_box:hover .team_member_info h5 {
-    color: white; }
+    color: #FFF; }
   .item_box .item_box:hover .team_member_info {
-    color: white; }
+    color: #FFF; }
   .item_box .team_member_info, .item_box .pic {
     display: block;
     position: relative; }
@@ -434,7 +434,7 @@ nav {
     right: 5%;
     top: 5%; }
     .item_box .iconolink .heart, .item_box .iconolink i {
-      color: white; }
+      color: #fff; }
   .item_box .price {
     position: absolute;
     top: 5%;
@@ -443,13 +443,13 @@ nav {
     line-height: 1rem;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
-    color: white;
+    color: #FFF;
     padding: 7px 8px;
     letter-spacing: 1px; }
     .item_box .price .amount {
-      color: white; }
+      color: #ffffff; }
       .item_box .price .amount i {
-        color: white; }
+        color: #ffffff; }
   .item_box .mini-descrip {
     height: 200px;
     margin-bottom: 10px;
@@ -462,17 +462,17 @@ nav {
       margin-right: 10px;
       line-height: 1.3rem;
       font-style: normal;
-      color: black;
+      color: #000;
       opacity: 1;
       visibility: visible;
       transition: opacity 0.24s ease-in-out 0s; }
       .item_box .mini-descrip .entry-title a {
         line-height: 1.3rem;
         font-style: normal;
-        color: black !important;
+        color: #000 !important;
         text-decoration: none; }
         .item_box .mini-descrip .entry-title a:hover {
-          color: #3abfdf !important; }
+          color: #3ABFDF !important; }
     .item_box .mini-descrip .entry-data {
       margin-top: 18px;
       margin-bottom: 0px;
@@ -483,13 +483,13 @@ nav {
       font-style: normal; }
       .item_box .mini-descrip .entry-data label, .item_box .mini-descrip .entry-data i {
         display: inline-block;
-        color: #ffd300; }
+        color: #FFD300; }
       .item_box .mini-descrip .entry-data label {
         margin-right: 10px; }
     .item_box .mini-descrip .entry-summary {
       margin: 10px 10px 0 10px !important;
       font-size: 13px;
-      color: #999999 !important;
+      color: #999 !important;
       line-height: 23px; }
   .item_box .proof {
     text-align: center; }
@@ -506,7 +506,7 @@ nav {
       vertical-align: middle;
       width: 10px; }
       .item_box .proof .trophy .complete-trophy {
-        color: #ffd300; }
+        color: #FFD300; }
     .item_box .proof .incomplete {
       font-family: "Lato", sans-serif;
       margin: 0 10px;
@@ -517,7 +517,7 @@ nav {
       margin: 0 10px;
       text-align: left;
       font-size: 0.7rem;
-      color: #ffd300 !important;
+      color: #FFD300 !important;
       text-transform: uppercase; }
 
 /*---------------------------- Sidebar ---------------------------------- */
@@ -545,9 +545,9 @@ nav {
   text-indent: 20px;
   line-height: 40px; }
   .sidebar-nav li.active {
-    color: #ffd300; }
+    color: #FFD300; }
     .sidebar-nav li.active a, .sidebar-nav li.active i, .sidebar-nav li.active span {
-      color: #ffd300;
+      color: #FFD300;
       font-weight: 700; }
 
 .sidebar-nav li a {
@@ -557,7 +557,7 @@ nav {
 
 .sidebar-nav li a:hover {
   text-decoration: none;
-  color: white;
+  color: #fff;
   background: rgba(255, 255, 255, 0.2); }
 
 .sidebar-nav li a:active,
@@ -573,7 +573,7 @@ nav {
   color: #999999; }
 
 .sidebar-nav > .sidebar-brand a:hover {
-  color: white;
+  color: #fff;
   background: none; }
 
 @media only screen and (max-width: 1050px) {
@@ -623,7 +623,7 @@ nav {
     .slide-home .rectangle legend {
       font-size: 1.1rem;
       font-family: "Montserrat", sans-serif;
-      color: black;
+      color: #000000;
       font-weight: 700; }
     .slide-home .rectangle input {
       margin-top: 40px; }
@@ -672,7 +672,7 @@ nav {
     .nuevos-cursos h1 hr {
       width: 50px;
       height: 3px;
-      background-color: #999999; }
+      background-color: #999; }
   .nuevos-cursos .curso-destacado {
     padding: 20px; }
     .nuevos-cursos .curso-destacado.left, .nuevos-cursos .curso-destacado.right {
@@ -682,10 +682,10 @@ nav {
       box-shadow: 1000px 1000px 100px rgba(0, 0, 0, 0.5) inset; }
       .nuevos-cursos .curso-destacado.left h2, .nuevos-cursos .curso-destacado.right h2 {
         margin-top: 50px;
-        color: white;
+        color: #fff;
         padding-bottom: 10px; }
       .nuevos-cursos .curso-destacado.left h4, .nuevos-cursos .curso-destacado.right h4, .nuevos-cursos .curso-destacado.left label, .nuevos-cursos .curso-destacado.right label, .nuevos-cursos .curso-destacado.left p, .nuevos-cursos .curso-destacado.right p, .nuevos-cursos .curso-destacado.left i, .nuevos-cursos .curso-destacado.right i {
-        color: white;
+        color: #fff;
         padding: 5px 0; }
       .nuevos-cursos .curso-destacado.left label, .nuevos-cursos .curso-destacado.right label {
         padding-right: 20px; }
@@ -743,12 +743,12 @@ nav {
     font-size: 1rem; }
   .details-curso-div-1 label {
     font-size: 1.15rem;
-    color: black;
+    color: #000000;
     padding-right: 15px;
     margin-bottom: 15px; }
   .details-curso-div-1 i {
     font-size: 1.15rem;
-    color: black; }
+    color: #000000; }
   .details-curso-div-1 .line {
     margin: 0 auto 30px auto; }
   .details-curso-div-1 .details-curso-div-1-progress .progress {
@@ -765,6 +765,7 @@ nav {
   .details-curso-div-2 div {
     padding: 40px; }
     .details-curso-div-2 div img {
+      width: 100%;
       box-shadow: 0px 5px 20px #888888; }
     .details-curso-div-2 div .iconolink-2 {
       background-color: rgba(0, 0, 0, 0.5);
@@ -777,7 +778,7 @@ nav {
       right: 15%;
       top: 15%; }
       .details-curso-div-2 div .iconolink-2 .heart, .details-curso-div-2 div .iconolink-2 i {
-        color: white; }
+        color: #fff; }
     .details-curso-div-2 div .price-2 {
       position: absolute;
       top: 15%;
@@ -786,11 +787,11 @@ nav {
       line-height: 1rem;
       background-color: rgba(0, 0, 0, 0.5);
       border-radius: 5px;
-      color: white;
+      color: #FFF;
       padding: 10px;
       letter-spacing: 1px; }
       .details-curso-div-2 div .price-2 .amount {
-        color: white; }
+        color: #fff; }
 
 @media only screen and (max-width: 991px) {
   .details-curso-div-2 {
@@ -813,22 +814,22 @@ nav {
   padding: 20px 40px; }
 
 .nav-tabs > li.active > a {
-  color: black;
+  color: #000000;
   background-color: transparent;
   border: 2px solid transparent;
-  border-bottom-color: #ffd300;
+  border-bottom-color: #FFD300;
   cursor: default; }
   .nav-tabs > li.active > a:focus {
-    color: black;
+    color: #000000;
     background-color: transparent;
     border: 2px solid transparent;
-    border-bottom-color: #ffd300;
+    border-bottom-color: #FFD300;
     cursor: default; }
   .nav-tabs > li.active > a:hover {
-    color: black;
+    color: #000000;
     background-color: transparent;
     border: 2px solid transparent;
-    border-bottom-color: #ffd300;
+    border-bottom-color: #FFD300;
     cursor: default; }
 
 .nav-tabs > li > a:hover {
@@ -862,7 +863,7 @@ nav {
     .details-tabs-moduls-1 .details-tabs-moduls-1-2 p {
       padding: 15px 0; }
     .details-tabs-moduls-1 .details-tabs-moduls-1-2 a {
-      color: #ffd300;
+      color: #FFD300;
       font-family: "Montserrat", sans-serif; }
   .details-tabs-moduls-1 .details-tabs-moduls-1-3-active {
     border-top: 2px solid #dedede;
@@ -889,7 +890,7 @@ nav {
         padding-left: 15px;
         width: 90%; }
         .details-tabs-moduls-1 .details-tabs-moduls-1-3-active .details-tabs-moduls-1-3-clase .details-tabs-moduls-1-3-clase-active h4 {
-          color: black;
+          color: #000000;
           padding-bottom: 10px;
           font-family: "Montserrat", sans-serif;
           font-size: 1rem;
@@ -900,7 +901,7 @@ nav {
           .details-tabs-moduls-1 .details-tabs-moduls-1-3-active .details-tabs-moduls-1-3-clase .details-tabs-moduls-1-3-clase-active p a {
             padding-left: 15px; }
             .details-tabs-moduls-1 .details-tabs-moduls-1-3-active .details-tabs-moduls-1-3-clase .details-tabs-moduls-1-3-clase-active p a:hover {
-              color: #ffd300;
+              color: #FFD300;
               cursor: pointer; }
       .details-tabs-moduls-1 .details-tabs-moduls-1-3-active .details-tabs-moduls-1-3-clase .details-tabs-moduls-1-3-clase-inactive {
         display: inline-block;
@@ -908,7 +909,7 @@ nav {
         padding-left: 15px;
         width: 90%; }
         .details-tabs-moduls-1 .details-tabs-moduls-1-3-active .details-tabs-moduls-1-3-clase .details-tabs-moduls-1-3-clase-inactive h4 {
-          color: black;
+          color: #000000;
           padding-bottom: 10px;
           font-family: "Montserrat", sans-serif;
           font-size: 1rem;
@@ -933,14 +934,14 @@ nav {
   .details-tabs-div-2 .details-tabs-div-2-text h3 {
     margin-bottom: 5px; }
   .details-tabs-div-2 .details-tabs-div-2-text h4 {
-    color: black;
+    color: #000000;
     margin-bottom: 25px;
     font-size: 1.125rem; }
 .details-tabs-div-2 .details-tabs-div-2-img {
   display: inline-block;
   width: 10%; }
   .details-tabs-div-2 .details-tabs-div-2-img img {
-    border: 2px solid #ffd300;
+    border: 2px solid #FFD300;
     border-radius: 50%; }
 
 .details-tabs-div-3 {
@@ -952,7 +953,7 @@ nav {
     width: 30%;
     margin-bottom: 40px; }
     .details-tabs-div-3 .details-tabs-div-3-ul > li i {
-      color: #ffd300; }
+      color: #FFD300; }
 
 /*-- TAB Q&A -- */
 .details-tabs-qya-1 {
@@ -977,15 +978,15 @@ nav {
   .details-tabs-qya-1 .details-tabs-qya-1-box-1 .details-tabs-qya-1-box-1-box-float-active {
     float: right; }
     .details-tabs-qya-1 .details-tabs-qya-1-box-1 .details-tabs-qya-1-box-1-box-float-active i {
-      color: #ffd300;
+      color: #FFD300;
       font-size: 1.55rem; }
   .details-tabs-qya-1 .details-tabs-qya-1-box-1 .details-tabs-qya-1-box-1-box-float-inactive {
     display: none; }
 
 .details-tabs-qya-1-active {
-  background-color: white;
+  background-color: #ffffff;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.12);
-  border-left: 4px solid #ffd300; }
+  border-left: 4px solid #FFD300; }
   .details-tabs-qya-1-active .details-tabs-qya-1-box-2-active {
     border-top: 1px solid #dedede;
     margin-top: 25px;
@@ -994,7 +995,7 @@ nav {
       border-bottom: 1px solid #dedede;
       padding: 20px 0; }
       .details-tabs-qya-1-active .details-tabs-qya-1-box-2-active .details-tabs-qya-1-box-2-answers h4 {
-        color: black;
+        color: #000000;
         font-family: "Montserrat", sans-serif;
         font-size: 1rem; }
       .details-tabs-qya-1-active .details-tabs-qya-1-box-2-active .details-tabs-qya-1-box-2-answers p {
@@ -1058,7 +1059,7 @@ nav {
   margin-top: 100px; }
   .cpanel-user-container-titulo h3 {
     font-size: 1.7rem;
-    color: #ffd300;
+    color: #FFD300;
     text-transform: uppercase;
     font-weight: 400;
     padding: 30px 0; }
@@ -1086,7 +1087,7 @@ nav {
   .cpanel-user-info-data form .input-group {
     margin-top: 20px; }
     .cpanel-user-info-data form .input-group i {
-      color: #ffd300;
+      color: #FFD300;
       margin-right: 10px;
       font-size: 1.2rem; }
     .cpanel-user-info-data form .input-group span {
@@ -1142,7 +1143,7 @@ nav {
   margin-bottom: 5px;
   width: 700px; }
   .cpanel-user-container-table-pagos .thead ul li {
-    color: black;
+    color: #000000;
     font-family: "Montserrat", sans-serif;
     font-size: 1.2rem;
     font-weight: 700;
@@ -1201,7 +1202,7 @@ nav {
       font-size: 30px;
       float: right;
       margin-right: 50px;
-      color: black;
+      color: #000;
       cursor: pointer; }
   .play-video .modulo {
     background-color: #f1f1f1;
@@ -1226,7 +1227,7 @@ nav {
         width: 100%;
         border: 1px solid #d4d4d4; }
       .play-video .modulo .clase .checked, .play-video .modulo .clase .unchecked {
-        color: #ffd300;
+        color: #FFD300;
         position: absolute;
         top: 25px;
         right: 5px;
@@ -1234,7 +1235,7 @@ nav {
       .play-video .modulo .clase .unchecked {
         color: #d4d4d4; }
       .play-video .modulo .clase.active {
-        background-color: white; }
+        background-color: #fff; }
       .play-video .modulo .clase:last-child {
         padding-bottom: 20px; }
       .play-video .modulo .clase:hover {
@@ -1287,8 +1288,8 @@ nav {
   min-height: 200px;
   min-width: 263px; }
   .block-box .block-box:hover {
-    background: #008fd5 none repeat scroll 0% 0%;
-    color: white; }
+    background: #008FD5 none repeat scroll 0% 0%;
+    color: #FFF; }
   .block-box .pic {
     display: block;
     position: relative; }
@@ -1326,15 +1327,15 @@ nav {
     left: 5%;
     font-size: 18px;
     line-height: 1rem;
-    color: white;
+    color: #FFF;
     padding: 7px 8px;
     letter-spacing: 1px; }
     .block-box .selected .amount {
-      color: white; }
+      color: #ffffff; }
       .block-box .selected .amount i {
-        color: white; }
+        color: #ffffff; }
   .block-box .selected-active i {
-    color: #ffd300 !important; }
+    color: #FFD300 !important; }
 
 /*--------------- Nuevo Curso ------------------- */
 #page-content-wrapper {
@@ -1344,7 +1345,7 @@ nav {
   margin-top: 100px; }
   .cpanel-profes-container-titulo h3 {
     font-size: 1.7rem;
-    color: #ffd300;
+    color: #FFD300;
     text-transform: uppercase;
     font-weight: 400;
     padding: 30px 0; }
@@ -1354,7 +1355,7 @@ nav {
   .cpanel-profes-info .input-group {
     margin-top: 20px; }
     .cpanel-profes-info .input-group i {
-      color: #ffd300;
+      color: #FFD300;
       margin-right: 10px;
       font-size: 1.2rem; }
     .cpanel-profes-info .input-group span {
@@ -1415,7 +1416,7 @@ nav {
         display: inline-block;
         vertical-align: top; }
         .profes-nuevocurso-asides .profes-tabs-ul li .profes-tabs-ul-li-1 i {
-          color: #ffd300; }
+          color: #FFD300; }
       .profes-nuevocurso-asides .profes-tabs-ul li .profes-tabs-ul-li-2 {
         display: inline-block;
         border-bottom: 1px solid #9b9b9b; }
@@ -1461,7 +1462,7 @@ nav {
     .profes-tabs-moduls .profes-tabs-moduls-1-2 p {
       padding: 15px 0; }
     .profes-tabs-moduls .profes-tabs-moduls-1-2 a {
-      color: #ffd300;
+      color: #FFD300;
       font-family: "Montserrat", sans-serif; }
     .profes-tabs-moduls .profes-tabs-moduls-1-2 .profes-moduls-edit-active {
       display: none; }
@@ -1478,8 +1479,8 @@ nav {
     .profes-tabs-moduls .profes-tabs-moduls-1-3-active h3 {
       margin: 40px 0 20px 0; }
     .profes-tabs-moduls .profes-tabs-moduls-1-3-active .profes-tabs-moduls-1-3-clase {
-      background-color: white;
-      border-left: 4px solid #ffd300;
+      background-color: #ffffff;
+      border-left: 4px solid #FFD300;
       box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.12);
       margin-bottom: 20px;
       padding: 20px 0; }
@@ -1505,7 +1506,7 @@ nav {
         padding: 10px;
         width: auto; }
         .profes-tabs-moduls .profes-tabs-moduls-1-3-active .profes-tabs-moduls-1-3-clase .profes-tabs-moduls-1-3-clase-active h3 {
-          color: black;
+          color: #000000;
           margin-top: 2px;
           margin-bottom: 5px;
           padding-bottom: 0px; }
@@ -1515,7 +1516,7 @@ nav {
           .profes-tabs-moduls .profes-tabs-moduls-1-3-active .profes-tabs-moduls-1-3-clase .profes-tabs-moduls-1-3-clase-active p a {
             padding-left: 15px; }
             .profes-tabs-moduls .profes-tabs-moduls-1-3-active .profes-tabs-moduls-1-3-clase .profes-tabs-moduls-1-3-clase-active p a:hover {
-              color: #ffd300;
+              color: #FFD300;
               cursor: pointer; }
       .profes-tabs-moduls .profes-tabs-moduls-1-3-active .profes-tabs-moduls-1-3-clase .profes-tabs-moduls-1-3-clase-edit {
         display: inline-block;
@@ -1529,7 +1530,7 @@ nav {
         padding-left: 15px;
         width: 90%; }
         .profes-tabs-moduls .profes-tabs-moduls-1-3-active .profes-tabs-moduls-1-3-clase .profes-tabs-moduls-1-3-clase-inactive h4 {
-          color: black;
+          color: #000000;
           padding-bottom: 10px;
           font-family: "Montserrat", sans-serif;
           font-size: 1rem;
@@ -1542,9 +1543,9 @@ nav {
 
 .profes-nuevocurso-zona-buttons button {
   padding: 15px 40px;
-  color: white; }
+  color: #ffffff; }
 .profes-nuevocurso-zona-buttons i {
-  color: white; }
+  color: #ffffff; }
 
 .agregar-clase {
   margin-left: 80px; }
