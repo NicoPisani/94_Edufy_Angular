@@ -53,27 +53,38 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cpanel-user-subcontainer" id="cpanel-user-subcontainer">
                                     <p>Si presionas el botón guardar cambios, tu contraseña se reestablecerá.</p>
-                                    <form action="" method="get" accept-charset="utf-8">
+                                    <form id="formulario" name="formulario" accept-charset="utf-8" novalidate>
                                         <div class="row form-group">
                                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                                 <label for="old_pass" id="label_old_pass">Contraseña actual</label><br>
-                                                <input type="password" name="old_pass" id="old_pass" class="form-control input">
+                                                <input type="password" name="old_pass" id="old_pass" class="form-control input" ng-model="editProfile.old_pass" required>
+                                                <div ng-show="formulario.$submitted &&  editProfile.old_pass != editProfile.user.pass" class="alert alert-danger">
+                                                    ¡Contraseña incorrecta!</div>
+                                                <div ng-show="formulario.$submitted && formulario.old_pass.$error.required" class="alert alert-danger">Completar este campo</div>
                                             </div>
                                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"></div>
                                         </div>
                                         <div class="row form-group">
                                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                                 <label for="new_pass" id="label_new_pass">Contraseña nueva</label><br>
-                                                <input type="password" name="new_pass" id="new_pass" class="form-control input">
+                                                <input type="password" name="new_pass" id="new_pass" class="form-control input" ng-model="editProfile.new_pass" required>
+                                                <div ng-show="formulario.$submitted && formulario.new_pass.$error.required" class="alert alert-danger">Completar este campo</div>
                                             </div>
                                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                                 <label for="re_pass" id="label_re_pass">Repetir contraseña</label><br>
-                                                <input type="password" name="re_pass" id="re_pass" class="form-control input">
+                                                <input type="password" name="re_pass" id="re_pass" class="form-control input"ng-model="editProfile.re_pass" required>
+                                                <div ng-show="formulario.$submitted && editProfile.new_pass != editProfile.re_pass" class="alert alert-danger">
+                                                    ¡Las contraseñas no coinciden!</div>
+                                                <div ng-show="formulario.$submitted && formulario.re_pass.$error.required" class="alert alert-danger">Completar este campo</div>
                                             </div>
                                         </div>
                                         <div class="row form-group">
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                <input type="submit" class="btn btn-primary" value="RESTABLECER">
+                                                <input type="submit" 
+                                                class="btn btn-primary" 
+                                                ng-click="changeNewPass(editProfile.old_pass, editProfile.new_pass, editProfile.re_pass)" 
+                                                ng-disabled="!formulario.$valid" 
+                                                value="RESTABLECER">
                                             </div>
                                         </div>
                                     </form>

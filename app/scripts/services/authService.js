@@ -18,22 +18,24 @@ angular.module('authService', [])
 		return sessionControl.get('rol');
 	})
 	.factory('authUser', function ($auth, sessionControl, toastr, $location){
-		var cacheSession = function(id, email, name, rol, birthday, active, plataforma_id, avatar){
+		var cacheSession = function(id, email, name, pass, rol, birthday, active, plataforma_id, avatar){
 			sessionControl.set('userIsLogin', true);
 			sessionControl.set('id', id);
 			sessionControl.set('email', email);
 			sessionControl.set('name', name);
+			sessionControl.set('pass', pass);
 			sessionControl.set('rol', rol);
 			sessionControl.set('birthday', birthday);
 			sessionControl.set('active', active);
 			sessionControl.set('plataforma', plataforma_id);
 			sessionControl.set('avatar', avatar);
 		};
-		var unCacheSession = function(id, email, name, rol, birthday, active, plataforma_id, avatar){
+		var unCacheSession = function(id, email, name, pass, rol, birthday, active, plataforma_id, avatar){
 			sessionControl.unset('userIsLogin', true);
 			sessionControl.unset('id', id);
 			sessionControl.unset('email', email);
 			sessionControl.unset('name', name);
+			sessionControl.unset('pass', pass);
 			sessionControl.unset('rol', rol);
 			sessionControl.unset('birthday', birthday);
 			sessionControl.unset('active', active);
@@ -46,7 +48,8 @@ angular.module('authService', [])
 					cacheSession(
 						response.data.user.id, 
 						response.data.user.email, 
-						response.data.user.name, 
+						response.data.user.name,
+						loginForm.password,
 						response.data.user.rol, 
 						response.data.user.birthday, 
 						response.data.user.active, 

@@ -25,6 +25,7 @@ angular.module('yeomanApp')
       id : sessionControl.get('id'),
       email : sessionControl.get('email'),
       name : sessionControl.get('name'),
+      pass : sessionControl.get('pass'),
       rol : sessionControl.get('rol'),
       birthday : sessionControl.get('birthday'),
       active : sessionControl.get('active'),
@@ -33,7 +34,6 @@ angular.module('yeomanApp')
     }
 
     $scope.update = function(){
-
       $http({
         url: GLOBAL.URL_API+"user/"+ nv.user.id,
         method: "PUT",
@@ -46,8 +46,26 @@ angular.module('yeomanApp')
         function (error) {
            toastr.error('Algo salio mal, vuelve a intentarlo', 'Mensaje');
        });
-    
     }
+
+    $scope.changeNewPass = function (_oldpass, _newpass, _repass){
+      if(_newpass === _repass && _oldpass === nv.user.pass){
+        console.log(_oldpass+' -> '+_newpass)
+        $http({
+          url: GLOBAL.URL_API+'user/'+nv.user.id,
+          method: 'PUT',
+          data: {password: _newpass}
+        }).then(
+          function (respuesta){
+            toastr.success('Datos actualizados!', 'Mensaje');
+          },
+          function (error) {
+             toastr.error('Algo salio mal, vuelve a intentarlo', 'Mensaje');
+         });
+      }
+    }
+
+
 
 
   })
