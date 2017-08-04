@@ -8,7 +8,7 @@
  * Controller of the yeomanApp
  */
 angular.module('yeomanApp')
-  .controller('UserPerfilCtrl', function (authUser, sessionControl, $scope, $http) {
+  .controller('UserPerfilCtrl', function (GLOBAL, authUser, sessionControl, $scope, $http, toastr) {
     var nv = this;
     nv.menuTemplate = {
       url : 'views/navbar/navbar.html'
@@ -34,9 +34,19 @@ angular.module('yeomanApp')
 
     $scope.update = function(){
 
-       console.log(nv.user);
-
-       $http.put('http://127.0.0.1:8000/api/user/'+nv.user.id, nv.user);
+      $http({
+        url: GLOBAL.URL_API+"user/"+ nv.user.id,
+        method: "PUT",
+        data:  nv.user,
+        /*headers: {'Content-Type': 'application/x-www-form-urlencoded'}*/
+      }).then(
+        function (respuesta){
+          toastr.success('Datos actualizados!', 'Mensaje');
+        },
+        function (error) {
+           toastr.error('Algo salio mal, vuelve a intentarlo', 'Mensaje');
+       });
+    
     }
 
 

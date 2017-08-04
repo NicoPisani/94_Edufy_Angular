@@ -53,7 +53,7 @@ angular.module('authService', [])
 						response.data.user.plataforma_id, 
 						response.data.user.avatar 
 					);
-					$location.path('#/panel/user/perfil');
+					$location.path('/panel/user/perfil');
 					toastr.success('Sesión iniciada con éxito', 'Mensaje');
 				},
 				function(error){
