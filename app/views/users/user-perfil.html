@@ -58,7 +58,7 @@
                                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                                 <label for="old_pass" id="label_old_pass">Contraseña actual</label><br>
                                                 <input type="password" name="old_pass" id="old_pass" class="form-control input" ng-model="editProfile.old_pass" required>
-                                                <div ng-show="formulario.$submitted &&  editProfile.old_pass != editProfile.user.pass" class="alert alert-danger">
+                                                <div ng-show="formulario.$submitted &&  editProfile.old_pass != editProfile.pass" class="alert alert-danger">
                                                     ¡Contraseña incorrecta!</div>
                                                 <div ng-show="formulario.$submitted && formulario.old_pass.$error.required" class="alert alert-danger">Completar este campo</div>
                                             </div>

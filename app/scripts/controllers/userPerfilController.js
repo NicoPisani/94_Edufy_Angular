@@ -20,16 +20,12 @@ angular.module('yeomanApp')
       url : 'views/footer/footer.html'
     }
 
-
+    nv.pass = sessionControl.get('pass');
     nv.user = {
       id : sessionControl.get('id'),
       email : sessionControl.get('email'),
       name : sessionControl.get('name'),
-      pass : sessionControl.get('pass'),
-      rol : sessionControl.get('rol'),
       birthday : sessionControl.get('birthday'),
-      active : sessionControl.get('active'),
-      plataforma : sessionControl.get('plataforma'),
       avatar : sessionControl.get('avatar')
     }
 
@@ -37,10 +33,11 @@ angular.module('yeomanApp')
       $http({
         url: GLOBAL.URL_API+"user/"+ nv.user.id,
         method: "PUT",
-        data:  nv.user,
-        /*headers: {'Content-Type': 'application/x-www-form-urlencoded'}*/
+        data:  nv.user
       }).then(
         function (respuesta){
+          sessionControl.set('name', nv.user.name);
+          sessionControl.set('email', nv.user.email);
           toastr.success('Datos actualizados!', 'Mensaje');
         },
         function (error) {
@@ -49,14 +46,14 @@ angular.module('yeomanApp')
     }
 
     $scope.changeNewPass = function (_oldpass, _newpass, _repass){
-      if(_newpass === _repass && _oldpass === nv.user.pass){
-        console.log(_oldpass+' -> '+_newpass)
+      if(_newpass === _repass && _oldpass === nv.pass){
         $http({
           url: GLOBAL.URL_API+'user/'+nv.user.id,
           method: 'PUT',
           data: {password: _newpass}
         }).then(
           function (respuesta){
+            sessionControl.set('pass', _newpass);
             toastr.success('Datos actualizados!', 'Mensaje');
           },
           function (error) {
