@@ -524,6 +524,9 @@ nav {
       color: #FFD300 !important;
       text-transform: uppercase; }
 
+.item_fix {
+  padding-bottom: 0 !important; }
+
 /*---------------------------- Sidebar ---------------------------------- */
 #profes, #users {
   overflow: hidden;

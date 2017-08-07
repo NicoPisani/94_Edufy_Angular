@@ -36,9 +36,7 @@ angular.module('yeomanApp')
          })
      },
      function (error) {
-       if(error.data.error === 'token_not_provided') {
          console.log('error')
-       }
      });
 
   })

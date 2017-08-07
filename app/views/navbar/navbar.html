@@ -17,11 +17,11 @@
 
     <form class="navbar-form navbar-left" role="search">
         <div class="input-group">
-          <input type="text" class="form-control input">
+          <input type="search" class="form-control input" ng-model="search">
           <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
         </div>
     </form>
-    
+
     <div class="collapse navbar-collapse" id="app-navbar-collapse">
         <!-- Right Side Of Navbar -->
         <ul class="nav navbar-nav navbar-right">
@@ -50,5 +50,19 @@
                 </ul>
             </li>
         </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="item_box item_fix" ng-repeat="curso in cursos | filter:search" ng-show="search">
+              <div class="pic">
+                  <a href="#/detalle/curso/{{ curso.id }}">
+                      <figure><img ng-src="{{ curso.imagen }}" class="img-responsive"></figure>
+                      <div class="hover-effect">
+                          <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                      </div>
+                  </a>
+                  <div class="price"><span class="amount">{{ curso.nombre }}</span></div>
+              </div>
+        </div>
     </div>
 </div>

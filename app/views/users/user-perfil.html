@@ -18,9 +18,15 @@
                             <h3>MI PERFIL</h3>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cpanel-user-info">
-                            <div class="cpanel-user-info-picture">
+                            <div class="cpanel-user-info-picture" ng-controller="UploadController">
                                 <figure style="background-image: url({{editProfile.user.avatar}});background-position: 50% 50%;background-size: cover;background-repeat: no-repeat;">
-                                    <figcaption><a href=""><i class="fa fa-camera" aria-hidden="true"></i><br> Cargar Foto</a></figcaption>
+                                    <img ng-src="{{imageSrc}}" />
+                                    <figcaption>
+                                    <label for="upload">
+                                    <i class="fa fa-camera" aria-hidden="true" ></i><br> Cambiar Foto</a>
+                                    <input type="file" id="upload" name="upload" style="visibility:hidden;" accept="image/*" ng-file-select="onFileSelect($files)">
+                                    </label>
+                                </figcaption>
                                 </figure>
                             </div>
 

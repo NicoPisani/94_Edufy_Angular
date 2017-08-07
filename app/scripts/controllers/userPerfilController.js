@@ -8,7 +8,7 @@
  * Controller of the yeomanApp
  */
 angular.module('yeomanApp')
-  .controller('UserPerfilCtrl', function (GLOBAL, authUser, sessionControl, $scope, $http, toastr) {
+  .controller('UserPerfilCtrl', function (GLOBAL, authUser, sessionControl, $scope, $http, $parse, toastr) {
     var nv = this;
     nv.menuTemplate = {
       url : 'views/navbar/navbar.html'
@@ -37,7 +37,7 @@ angular.module('yeomanApp')
       }).then(
         function (respuesta){
           sessionControl.set('name', nv.user.name);
-          sessionControl.set('email', nv.user.email);
+          sessionControl.set('birthday', nv.user.birthday);
           toastr.success('Datos actualizados!', 'Mensaje');
         },
         function (error) {
@@ -61,10 +61,31 @@ angular.module('yeomanApp')
          });
       }
     }
+  })
 
+  .controller('UploadController', function ($scope, fileReader) {
+      $scope.getFile = function () {
+          $scope.progress = 0;
+          fileReader.readAsDataUrl($scope.file, $scope)
+          .then(function(result) {
+              $scope.imageSrc = result;
+          });
+      };
+   
+      $scope.$on("fileProgress", function(e, progress) {
+          $scope.progress = progress.loaded / progress.total;
+      });
+  })
 
-
-
+  .directive("ngFileSelect",function(){
+    return {
+      link: function($scope,el){
+        el.bind("change", function(e){
+          $scope.file = (e.srcElement || e.target).files[0];
+          $scope.getFile();
+        })
+      }
+    }  
   })
 
  

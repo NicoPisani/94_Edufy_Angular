@@ -92,7 +92,11 @@
       </div>
   </div>
   <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" ng-hide="cursos">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" ng-show="cursos">
           <div class="item_box" ng-cloak class="ng-cloak" ng-repeat="curso in cursos">
               <div class="pic">
               <a href="#/detalle/curso/{{ curso.id }}">
