@@ -1,4 +1,7 @@
 /test
 /bower_components
 /node_modules
+<<<<<<< HEAD
 /.tmp
+=======
+>>>>>>> develop

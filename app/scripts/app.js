@@ -24,7 +24,7 @@ angular
   ])
 
   .constant('GLOBAL',{
-    URL_API: 'http://localhost:8000/api/'
+    URL_API: 'http://api.wcanvas.website/api/'
   })
 
   .constant('ROLES', {
@@ -46,9 +46,9 @@ angular
     }
   })
 
-  .config(function ($routeProvider, ROLES, $locationProvider, $authProvider) {
+  .config(function (GLOBAL, $routeProvider, ROLES, $locationProvider, $authProvider) {
     $locationProvider.hashPrefix('');
-    $authProvider.loginUrl = "http://127.0.0.1:8000/api/auth/login";
+    $authProvider.loginUrl = GLOBAL.URL_API+"auth/login";
     $routeProvider
 
       .when('/', {
