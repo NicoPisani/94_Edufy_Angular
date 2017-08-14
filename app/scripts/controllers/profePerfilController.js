@@ -26,7 +26,8 @@ angular.module('yeomanApp')
       email : sessionControl.get('email'),
       name : sessionControl.get('name'),
       birthday : sessionControl.get('birthday'),
-      avatar : sessionControl.get('avatar')
+      avatar : sessionControl.get('avatar'),
+      history : sessionControl.get('history')
     }
 
     $scope.update = function(){
@@ -38,6 +39,7 @@ angular.module('yeomanApp')
         function (respuesta){
           sessionControl.set('name', nv.user.name);
           sessionControl.set('birthday', nv.user.birthday);
+          sessionControl.set('history', nv.user.history);
           toastr.success('Datos actualizados!', 'Mensaje');
         },
         function (error) {

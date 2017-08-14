@@ -55,9 +55,9 @@
                                 <h3>Acerca de vos</h3>
                                 <p>Escribí una breve biografía que estará visible para los alumnos.</p>
                                 <div class="bio-profe-form">
-                                   <form action="" method="POST" accept-charset="utf-8">
-                                        <textarea name="bio-profe" id="bio-profe" class="form-control" placeholder="Escribe aquí"></textarea>
-                                        <input type="submit" class="btn btn-primary" value="GUARDAR">  
+                                   <form>
+                                        <textarea name="bio-profe" id="bio-profe" class="form-control" placeholder="Escribe aquí" ng-model="editProfile.user.history"></textarea>
+                                        <input type="submit" class="btn btn-primary" value="GUARDAR" ng-click="update()">  
                                     </form> 
                                 </div>
                             </div>
