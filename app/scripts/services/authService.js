@@ -18,7 +18,7 @@ angular.module('authService', [])
 		return sessionControl.get('rol');
 	})
 	.factory('authUser', function ($auth, sessionControl, toastr, $location){
-		var cacheSession = function(id, email, name, pass, rol, birthday, active, plataforma_id, avatar){
+		var cacheSession = function(id, email, name, pass, rol, birthday, active, plataforma_id, avatar, history){
 			sessionControl.set('userIsLogin', true);
 			sessionControl.set('id', id);
 			sessionControl.set('email', email);
@@ -29,8 +29,9 @@ angular.module('authService', [])
 			sessionControl.set('active', active);
 			sessionControl.set('plataforma', plataforma_id);
 			sessionControl.set('avatar', avatar);
+			sessionControl.set('history', history);
 		};
-		var unCacheSession = function(id, email, name, pass, rol, birthday, active, plataforma_id, avatar){
+		var unCacheSession = function(id, email, name, pass, rol, birthday, active, plataforma_id, avatar, history){
 			sessionControl.unset('userIsLogin', true);
 			sessionControl.unset('id', id);
 			sessionControl.unset('email', email);
@@ -41,6 +42,7 @@ angular.module('authService', [])
 			sessionControl.unset('active', active);
 			sessionControl.unset('plataforma', plataforma_id);
 			sessionControl.unset('avatar', avatar);
+			sessionControl.unset('history', history);
 		};
 		var login = function(loginForm){
 			$auth.login(loginForm).then(
@@ -54,7 +56,8 @@ angular.module('authService', [])
 						response.data.user.birthday, 
 						response.data.user.active, 
 						response.data.user.plataforma_id, 
-						response.data.user.avatar 
+						response.data.user.avatar,
+						response.data.user.history 
 					);
 					$location.path('/panel/user/perfil');
 					toastr.success('Sesión iniciada con éxito', 'Mensaje');

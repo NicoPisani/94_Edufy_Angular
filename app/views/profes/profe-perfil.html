@@ -1,6 +1,6 @@
  <div ng-include = "ProfePerfil.menuTemplate.url" ></div>
 
- <section id="users">
+ <section id="users" ng-controller="ProfePerfilCtrl as editProfile">
         <div class="row">
             <div class="col-xs-2 col-sm-2 col-md-3 col-lg-3">
                 <!-- Sidebar -->
@@ -18,31 +18,32 @@
                                 <h3>MI PERFIL</h3>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 cpanel-user-info">
-                                <div class="cpanel-user-info-picture">
-                                    <figure>
-                                        <figcaption><i class="fa fa-camera" aria-hidden="true"></i><br> Cargar Foto</figcaption>
+                                <div class="cpanel-user-info-picture" ng-controller="UploadController">
+                                    <figure style="background-image: url({{editProfile.user.avatar}});background-position: 50% 50%;background-size: cover;background-repeat: no-repeat;">
+                                            <img ng-src="{{imageSrc}}" />
+                                            <label for="upload">
+                                            <i class="fa fa-camera" aria-hidden="true" ></i><br> Cambiar Foto</a>
+                                            <input type="file" id="upload" name="upload" style="visibility:hidden;" accept="image/*" ng-file-select="onFileSelect($files)">
+                                            </label>
+                                        </figcaption>
                                     </figure>
                                 </div>
 
                                 <div class="cpanel-user-info-data">
-                                    <form action="" method="POST" accept-charset="utf-8">
+                                    <form>
                                         <div class="input-group">
                                             <i class="fa fa-user" aria-hidden="true"></i>
-                                            <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido">
-                                            <span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                                            <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido" ng-model="editProfile.user.name">
+                                            <span class="input-group-addon" ng-click="update(editProfile)"><i class="fa fa-pencil" aria-hidden="true"></i></span>
                                         </div>
-                                    </form>
-                                    <form action="" method="POST" accept-charset="utf-8">
                                         <div class="input-group">
                                             <i class="fa fa-birthday-cake" aria-hidden="true"></i>
-                                            <input type="text" name="nombre" id="nombre" placeholder="DD/MM/YYYY">
-                                            <span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                                            <input type="text" name="birthday" id="birthday" placeholder="DD/MM/YYYY" ng-model="editProfile.user.birthday">
+                                            <span class="input-group-addon" ng-click="update()"><i class="fa fa-pencil" aria-hidden="true"></i></span>
                                         </div>
-                                    </form>
-                                    <form action="" method="POST" accept-charset="utf-8">
                                         <div class="input-group">
                                             <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                            <label>email_prueba@gmail.com</label>
+                                             <input type="text" name="email" id="email" placeholder="email_prueba@gmail.com" ng-model="editProfile.user.email" readonly>
                                         </div>
                                     </form>
                                 </div>
@@ -70,30 +71,41 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cpanel-user-subcontainer" id="cpanel-user-subcontainer">
                                         <p>Si presionas el botón guardar cambios, tu contraseña se reestablecerá.</p>
-                                        <form action="" method="get" accept-charset="utf-8">
-                                            <div class="row form-group">
-                                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                                    <label for="old_pass" id="label_old_pass">Contraseña actual</label><br>
-                                                    <input type="password" name="old_pass" id="old_pass" class="form-control input">
-                                                </div>
-                                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"></div>
+                                        <form id="formulario" name="formulario" accept-charset="utf-8" novalidate>
+                                        <div class="row form-group">
+                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                                <label for="old_pass" id="label_old_pass">Contraseña actual</label><br>
+                                                <input type="password" name="old_pass" id="old_pass" class="form-control input" ng-model="editProfile.old_pass" required>
+                                                <div ng-show="formulario.$submitted &&  editProfile.old_pass != editProfile.pass" class="alert alert-danger">
+                                                    ¡Contraseña incorrecta!</div>
+                                                <div ng-show="formulario.$submitted && formulario.old_pass.$error.required" class="alert alert-danger">Completar este campo</div>
                                             </div>
-                                            <div class="row form-group">
-                                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                                    <label for="new_pass" id="label_new_pass">Contraseña nueva</label><br>
-                                                    <input type="password" name="new_pass" id="new_pass" class="form-control input">
-                                                </div>
-                                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                                    <label for="re_pass" id="label_re_pass">Repetir contraseña</label><br>
-                                                    <input type="password" name="re_pass" id="re_pass" class="form-control input">
-                                                </div>
+                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"></div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                                <label for="new_pass" id="label_new_pass">Contraseña nueva</label><br>
+                                                <input type="password" name="new_pass" id="new_pass" class="form-control input" ng-model="editProfile.new_pass" required>
+                                                <div ng-show="formulario.$submitted && formulario.new_pass.$error.required" class="alert alert-danger">Completar este campo</div>
                                             </div>
-                                            <div class="row form-group">
-                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                    <input type="submit" class="btn btn-primary" value="RESTABLECER">
-                                                </div>
+                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                                <label for="re_pass" id="label_re_pass">Repetir contraseña</label><br>
+                                                <input type="password" name="re_pass" id="re_pass" class="form-control input"ng-model="editProfile.re_pass" required>
+                                                <div ng-show="formulario.$submitted && editProfile.new_pass != editProfile.re_pass" class="alert alert-danger">
+                                                    ¡Las contraseñas no coinciden!</div>
+                                                <div ng-show="formulario.$submitted && formulario.re_pass.$error.required" class="alert alert-danger">Completar este campo</div>
                                             </div>
-                                        </form>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <input type="submit" 
+                                                class="btn btn-primary" 
+                                                ng-click="changeNewPass(editProfile.old_pass, editProfile.new_pass, editProfile.re_pass)" 
+                                                ng-disabled="!formulario.$valid" 
+                                                value="RESTABLECER">
+                                            </div>
+                                        </div>
+                                    </form>
                                     </div>
                                 </div>
                             </div>                    

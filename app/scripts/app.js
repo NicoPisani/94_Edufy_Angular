@@ -24,7 +24,7 @@ angular
   ])
 
   .constant('GLOBAL',{
-    URL_API: 'http://api.wcanvas.website/api/'
+    URL_API: 'http://127.0.0.1:8000/api/'
   })
 
   .constant('ROLES', {
