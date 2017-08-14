@@ -8,7 +8,7 @@
  * Controller of the yeomanApp
  */
 angular.module('yeomanApp')
-  .controller('ProfeNuevoCtrl', function () {
+  .controller('ProfeNuevoCtrl', function (GLOBAL, authUser, sessionControl, $scope, $http, $parse, toastr) {
 
     var nv = this;
 
@@ -22,76 +22,32 @@ angular.module('yeomanApp')
       url : 'views/footer/footer.html'
     }
 
-    //Array de Modulos
-    nv.modulos = [
-      {
-        'titulo' : 'MÓDULO 1 - PRÁCTICAS DE LENGUAJE',
-        'descripcion' : "Let's take a look at the areas you should consider for security. Attack surfaces, data transmission and storage, and more.",
-        'visible' : true,
-        clases : [
-          {
-            'titulo' : 'TITULO',
-            'visible' : true
-          }
-
-        ]
-      }
-    ];
-
-    var modulo = {
-      'titulo' : 'MODULO',
-      'descripcion' : "Let's take a look at the areas you should consider for security. Attack surfaces, data transmission and storage, and more.",
-      'visible' : true,
-      clases : [
-        // {
-        //   'titulo' : 'TITULO',
-        //   'visible' : true
-        // }
-      ]
-    }
-    var clase = {
-      'titulo' : 'TITULO',
-      'visible' : true
+    nv.curso = {
+      nombre : '',
+      descripcion : '',
+      precio : '',
+      horas : '',
+      tema_1 : '',
+      tema_2 : '',
+      tema_3 : '',
+      detalle : '',
+      estado : 'Pendiente'
     }
 
-  //Funciones
-    //Modulos
-    nv.removerModulo = function(idModulo) {
-      nv.modulos.splice(idModulo, 1);
+    console.log(nv.curso);
+
+    $scope.insert = function(){
+      $http({
+        url: GLOBAL.URL_API+"curso/store",
+        method: "POST",
+        data:  nv.curso
+      }).then(
+        function (respuesta){
+          toastr.success('Curso creado correctamente!', 'Mensaje');
+        },
+        function (error) {
+           toastr.error('Algo salio mal, vuelve a intentarlo', 'Mensaje');
+       });
     }
 
-    nv.setearVisible = function(idModulo) {
-      nv.modulos[idModulo].visible = !nv.modulos[idModulo].visible
-    }
-
-    nv.agregarModulo = function() {
-      angular.forEach(nv.modulos, function(value, key) {
-        value.visible = false;
-      });
-      nv.modulos.push(angular.copy(modulo));
-
-    }
-
-
-    //Clases
-    nv.agregarClase = function(idModulo) {
-      angular.forEach(nv.modulos[idModulo].clases, function(value,key) {
-        value.visible = false;
-      })
-      nv.modulos[idModulo].clases.push(angular.copy(clase));
-    }
-
-    nv.setearClaseVisible = function(idModulo, idClase) {
-      nv.modulos[idModulo].clases[idClase].visible = !nv.modulos[idModulo].clases[idClase].visible
-    }
-
-    nv.removerModulo = function(idModulo, idClase) {
-      nv.modulos[idModulo].clases.splice(idModulo, 1);
-    }
-
-    nv.setearClaseVisibleYAgregarOtra = function(idModulo, idClase) {
-      nv.modulos[idModulo].clases[idClase].visible = !nv.modulos[idModulo].clases[idClase].visible
-
-      nv.agregarClase(idModulo, idClase);
-    }
-  });
+  })
