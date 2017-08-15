@@ -19,14 +19,13 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cpanel-user-info">
                             <div class="cpanel-user-info-picture" ng-controller="UploadController">
-                                <figure style="background-image: url({{editProfile.user.avatar}});background-position: 50% 50%;background-size: cover;background-repeat: no-repeat;">
-                                    <img ng-src="{{imageSrc}}" />
+                                <figure style="background-image: url({{thumbnail.dataUrl}});background-position: 50% 50%;background-size: cover;background-repeat: no-repeat;">
                                     <figcaption>
-                                    <label for="upload">
-                                    <i class="fa fa-camera" aria-hidden="true" ></i><br> Cambiar Foto</a>
-                                    <input type="file" id="upload" name="upload" style="visibility:hidden;" accept="image/*" ng-file-select="onFileSelect($files)">
-                                    </label>
-                                </figcaption>
+                                        <label for="upload">
+                                        <i class="fa fa-camera" aria-hidden="true" ></i><br> Cambiar Foto</a>
+                                        <input type="file" id="upload" name="upload" style="visibility:hidden;" accept="image/*" onchange="angular.element(this).scope().photoChanged(this.files)" uploader-model="editProfile.user.avatar">
+                                        </label>
+                                    </figcaption>
                                 </figure>
                             </div>
 
