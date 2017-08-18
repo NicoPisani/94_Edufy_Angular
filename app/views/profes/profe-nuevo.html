@@ -12,14 +12,14 @@
                  <div id="page-content">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-left cpanel-user-container-titulo">
-                            <h3>NUEVO CURSO</h3>
+                            <h3>{{titulo}}</h3>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cpanel-profes-info">
                             <form name="upload" ng-submit="uploadFile()">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profes-nuevocurso-asides">
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2 cpanel-profes-info-picture">
-                                            <figure style="background-image: url({{thumbnail.dataUrl}});background-position: 50% 50%;background-size: cover;background-repeat: no-repeat;">
+                                            <figure style="background-image: url({{ thumbnail.dataUrl }});background-position: 50% 50%;background-size: cover;background-repeat: no-repeat;">
                                               <figcaption>
                                               <label for="file">
                                               <i class="fa fa-camera" aria-hidden="true" ></i><br> Cambiar Foto</a>
@@ -30,23 +30,23 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pull-right cpanel-profes-info-data">
                                             <div class="input-group">
-                                                <input type="text" name="nombre" id="nombre" placeholder="Titulo del curso" ng-model="nuevoCurso.curso.nombre">
+                                                <input type="text" name="nombre" id="nombre" placeholder="Titulo del curso" ng-model="curso.nombre">
                                                 <div class="line-full"></div>
                                             </div>
                                             <div class="input-group">
                                                 <label>Descripción corta (máximo 200 caracteres)</label>
-                                                <textarea name="detalle_corto" id="detalle_corto" class="form-control" placeholder="Descripción del curso" ng-model="nuevoCurso.curso.descripcion"></textarea>
+                                                <textarea name="detalle_corto" id="detalle_corto" class="form-control" placeholder="Descripción del curso" ng-model="curso.descripcion"></textarea>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                               <div class="input-group">
                                                 <label>Precio</label>
-                                                <input type="text" name="precio" id="precio" class="form-control" placeholder="1200" ng-model="nuevoCurso.curso.precio">
+                                                <input type="text" name="precio" id="precio" class="form-control" placeholder="1200" ng-model="curso.precio">
                                               </div>
                                             </div>
                                              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                               <div class="input-group">
                                                 <label>Horas</label>
-                                                <input type="text" name="horas" id="horas" class="form-control" placeholder="20 horas" ng-model="nuevoCurso.curso.horas">
+                                                <input type="text" name="horas" id="horas" class="form-control" placeholder="20 horas" ng-model="curso.horas">
                                               </div>
                                             </div>
                                         </div>
@@ -61,7 +61,7 @@
                                                 <i class="fa fa-circle" aria-hidden="true"></i>
                                             </div>
                                             <div class="profes-tabs-ul-li-2">
-                                                <input type="text" name="tema_1" id="tema_1" placeholder="ORATIORIA PARTE 1" ng-model="nuevoCurso.curso.tema_1">
+                                                <input type="text" name="tema_1" id="tema_1" placeholder="ORATIORIA PARTE 1" ng-model="curso.tema_1">
                                                 <a href="#" title="">
                                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                                 </a>
@@ -72,7 +72,7 @@
                                                 <i class="fa fa-circle" aria-hidden="true"></i>
                                             </div>
                                             <div class="profes-tabs-ul-li-2">
-                                                <input type="text" name="tema_2" id="tema_2" placeholder="ORATIORIA PARTE 2" ng-model="nuevoCurso.curso.tema_2">
+                                                <input type="text" name="tema_2" id="tema_2" placeholder="ORATIORIA PARTE 2" ng-model="curso.tema_2">
                                                 <a href="#" title="">
                                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                                 </a>
@@ -83,7 +83,7 @@
                                                 <i class="fa fa-circle" aria-hidden="true"></i>
                                             </div>
                                             <div class="profes-tabs-ul-li-2">
-                                                <input type="text" name="tema_3" id="tema_3" placeholder="ORATIORIA PARTE 3" ng-model="nuevoCurso.curso.tema_3">
+                                                <input type="text" name="tema_3" id="tema_3" placeholder="ORATIORIA PARTE 3" ng-model="curso.tema_3">
                                                 <a href="#" title="">
                                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                                 </a>
@@ -95,7 +95,7 @@
                                     <h3>DESCRIPCIÓN DETALLADA DEL CURSO</h3>
                                     <p>Descripción corta (máximo 500 caracteres)</p>
                                     <div class="input-group">
-                                        <textarea name="detalle_largo" id="detalle_largo" class="form-control" placeholder="Escribe aquí" ng-model="nuevoCurso.curso.detalle"></textarea>
+                                        <textarea name="detalle_largo" id="detalle_largo" class="form-control" placeholder="Escribe aquí" ng-model="curso.detalle"></textarea>
                                     </div>
                                 </div>
 

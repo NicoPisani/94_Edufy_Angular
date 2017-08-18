@@ -17,7 +17,7 @@ angular.module('authService', [])
 	.factory('getRol', function ($auth, sessionControl, toastr, $location){
 		return sessionControl.get('rol');
 	})
-	.factory('authUser', function ($auth, sessionControl, toastr, $location){
+	.factory('authUser', function ($auth, sessionControl, toastr, $location, ROLES){
 		var cacheSession = function(id, email, name, pass, rol, birthday, active, plataforma_id, avatar, history){
 			sessionControl.set('userIsLogin', true);
 			sessionControl.set('id', id);
@@ -59,7 +59,13 @@ angular.module('authService', [])
 						response.data.user.avatar,
 						response.data.user.history 
 					);
-					$location.path('/panel/user/perfil');
+					if(response.data.user.rol == ROLES.PROFE.ROL){
+						$location.path('/panel/profesor/perfil');
+					}else if(response.data.user.rol == ROLES.USER.ROL){
+						$location.path('/panel/user/perfil');
+					}else{
+						$location.path('/');
+					}
 					toastr.success('Sesión iniciada con éxito', 'Mensaje');
 				},
 				function(error){

@@ -111,6 +111,12 @@ angular
         controllerAs: 'ProfeNuevo',
         authorized: ROLES.PROFE.ROL
       })
+        .when('/panel/profesor/edit/:id', {
+        templateUrl:'views/'+ROLES.PROFE.PATH+'/profe-nuevo.html',
+        controller: 'ProfeNuevoCtrl',
+        controllerAs: 'ProfeNuevo',
+        authorized: ROLES.PROFE.ROL
+      })
        .when('/panel/profesor/pagos', {
         templateUrl: 'views/'+ROLES.PROFE.PATH+'/profe-pagos.html',
         controller: 'ProfePagosCtrl',
@@ -144,6 +150,7 @@ angular
       '/panel/profesor/cursos',
       '/panel/profesor/perfil',
       '/panel/profesor/nuevo',
+      '/panel/profesor/edit',
       '/panel/profesor/archivos'
       ];
     $rootScope.$on('$routeChangeStart', function(event, next){

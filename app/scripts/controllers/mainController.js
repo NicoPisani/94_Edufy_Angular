@@ -29,50 +29,9 @@ angular.module('yeomanApp')
     .then(
      function (response) {
        $scope.cursos = response.data;
-       //arreglar el $scope.cursos[0].user_id trae solo el 1º no el que corresponde a cada obj
-       $http.get(GLOBAL.URL_API+"user-public/"+$scope.cursos[0].user_id)    
-        .then(
-         function (response2) {
-           $scope.user = response2.data;
-         })
      },
      function (error) {
          console.log('error')
      });
-
-  })
-
-  .controller('Signup', function (GLOBAL, authUser, sessionControl, $http, $scope, $location, toastr){
-
-    var sn = this;
-
-    var C = authUser.isLoggedIn();
-    $scope.IsAuthenticated = (C||null)==null?false:true;
-
-
-    sn.registerForm = {
-      name: '',
-      email: '',
-      password: '',
-      rol: 2,
-      active: 1,
-      plataforma_id: 1
-    };
-
-    sn.registrar = function (){
-      $http({
-        url: GLOBAL.URL_API+"auth/signup",
-        method: "POST",
-        data:  sn.registerForm,
-        /*headers: {'Content-Type': 'application/x-www-form-urlencoded'}*/
-      }).then(
-        function (respuesta){
-          toastr.success('Registro completado correctamente!', 'Mensaje');
-          $location.path('/login');
-        },
-        function (error) {
-           toastr.error('Algo salio mal! vuelve a intentarlo', 'Mensaje');
-       });
-    }
 
   })

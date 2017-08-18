@@ -64,7 +64,7 @@ angular.module('yeomanApp')
     }
 
     $scope.thumbnail = {
-        dataUrl: 'none'
+        dataUrl: nv.user.avatar
     };
     $scope.fileReaderSupported = window.FileReader != null;
     $scope.photoChanged = function(files){

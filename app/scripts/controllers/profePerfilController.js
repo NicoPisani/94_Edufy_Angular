@@ -8,7 +8,7 @@
  * Controller of the yeomanApp
  */
 angular.module('yeomanApp')
-  .controller('ProfePerfilCtrl', function (GLOBAL, authUser, sessionControl, $scope, $http, $parse, toastr) {
+  .controller('ProfePerfilCtrl', function (GLOBAL, authUser, sessionControl, $scope, $http, $parse, $timeout, toastr) {
     var nv = this;
     nv.menuTemplate = {
       url : 'views/navbar/navbar.html'
@@ -64,29 +64,25 @@ angular.module('yeomanApp')
       }
     }
 
-  })
+    $scope.thumbnail = {
+        dataUrl: nv.user.avatar
+    };
+    $scope.fileReaderSupported = window.FileReader != null;
+    $scope.photoChanged = function(files){
+        if (files != null) {
+            var file = files[0];
+            if ($scope.fileReaderSupported && file.type.indexOf('image') > -1) {
+                $timeout(function() {
+                    var fileReader = new FileReader();
+                    fileReader.readAsDataURL(file);
+                    fileReader.onload = function(e) {
+                        $timeout(function(){
+                          $scope.thumbnail.dataUrl = e.target.result;
+                        });
+                    }
+                });
+            }
+        }
+    };
 
-  .controller('UploadController', function ($scope, fileReader) {
-      $scope.getFile = function () {
-          $scope.progress = 0;
-          fileReader.readAsDataUrl($scope.file, $scope)
-          .then(function(result) {
-              $scope.imageSrc = result;
-          });
-      };
-   
-      $scope.$on("fileProgress", function(e, progress) {
-          $scope.progress = progress.loaded / progress.total;
-      });
-  })
-
-  .directive("ngFileSelect",function(){
-    return {
-      link: function($scope,el){
-        el.bind("change", function(e){
-          $scope.file = (e.srcElement || e.target).files[0];
-          $scope.getFile();
-        })
-      }
-    }  
   })
