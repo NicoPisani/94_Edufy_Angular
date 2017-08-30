@@ -120,7 +120,6 @@ angular.module('yeomanApp')
     this.uploadFile = function (curso){
       var deferred = $q.defer();
       if($routeParams.id){
-          console.log(curso);
           $http({
               url: GLOBAL.URL_API+"curso/" + $routeParams.id,
               method: "PUT",
@@ -139,12 +138,24 @@ angular.module('yeomanApp')
 
       }else{
 
+        var nombre = curso.nombre;
+        var descripcion = curso.descripcion;
+        var precio = curso.precio;
+        var horas = curso.horas;
+        var tema_1 = curso.tema_1;
+        var tema_2 = curso.tema_2;
+        var tema_3 = curso.tema_3;
+        var file = curso.imagen;
+        var detalle = curso.detalle;
+        var estado = curso.estado;
+
           $http({
               url: GLOBAL.URL_API+"curso/store",
               method: "POST",
-              data:  curso,
+              //headers: {'Content-Type': 'multipart/form-data'},
+              data: { file, nombre,descripcion,precio,horas,tema_1,tema_2,tema_3,detalle,estado},
               // headers: {"Content-type": undefined},
-              // transformRequest: angular.identity
+              //transformRequest: angular.identity
             }).then(
             function (respuesta){
               deferred.resolve(respuesta);
