@@ -14,6 +14,7 @@ angular.module('yeomanApp')
     //Array de Modulos
     nv.modulos = [
       {
+        'curso_id': $routeParams.id,
         'titulo' : 'MÓDULO 1 - PRÁCTICAS DE LENGUAJE',
         'descripcion' : "Let's take a look at the areas you should consider for security. Attack surfaces, data transmission and storage, and more.",
         'visible' : true,
@@ -28,6 +29,7 @@ angular.module('yeomanApp')
     ];
 
     var modulo = {
+      'curso_id': $routeParams.id,
       'titulo' : 'MODULO',
       'descripcion' : "Let's take a look at the areas you should consider for security. Attack surfaces, data transmission and storage, and more.",
       'visible' : true,
