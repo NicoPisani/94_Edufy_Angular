@@ -17,21 +17,4 @@ angular.module('yeomanApp')
     nv.Curso = $resource($scope.global.URL_API+"curso/");
     $scope.cursos = nv.Curso.query(); // query() -> GET /post -> devuelve un arraglo de post
 
-   // $http({
-   //      url: GLOBAL.URL_API+"curso/",
-   //      method: "GET",
-   //      headers: {
-   //        'Access-Control-Allow-Origin': '*',
-   //        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
-   //        'Access-Control-Allow-Headers': 'Content-Type'
-   //      }
-   //  })   
-   //  .then(
-   //   function (response) {
-   //     $scope.cursos = response.data;
-   //   },
-   //   function (error) {
-   //       console.log('error')
-   //   });
-
   })

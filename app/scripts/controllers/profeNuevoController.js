@@ -22,19 +22,6 @@ angular.module('yeomanApp')
       url : 'views/footer/footer.html'
     }
 
-    nv.curso = {
-      nombre : '',
-      descripcion : '',
-      precio : '',
-      horas : '',
-      tema_1 : '',
-      tema_2 : '',
-      tema_3 : '',
-      imagen : '',
-      detalle : '',
-      estado : ''
-    }
-
   /*------------------------------------*/
 
     if($routeParams.id){
@@ -43,7 +30,15 @@ angular.module('yeomanApp')
         $http.get(GLOBAL.URL_API+"curso/"+$routeParams.id)    
         .then(
            function (response) {
-             $scope.curso = response.data;
+             $scope.nombre = response.data.nombre;
+             $scope.descripcion = response.data.descripcion;
+             $scope.precio = response.data.precio;
+             $scope.horas = response.data.horas;
+             $scope.tema_1 = response.data.tema_1;
+             $scope.tema_2 = response.data.tema_2;
+             $scope.tema_3 = response.data.tema_3;
+             $scope.detalle = response.data.detalle;
+             $scope.estado = response.data.estado;
              $scope.thumbnail = { dataUrl: response.data.imagen };
            },
            function (error) {
@@ -51,9 +46,20 @@ angular.module('yeomanApp')
                console.log('error')
              }
            });
+
       }else{
-        $scope.titulo = 'NUEVO CURSO'; 
-        $scope.thumbnail = { dataUrl: '' };
+          $scope.titulo = 'NUEVO CURSO'; 
+          $scope.thumbnail = { dataUrl: '' };
+          $scope.nombre = '';
+          $scope.descripcion = '';
+          $scope.precio = '';
+          $scope.horas = '';
+          $scope.tema_1 = '';
+          $scope.tema_2 = '';
+          $scope.tema_3 = '';
+          $scope.detalle = '';
+          $scope.estado = '';
+          $scope.thumbnail = {dataUrl: ''};
     }
     
   /*-------------------------------------*/
@@ -112,7 +118,7 @@ angular.module('yeomanApp')
     };
   }) // End Directive
 
-  .service('upload', function (GLOBAL, $http, $q, $routeParams, toastr){
+  .service('upload', function (GLOBAL, $http, $q, $routeParams, toastr,$location){
     this.uploadFile = function (curso){
       var deferred = $q.defer();
       if($routeParams.id){
@@ -153,8 +159,9 @@ angular.module('yeomanApp')
               // headers: {"Content-type": undefined},
               //transformRequest: angular.identity
             }).then(
-            function (respuesta){
-              deferred.resolve(respuesta);
+            function (response){
+              deferred.resolve(response);
+              $location.path('/panel/profesor/edit/'+response.data);
               toastr.success('Curso creado correctamente!', 'Mensaje');
             },
             function (error) {
