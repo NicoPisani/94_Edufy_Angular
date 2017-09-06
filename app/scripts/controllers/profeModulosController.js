@@ -137,11 +137,12 @@ angular.module('yeomanApp')
     if($routeParams.id){
       //Edit Curso
       $scope.curso_id = $routeParams.id;
-      $http.get(GLOBAL.URL_API+"modulo/clase/"+$routeParams.id)    
+      $http.get(GLOBAL.URL_API+"modulo/"+$routeParams.id)    
         .then(
           function (response) {
+            console.log(response);
 
-              $scope.modulo = [];
+           /*   $scope.modulo = [];
               $scope.clase = [];
               $scope.xx = 0;
               nv.modulos = [];
@@ -168,13 +169,14 @@ angular.module('yeomanApp')
                   }
                   $scope.modulo.clases.push(angular.copy($scope.clase));
                 }
+                console.log($scope.clase);
 
-                if($scope.xx != value.modulo_id){
+                //if($scope.xx != value.modulo_id){
                   nv.modulos.push(angular.copy($scope.modulo));
-                }
+               // }
                 $scope.xx = value.modulo_id;
 
-              }, $scope.modulo);
+              }, $scope.modulo);*/
 
               //$scope.thumbnail = { dataUrl: response.data.imagen };
           },
