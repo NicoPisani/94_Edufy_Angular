@@ -1,174 +1,132 @@
 'use strict';
 
 /**
- * @ngdoc function
- * @name yeomanApp.controller:ProfeNuevoCtrl
- * @description
- * # ProfeNuevoCtrl
- * Controller of the yeomanApp
- */
+* @ngdoc function
+* @name yeomanApp.controller:ProfeNuevoCtrl
+* @description
+* # ProfeNuevoCtrl
+* Controller of the yeomanApp
+*/
 angular.module('yeomanApp')
-  .controller('ProfeNuevoCtrl', function (GLOBAL, authUser, sessionControl, $scope, $http, $parse, $timeout, upload, $routeParams, toastr) {
+.controller('ProfeNuevoCtrl', function (GLOBAL, authUser, sessionControl, $scope, $http, $parse, $timeout, upload, $routeParams, toastr) {
 
-    var nv = this;
+  var nv = this;
 
-    nv.menuTemplate = {
-      url : 'views/navbar/navbar.html'
-    },
-    nv.sidebarTemplate = {
-      url : 'views/sidebar/sidebar-profe.html'
-    },
-    nv.footerTemplate = {
-      url : 'views/footer/footer.html'
-    }
+  nv.menuTemplate = {
+    url : 'views/navbar/navbar.html'
+  },
+  nv.sidebarTemplate = {
+    url : 'views/sidebar/sidebar-profe.html'
+  },
+  nv.footerTemplate = {
+    url : 'views/footer/footer.html'
+  }
 
-  /*------------------------------------*/
-
-    if($routeParams.id){
-        $scope.titulo = 'EDITAR CURSO';
-
-        $http.get(GLOBAL.URL_API+"curso/"+$routeParams.id)    
-        .then(
-           function (response) {
-             $scope.nombre = response.data.nombre;
-             $scope.descripcion = response.data.descripcion;
-             $scope.precio = response.data.precio;
-             $scope.horas = response.data.horas;
-             $scope.tema_1 = response.data.tema_1;
-             $scope.tema_2 = response.data.tema_2;
-             $scope.tema_3 = response.data.tema_3;
-             $scope.detalle = response.data.detalle;
-             $scope.estado = response.data.estado;
-             $scope.thumbnail = { dataUrl: response.data.imagen };
-           },
-           function (error) {
-             if(error.data.error === 'token_not_provided') {
-               console.log('error')
-             }
-           });
-
-      }else{
-          $scope.titulo = 'NUEVO CURSO'; 
-          $scope.thumbnail = { dataUrl: '' };
-          $scope.nombre = '';
-          $scope.descripcion = '';
-          $scope.precio = '';
-          $scope.horas = '';
-          $scope.tema_1 = '';
-          $scope.tema_2 = '';
-          $scope.tema_3 = '';
-          $scope.detalle = '';
-          $scope.estado = '';
-          $scope.thumbnail = {dataUrl: ''};
-    }
-    
   /*-------------------------------------*/
 
-    $scope.fileReaderSupported = window.FileReader != null;
-      $scope.photoChanged = function(files){
-        if (files != null) {
-            var file = files[0];
-            if ($scope.fileReaderSupported && file.type.indexOf('image') > -1) {
-                $timeout(function() {
-                    var fileReader = new FileReader();
-                    fileReader.readAsDataURL(file);
-                    fileReader.onload = function(e) {
-                        $timeout(function(){
-                          $scope.thumbnail.dataUrl = e.target.result;
-                        });
-                    }
-                });
-            }
-        }
-    };
+  $scope.fileReaderSupported = window.FileReader != null;
+  $scope.photoChanged = function(files){
+    if (files != null) {
+      var file = files[0];
+      if ($scope.fileReaderSupported && file.type.indexOf('image') > -1) {
+        $timeout(function() {
+          var fileReader = new FileReader();
+          fileReader.readAsDataURL(file);
+          fileReader.onload = function(e) {
+            $timeout(function(){
+              $scope.thumbnail.dataUrl = e.target.result;
+            });
+          }
+        });
+      }
+    }
+  };
 
 
   /*-----------------------------------*/
 
-    $scope.uploadFile = function (){
+  $scope.uploadFile = function (){
 
-      nv.curso = {
-        nombre : $scope.nombre,
-        descripcion : $scope.descripcion,
-        precio : $scope.precio,
-        horas : $scope.horas,
-        tema_1 : $scope.tema_1,
-        tema_2 : $scope.tema_2,
-        tema_3 : $scope.tema_3,
-        imagen : $scope.file,
-        detalle : $scope.detalle,
-        estado : 'Pendiente'
-      }
-
-      upload.uploadFile(nv.curso).then(function (res){
-        console.log(res);
-      })
+    nv.curso = {
+      nombre : $scope.nombre,
+      descripcion : $scope.descripcion,
+      precio : $scope.precio,
+      horas : $scope.horas,
+      tema_1 : $scope.tema_1,
+      tema_2 : $scope.tema_2,
+      tema_3 : $scope.tema_3,
+      imagen : $scope.file,
+      detalle : $scope.detalle,
+      estado : 'Pendiente'
     }
 
-  }) // End Controller
+    upload.uploadFile(nv.curso).then(function (res){
+      console.log(res);
+    })
+  }
 
-  .directive('uploaderModel', function ($parse){
-    return {
-      restrict : 'A',
-      link: function (scope, iElement, iAttrs){
-        iElement.on("change", function (e){
-          $parse(iAttrs.uploaderModel).assign(scope, iElement[0].files[0]);
-        });
-      }
-    };
-  }) // End Directive
+}) // End Controller
 
-  .service('upload', function (GLOBAL, $http, $q, $routeParams, toastr,$location){
-    this.uploadFile = function (curso){
-      var deferred = $q.defer();
-      if($routeParams.id){
-          $http({
-              url: GLOBAL.URL_API+"curso/" + $routeParams.id,
-              method: "PUT",
-              data:  curso,
-              // headers: {"Content-type": undefined},
-              // transformRequest: angular.identity
-            }).then(
-            function (respuesta){
-              deferred.resolve(respuesta);
-              toastr.success('Curso actualizado correctamente!', 'Mensaje');
-            },
-            function (error) {
-               toastr.error('Algo salio mal, vuelve a intentarlo', 'Mensaje');
-           });
-          return deferred.promise;
+.directive('uploaderModel', function ($parse){
+  return {
+    restrict : 'A',
+    link: function (scope, iElement, iAttrs){
+      iElement.on("change", function (e){
+        $parse(iAttrs.uploaderModel).assign(scope, iElement[0].files[0]);
+      });
+    }
+  };
+}) // End Directive
 
-      }else{
+.service('upload', function (GLOBAL, $http, $q, $routeParams, toastr,$location){
+  this.uploadFile = function (curso){
+    var deferred = $q.defer();
 
-        var nombre = curso.nombre;
-        var descripcion = curso.descripcion;
-        var precio = curso.precio;
-        var horas = curso.horas;
-        var tema_1 = curso.tema_1;
-        var tema_2 = curso.tema_2;
-        var tema_3 = curso.tema_3;
-        var file = curso.imagen;
-        var detalle = curso.detalle;
-        var estado = curso.estado;
+    if($routeParams.id){
+      //EDIT
+      $http({
+        url: GLOBAL.URL_API+"curso/" + $routeParams.id,
+        method: "PUT",
+        data:  curso,
+      }).then(
+      function (respuesta){
+        deferred.resolve(respuesta);
+        toastr.success('Curso actualizado correctamente!', 'Mensaje');
+      },
+      function (error) {
+        toastr.error('Algo salio mal, vuelve a intentarlo', 'Mensaje');
+      });
+      return deferred.promise;
 
-          $http({
-              url: GLOBAL.URL_API+"curso/store",
-              method: "POST",
-              //headers: {'Content-Type': 'multipart/form-data'},
-              data: { file, nombre,descripcion,precio,horas,tema_1,tema_2,tema_3,detalle,estado},
-              // headers: {"Content-type": undefined},
-              //transformRequest: angular.identity
-            }).then(
-            function (response){
-              deferred.resolve(response);
-              $location.path('/panel/profesor/edit/'+response.data);
-              toastr.success('Curso creado correctamente!', 'Mensaje');
-            },
-            function (error) {
-               toastr.error('Algo salio mal, vuelve a intentarlo', 'Mensaje');
-           });
-          return deferred.promise;
+    }else{
+      //NEW
+      var nombre = curso.nombre;
+      var descripcion = curso.descripcion;
+      var precio = curso.precio;
+      var horas = curso.horas;
+      var tema_1 = curso.tema_1;
+      var tema_2 = curso.tema_2;
+      var tema_3 = curso.tema_3;
+      var file = curso.imagen;
+      var detalle = curso.detalle;
+      var estado = curso.estado;
 
-      }
-     }
-  }) // End Service
+      $http({
+        url: GLOBAL.URL_API+"curso/store",
+        method: "POST",
+        //headers: {'Content-Type': 'multipart/form-data'},
+        data: { file, nombre,descripcion,precio,horas,tema_1,tema_2,tema_3,detalle,estado},
+      }).then(
+      function (response){
+        deferred.resolve(response);
+        $location.path('/panel/profesor/edit/'+response.data);
+        toastr.success('Curso creado correctamente!', 'Mensaje');
+      },
+      function (error) {
+        toastr.error('Algo salio mal, vuelve a intentarlo', 'Mensaje');
+      });
+      return deferred.promise;
+
+    }
+}
+}) // End Service
