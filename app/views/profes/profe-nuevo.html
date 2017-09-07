@@ -113,11 +113,8 @@
                                                 </div>
                                                 <div ng-click="modulos.setearVisible(key)" class="profes-tabs-moduls-1-1-inactive"></div>
                                                 <div class="profes-tabs-moduls-1-2">
-                                                    <div class="profes-tabs-moduls-1-2-1">
-                                                        <a href=""><i class="fa fa-ellipsis-v" aria-hidden="true"></i><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
-                                                    </div>
                                                     <div class="profes-tabs-moduls-1-2-2">
-                                                        <h3>{{value.titulo}}</h3>
+                                                        <h3>{{value.nombre}}</h3>
                                                         <p>{{value.descripcion}}</p>
                                                         <a href="" ng-click="modulos.setearVisible(key)"><i class="fa fa-angle-down" id="cpanel-user-icon-fa-angle" aria-hidden="true"></i> 5 CLASES</a>
                                                     </div>
@@ -133,9 +130,9 @@
                                                 </div>
                                                 <div ng-click="modulos.setearVisible(key)"  class="profes-tabs-moduls-1-1-active"></div>
                                                 <div class="profes-tabs-moduls-1-2">
-                                                    <h3><a href="" class="profes-moduls-edit-active"><i class="fa fa-ellipsis-v" aria-hidden="true"></i><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>{{value.titulo}}</h3>
+                                                    <h3><a href="" class="profes-moduls-edit-active"><i class="fa fa-ellipsis-v" aria-hidden="true"></i><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>{{value.nombre}}</h3>
                                                     <div class="input-group">
-                                                        <input type="text" name="titulo_modulo" id="titulo_modulo" class="form-control" placeholder="TITULO DEL MODULO" ng-model = "value.titulo">
+                                                        <input type="text" name="titulo_modulo" id="titulo_modulo" class="form-control" placeholder="TITULO DEL MODULO" ng-model = "value.nombre">
                                                         <input type="hidden" name="modulo_id" id="modulo_id" class="form-control" ng-model = "value.modulo_id">
                                                     </div>
                                                     <div class="input-group">
@@ -156,7 +153,7 @@
                                                               <a ng-click = "modulos.setearClaseVisible(key, keyClase)" title="Editar"><i class="fa fa-ellipsis-v" aria-hidden="true"></i><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
                                                           </div>
                                                           <div class="profes-tabs-moduls-1-3-clase-active">
-                                                              <h3>{{valueClase.titulo}}</h3>
+                                                              <h3>{{valueClase.nombre}}</h3>
                                                               <p>VIDEO CARGADO <span>Duración: 03:49</span></p>
                                                           </div>
                                                       </div>
@@ -166,17 +163,17 @@
                                                     <div ng-show = "valueClase.visible">
                                                       <div class="profes-tabs-moduls-1-3-clase">
                                                           <div class="profes-tabs-moduls-box-float-active">
-                                                              <a ng-click="modulos.removerModulo(key, keyClase)"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                              <a ng-click="modulos.removerClase(key, keyClase)"><i class="fa fa-times" aria-hidden="true"></i></a>
                                                           </div>
                                                           <div class="profes-tabs-moduls-1-3-clase-edit">
                                                               <a ng-click = "modulos.setearClaseVisible(key, keyClase)" title="Editar"><i class="fa fa-ellipsis-v" aria-hidden="true"></i><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
                                                           </div>
                                                           <div class="profes-tabs-moduls-1-3-clase-active">
-                                                              <h3>{{valueClase.titulo}}</h3>
-                                                              <input type="text" placeholder="Título de la clase" ng-model="valueClase.nombre_clase">
+                                                              <h3>{{valueClase.nombre}}</h3>
+                                                              <input type="text" placeholder="Título de la clase" ng-model="valueClase.nombre">
                                                               <input type="hidden" name="clase_modulo_id" id="clase_modulo_id" ng-model="valueClase.modulo_id">
-                                                              <input type="hidden" name="clase_id" ng-model="valueClase.clase_id">
-                                                              <textarea name="descripcion_clase" class="form-control" placeholder="Descripción de la clase" ng-model="valueClase.descripcion_clase"></textarea><br>
+                                                              <input type="hidden" name="id" ng-model="valueClase.id">
+                                                              <textarea name="descripcion" class="form-control" placeholder="Descripción de la clase" ng-model="valueClase.descripcion"></textarea><br>
                                                               <!-- <img src="images/cursos3.jpg" class="img-responsive"> -->
 
                                                               <span class="btn-light"><i class="fa fa-cloud-upload" aria-hidden="true"></i> SUBIR MATERIAL</span> <br><br><br>
