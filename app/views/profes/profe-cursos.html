@@ -57,9 +57,9 @@
                                         </div>
                                     </div>
                                     <div class="clearfix"></div>
-                                    <div class="incomplete success">PUBLICADO!</div>
-                                    <div class="incomplete danger">RECHAZADO</div>
-                                    <div class="incomplete warning">EN REVISIÓN</div>
+                                    <div ng-if="curso.estado == 'Publicado'" class="incomplete success">PUBLICADO</div>
+                                    <div ng-if="curso.estado == 'Rechazado'" class="incomplete danger">RECHAZADO</div>
+                                    <div ng-if="curso.estado == 'Pendiente'" class="incomplete warning">PENDIENTE</div>
                                 </div>
                             </div>
                         </div>                               
