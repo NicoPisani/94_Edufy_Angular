@@ -12,6 +12,41 @@ angular.module('yeomanApp')
 
   var nv = this;
 
+  $scope.thumbnail;
+
+  var curso = {
+    'id' : '',
+    'user_id' : '',
+    'nombre' : '',
+    'imagen' : '',
+    'horas' : '',
+    'precio' : '',
+    'tema_1' : '',
+    'tema_2' : '',
+    'tema_3' : '',
+    'estado' : '',
+    'detalle' : '',
+    'descripcion' : '',
+    modulos : []
+  }
+
+  var modulo = {
+    'modulo_id' : 1,
+    'curso_id': 1,
+    'nombre' : '...',
+    'descripcion' : '',
+    'visible' : true,
+    clases : []
+  }
+
+  var clase = {
+    'clase_id' : 1,
+    'modulo_id' : '',
+    'nombre' : '...',
+    'descripcion' : '',
+    'visible' : true
+  }
+
   nv.menuTemplate = {
     url : 'views/navbar/navbar.html'
   },
@@ -35,6 +70,7 @@ angular.module('yeomanApp')
           fileReader.onload = function(e) {
             $timeout(function(){
               $scope.thumbnail.dataUrl = e.target.result;
+              //$curso.imagen = e.target.result;
             });
           }
         });
@@ -45,15 +81,8 @@ angular.module('yeomanApp')
 
   /*-----------------------------------*/
 
-  $scope.uploadFile = function (){
-
-    var formController = nv.upload;
-
-    console.log(formController);
-
-    // upload.uploadFile(curso).then(function (res){
-    //   console.log(res);
-    // })
+  $scope.uploadFile = function (curso){
+    upload.uploadFile(curso);
   }
 
 }) // End Controller
@@ -91,16 +120,6 @@ angular.module('yeomanApp')
 
     }else{
       //NEW
-     /* var nombre = curso.nombre;
-      var descripcion = curso.descripcion;
-      var precio = curso.precio;
-      var horas = curso.horas;
-      var tema_1 = curso.tema_1;
-      var tema_2 = curso.tema_2;
-      var tema_3 = curso.tema_3;
-      var file = curso.imagen;
-      var detalle = curso.detalle;
-      var estado = curso.estado;*/
 
       console.log(curso);
 
@@ -108,7 +127,7 @@ angular.module('yeomanApp')
       //   url: GLOBAL.URL_API+"curso/store",
       //   method: "POST",
       //   //headers: {'Content-Type': 'multipart/form-data'},
-      //   data: { curso},
+      //   data: {curso},
       // }).then(
       // function (response){
       //   deferred.resolve(response);

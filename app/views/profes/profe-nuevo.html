@@ -15,11 +15,11 @@
             <h3>{{titulo}}</h3>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cpanel-profes-info">
-            <form name="upload" ng-submit="uploadFile()" enctype="multipart/form-data">
+            <form name="upload" ng-submit="uploadFile(cursos)" enctype="multipart/form-data">
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profes-nuevocurso-asides">
                 <div class="row">
-                  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2 cpanel-profes-info-picture">
-                    <figure style="background-image: url({{ curso.curso.imagen }});background-position: 50% 50%;background-size: cover;background-repeat: no-repeat;">
+                  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2 cpanel-profes-info-picture" ng-controller="ProfeNuevoCtrl">
+                    <figure style="background-image: url({{ curso.curso.imagen || thumbnail.dataUrl }});background-position: 50% 50%;background-size: cover;background-repeat: no-repeat;">
                       <figcaption>
                         <label for="file">
                           <i class="fa fa-camera" aria-hidden="true" ></i><br> Cambiar Foto</a>
@@ -98,25 +98,25 @@
                   <textarea name="detalle_largo" class="form-control" placeholder="Escribe aquí" ng-model="curso.curso.detalle"></textarea>
                 </div>
               </div>
-              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profes-nuevocurso-asides" ng-controller="ProfeModulos as modulos">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profes-nuevocurso-asides">
                 <h3>MODULOS</h3>
                 <div class="container-fluid">
                   <div class="row">
 
                     <!-- Modulos -->
-                    <div ng-repeat = "(key, value) in modulos.modulos track by key" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profes-tabs-moduls">
+                    <div ng-repeat = "(key, value) in curso.curso.modulos track by key" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profes-tabs-moduls">
 
                       <!-- Modulo Inactivo -->
                       <div ng-show = "!value.visible">
                         <div class="profes-tabs-moduls-box-float-active">
-                          <a ng-click = "modulos.removerModulo(key)" ><i class="fa fa-times" aria-hidden="true"></i></a>
+                          <a ng-click = "curso.removerModulo(key)" ><i class="fa fa-times" aria-hidden="true"></i></a>
                         </div>
-                        <div ng-click="modulos.setearVisible(key)" class="profes-tabs-moduls-1-1-inactive"></div>
+                        <div ng-click="curso.setearVisible(key)" class="profes-tabs-moduls-1-1-inactive"></div>
                         <div class="profes-tabs-moduls-1-2">
                           <div class="profes-tabs-moduls-1-2-2">
                             <h3>{{value.nombre}}</h3>
                             <p>{{value.descripcion}}</p>
-                            <a href="" ng-click="modulos.setearVisible(key)"><i class="fa fa-angle-down" id="cpanel-user-icon-fa-angle" aria-hidden="true"></i> 5 CLASES</a>
+                            <a href="" ng-click="curso.setearVisible(key)"><i class="fa fa-angle-down" id="cpanel-user-icon-fa-angle" aria-hidden="true"></i> 5 CLASES</a>
                           </div>
                         </div>
                         <div class="profes-tabs-moduls-1-3-inactive"></div>
@@ -126,9 +126,9 @@
                       <!-- Modulo Activo -->
                       <div ng-show = "value.visible">
                         <div class="profes-tabs-moduls-box-float-active">
-                          <a ng-click = "modulos.removerModulo(key)" ><i class="fa fa-times" aria-hidden="true"></i></a>
+                          <a ng-click = "curso.removerModulo(key)" ><i class="fa fa-times" aria-hidden="true"></i></a>
                         </div>
-                        <div ng-click="modulos.setearVisible(key)"  class="profes-tabs-moduls-1-1-active"></div>
+                        <div ng-click="curso.setearVisible(key)"  class="profes-tabs-moduls-1-1-active"></div>
                         <div class="profes-tabs-moduls-1-2">
                           <h3><a href="" class="profes-moduls-edit-active"><i class="fa fa-ellipsis-v" aria-hidden="true"></i><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>{{value.nombre}}</h3>
                           <div class="input-group">
@@ -147,10 +147,10 @@
                           <div ng-show = "!valueClase.visible">
                             <div class="profes-tabs-moduls-1-3-clase">
                               <div class="profes-tabs-moduls-box-float-active">
-                                <a ng-click="modulos.removerClase(key, keyClase)"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                <a ng-click="curso.removerClase(key, keyClase)"><i class="fa fa-times" aria-hidden="true"></i></a>
                               </div>
                               <div class="profes-tabs-moduls-1-3-clase-edit">
-                                <a ng-click = "modulos.setearClaseVisible(key, keyClase)" title="Editar"><i class="fa fa-ellipsis-v" aria-hidden="true"></i><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
+                                <a ng-click = "curso.setearClaseVisible(key, keyClase)" title="Editar"><i class="fa fa-ellipsis-v" aria-hidden="true"></i><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
                               </div>
                               <div class="profes-tabs-moduls-1-3-clase-active">
                                 <h3>{{valueClase.nombre}}</h3>
@@ -163,10 +163,10 @@
                           <div ng-show = "valueClase.visible">
                             <div class="profes-tabs-moduls-1-3-clase">
                               <div class="profes-tabs-moduls-box-float-active">
-                                <a ng-click="modulos.removerClase(key, keyClase)"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                <a ng-click="curso.removerClase(key, keyClase)"><i class="fa fa-times" aria-hidden="true"></i></a>
                               </div>
                               <div class="profes-tabs-moduls-1-3-clase-edit">
-                                <a ng-click = "modulos.setearClaseVisible(key, keyClase)" title="Editar"><i class="fa fa-ellipsis-v" aria-hidden="true"></i><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
+                                <a ng-click = "curso.setearClaseVisible(key, keyClase)" title="Editar"><i class="fa fa-ellipsis-v" aria-hidden="true"></i><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
                               </div>
                               <div class="profes-tabs-moduls-1-3-clase-active">
                                 <h3>{{valueClase.nombre}}</h3>
@@ -178,19 +178,19 @@
 
                                 <span class="btn-light"><i class="fa fa-cloud-upload" aria-hidden="true"></i> SUBIR MATERIAL</span> <br><br><br>
 
-                                <button type="button" ng-click= "modulos.setearClaseVisible(valueClase.modulo_id, valueClase.clase_id, valueClase.nombre_clase, valueClase.descripcion_clase)" class="btn btn-custom">GUARDAR</button>
-                                <button type="button" ng-click= "modulos.setearClaseVisibleYAgregarOtra(key, keyClase)" class="btn btn-custom">GUARDAR Y AGREGAR OTRA</button>
+                                <button type="button" ng-click= "curso.setearClaseVisible(valueClase.modulo_id, valueClase.clase_id, valueClase.nombre_clase, valueClase.descripcion_clase)" class="btn btn-custom">GUARDAR</button>
+                                <button type="button" ng-click= "curso.setearClaseVisibleYAgregarOtra(key, keyClase)" class="btn btn-custom">GUARDAR Y AGREGAR OTRA</button>
                               </div>
                             </div>
                           </div><!-- END NUEVO MODULO CLASE -->
                         </div>
-                        <button type="button" ng-click= "modulos.agregarClase(key, value.modulo_id)" class="btn btn-custom agregar-clase">AGREGAR CLASE</button>
+                        <button type="button" ng-click= "curso.agregarClase(key, value.modulo_id)" class="btn btn-custom agregar-clase">AGREGAR CLASE</button>
                       </div><!-- Modulo Activo-Wrapper -->
                     </div><!-- Modulos-Wrapper -->
                   </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profes-nuevocurso-zona-buttons">
-                  <button type="button" ng-click = "modulos.agregarModulo()" class="btn btn-custom"><i class="fa fa-plus" aria-hidden="true"></i> AGREGAR MODULO</button>
+                  <button type="button" ng-click = "curso.agregarModulo()" class="btn btn-custom"><i class="fa fa-plus" aria-hidden="true"></i> AGREGAR MODULO</button>
                   <!-- <button type="button" ng-click = "modulos.guardarModulos()" class="btn btn-primary">GUARDAR</button> -->
                 </div>
               </div>
