@@ -68,10 +68,31 @@ angular.module('yeomanApp')
         dataUrl: nv.user.avatar
     };
     $scope.fileReaderSupported = window.FileReader != null;
+
     $scope.photoChanged = function(files){
         if (files != null) {
             var file = files[0];
             if ($scope.fileReaderSupported && file.type.indexOf('image') > -1) {
+
+              //ENVIA A LA API
+                    $scope.formData = new FormData();
+                    $scope.formData.append('avatar', files[0]);
+                    $scope.formData.append('_method', 'PUT');
+                    $http({
+                      url: GLOBAL.URL_API+"user/"+ nv.user.id,
+                      method: "POST",
+                      data:  $scope.formData,
+                      headers: {'Content-Type': undefined}
+                    }).then(
+                      function (respuesta){
+                        sessionControl.set('avatar', respuesta.data);
+                        toastr.success('Datos actualizados!', 'Mensaje');
+                      },
+                      function (error) {
+                         toastr.error('Algo salio mal, vuelve a intentarlo', 'Mensaje');
+                     });
+
+                //RENDERIZO LA IMAGEN
                 $timeout(function() {
                     var fileReader = new FileReader();
                     fileReader.readAsDataURL(file);
@@ -85,4 +106,4 @@ angular.module('yeomanApp')
         }
     };
 
-  })
+  }) 
