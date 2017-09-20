@@ -12,7 +12,11 @@ angular.module('yeomanApp')
 
   var nv = this;
 
-  $scope.thumbnail;
+  $scope.thumbnail = {dataUrl: ''};
+  $scope.curso_id = '';
+  nv.modulos = [];
+  nv.clases = [];
+  nv.curso = [];
 
   var curso = {
     'id' : '',
@@ -57,7 +61,6 @@ angular.module('yeomanApp')
     url : 'views/footer/footer.html'
   }
 
-  /*-------------------------------------*/
 
   $scope.fileReaderSupported = window.FileReader != null;
   $scope.photoChanged = function(files){
@@ -70,7 +73,7 @@ angular.module('yeomanApp')
           fileReader.onload = function(e) {
             $timeout(function(){
               $scope.thumbnail.dataUrl = e.target.result;
-              //$curso.imagen = e.target.result;
+              $curso.imagen = e.target.result;
             });
           }
         });
@@ -85,6 +88,7 @@ angular.module('yeomanApp')
     upload.uploadFile(curso);
   }
 
+
 }) // End Controller
 
 .directive('uploaderModel', function ($parse){
@@ -98,31 +102,28 @@ angular.module('yeomanApp')
   };
 }) // End Directive
 
-.service('upload', function (GLOBAL, $http, $q, $routeParams, toastr,$location){
-  this.uploadFile = function (curso){
+.service('upload', function (GLOBAL, $http, $q, $routeParams, toastr, $location){
+  //this.uploadon (curso){
     var deferred = $q.defer();
 
     if($routeParams.id){
       //EDIT
-      $http({
-        url: GLOBAL.URL_API+"curso/" + $routeParams.id,
-        method: "PUT",
-        data:  curso,
-      }).then(
-      function (respuesta){
-        deferred.resolve(respuesta);
-        toastr.success('Curso actualizado correctamente!', 'Mensaje');
-      },
-      function (error) {
-        toastr.error('Algo salio mal, vuelve a intentarlo', 'Mensaje');
-      });
-      return deferred.promise;
+      // $http({
+      //   url: GLOBAL.URL_API+"curso/" + $routeParams.id,
+      //   method: "PUT",
+      //   data:  curso,
+      // }).then(
+      // function (respuesta){
+      //   deferred.resolve(respuesta);
+      //   toastr.success('Curso actualizado correctamente!', 'Mensaje');
+      // },
+      // function (error) {
+      //   toastr.error('Algo salio mal, vuelve a intentarlo', 'Mensaje');
+      // });
+      // return deferred.promise;
 
     }else{
       //NEW
-
-      console.log(curso);
-
       // $http({
       //   url: GLOBAL.URL_API+"curso/store",
       //   method: "POST",
@@ -140,5 +141,5 @@ angular.module('yeomanApp')
       // return deferred.promise;
 
     }
-}
+//}
 }) // End Service

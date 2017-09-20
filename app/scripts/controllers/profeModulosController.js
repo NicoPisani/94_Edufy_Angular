@@ -118,5 +118,27 @@ angular.module('yeomanApp')
 
 /*---------------------------------------------------------*/
 
+  $scope.submit = function(upload) {
+
+     //ENVIA A LA API
+     //$scope.formData = new FormData();
+     //$scope.formData.append('upload', upload);
+     //$scope.formData.append('_method', 'PUT');    
+
+      $http({
+        //url: GLOBAL.URL_API+"curso/" + $routeParams.id,
+        url: GLOBAL.URL_API+"curso/store",
+        method: "POST",
+        data:  upload,
+        headers: {'Content-Type': undefined}
+      }).then(
+        function (respuesta){
+          toastr.success('Datos actualizados!', 'Mensaje');
+        },
+        function (error) {
+           toastr.error('Algo salio mal, vuelve a intentarlo', 'Mensaje');
+       });
+  };
+
 }) // fin controller
 

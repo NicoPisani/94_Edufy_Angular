@@ -40,6 +40,7 @@ angular.module('yeomanApp')
           sessionControl.set('name', nv.user.name);
           sessionControl.set('birthday', nv.user.birthday);
           sessionControl.set('history', nv.user.history);
+          sessionControl.set('avatar', nv.user.avatar);
           toastr.success('Datos actualizados!', 'Mensaje');
         },
         function (error) {
