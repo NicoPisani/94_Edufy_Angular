@@ -27,6 +27,7 @@ angular.module('yeomanApp')
     .then(
      function (response) {
        $scope.curso = response.data;
+       console.log(response.data);
         nv.User = $resource(GLOBAL.URL_API+"user-public/:id", {id: "@id"});
         $scope.user = nv.User.get({ id: $scope.curso.user_id });
      },
@@ -50,55 +51,4 @@ angular.module('yeomanApp')
         $scope.IsVisible = $scope.IsVisible ? false : true;
     };
 
-    //Array de Modulos
-    $scope.modulos = [
-      {
-        'titulo' : 'MÓDULO 1 - PRÁCTICAS DE LENGUAJE',
-        'descripcion' : "Let's take a look at the areas you should consider for security. Attack surfaces, data transmission and storage, and more.",
-        'visible' : true,
-        clases : [
-           {
-            'titulo' : 'CLASE 1: INTRODUCCIÓN A LA ORATORIA',
-            'visible' : true
-          },
-          {
-            'titulo' : 'CLASE 2: INTRODUCCIÓN A LA ORATORIA',
-            'visible' : true
-          }
-
-        ]
-      },
-      {
-        'titulo' : 'MÓDULO 2 - PRÁCTICAS DE LENGUAJE',
-        'descripcion' : "Let's take a look at the areas you should consider for security. Attack surfaces, data transmission and storage, and more.",
-        'visible' : true,
-        clases : [
-           {
-            'titulo' : 'CLASE 1: INTRODUCCIÓN A LA ORATORIA',
-            'visible' : true
-          },
-          {
-            'titulo' : 'CLASE 2: INTRODUCCIÓN A LA ORATORIA',
-            'visible' : true
-          }
-
-        ]
-      },
-      {
-        'titulo' : 'MÓDULO 3 - PRÁCTICAS DE LENGUAJE',
-        'descripcion' : "Let's take a look at the areas you should consider for security. Attack surfaces, data transmission and storage, and more.",
-        'visible' : true,
-        clases : [
-           {
-            'titulo' : 'CLASE 1: INTRODUCCIÓN A LA ORATORIA',
-            'visible' : true
-          },
-           {
-            'titulo' : 'CLASE 2: INTRODUCCIÓN A LA ORATORIA',
-            'visible' : true
-          }
-
-        ]
-      }
-    ];
   })
