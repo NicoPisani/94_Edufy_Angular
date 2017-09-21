@@ -24,7 +24,7 @@
                       <figcaption>
                         <label for="file">
                           <i class="fa fa-camera" aria-hidden="true" ></i><br> Cambiar Foto</a>
-                          <input type="file" id="file" name="file" style="visibility:hidden;" accept="image/*" onchange="angular.element(this).scope().photoChanged(this.files)" uploader-model="file">
+                          <input type="file" id="file" name="file" ng-model="curso.curso.imagen" style="visibility:hidden;" accept="image/*" onchange="angular.element(this).scope().photoChanged(this.files)" uploader-model="file">
                         </label>
                       </figcaption>
                     </figure>

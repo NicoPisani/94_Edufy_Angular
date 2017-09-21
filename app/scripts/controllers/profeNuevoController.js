@@ -14,6 +14,7 @@ angular.module('yeomanApp')
 
   $scope.thumbnail = {dataUrl: ''};
   $scope.curso_id = '';
+  $scope.upload='';
   nv.modulos = [];
   nv.clases = [];
   nv.curso = [];
@@ -66,6 +67,7 @@ angular.module('yeomanApp')
   $scope.photoChanged = function(files){
     if (files != null) {
       var file = files[0];
+      $scope.imagen = files[0];
       if ($scope.fileReaderSupported && file.type.indexOf('image') > -1) {
         $timeout(function() {
           var fileReader = new FileReader();
@@ -73,22 +75,13 @@ angular.module('yeomanApp')
           fileReader.onload = function(e) {
             $timeout(function(){
               $scope.thumbnail.dataUrl = e.target.result;
-              $curso.imagen = e.target.result;
+              //$curso.imagen = e.target.result;
             });
           }
         });
       }
     }
-  };
-
-
-  /*-----------------------------------*/
-
-  $scope.uploadFile = function (curso){
-    upload.uploadFile(curso);
-  }
-
-
+  };  
 }) // End Controller
 
 .directive('uploaderModel', function ($parse){
@@ -103,43 +96,5 @@ angular.module('yeomanApp')
 }) // End Directive
 
 .service('upload', function (GLOBAL, $http, $q, $routeParams, toastr, $location){
-  //this.uploadon (curso){
     var deferred = $q.defer();
-
-    if($routeParams.id){
-      //EDIT
-      // $http({
-      //   url: GLOBAL.URL_API+"curso/" + $routeParams.id,
-      //   method: "PUT",
-      //   data:  curso,
-      // }).then(
-      // function (respuesta){
-      //   deferred.resolve(respuesta);
-      //   toastr.success('Curso actualizado correctamente!', 'Mensaje');
-      // },
-      // function (error) {
-      //   toastr.error('Algo salio mal, vuelve a intentarlo', 'Mensaje');
-      // });
-      // return deferred.promise;
-
-    }else{
-      //NEW
-      // $http({
-      //   url: GLOBAL.URL_API+"curso/store",
-      //   method: "POST",
-      //   //headers: {'Content-Type': 'multipart/form-data'},
-      //   data: {curso},
-      // }).then(
-      // function (response){
-      //   deferred.resolve(response);
-      //   $location.path('/panel/profesor/edit/'+response.data);
-      //   toastr.success('Curso creado correctamente!', 'Mensaje');
-      // },
-      // function (error) {
-      //   toastr.error('Algo salio mal, vuelve a intentarlo', 'Mensaje');
-      // });
-      // return deferred.promise;
-
-    }
-//}
 }) // End Service

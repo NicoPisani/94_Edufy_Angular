@@ -12,6 +12,8 @@ angular.module('yeomanApp')
 
   var nv = this;
 
+  $scope.upload='';
+
   var curso = {
     'id' : '',
     'user_id' : '',
@@ -118,18 +120,17 @@ angular.module('yeomanApp')
 
 /*---------------------------------------------------------*/
 
-  $scope.submit = function(upload) {
+  $scope.submit = function() {
 
      //ENVIA A LA API
-     //$scope.formData = new FormData();
-     //$scope.formData.append('upload', upload);
-     //$scope.formData.append('_method', 'PUT');    
-
+      //$scope.formData = new FormData();
+      //$scope.formData.append('curso',  $scope.curso);
+      //$scope.formData.append('imagen',  file[0]);
       $http({
         //url: GLOBAL.URL_API+"curso/" + $routeParams.id,
         url: GLOBAL.URL_API+"curso/store",
         method: "POST",
-        data:  upload,
+        data:   $scope.curso,
         headers: {'Content-Type': undefined}
       }).then(
         function (respuesta){
