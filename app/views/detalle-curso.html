@@ -56,8 +56,8 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" data-target="#home">MÓDULOS</a></li>
-                <li><a data-toggle="tab" data-target="#menu1">DESCRIPCIÓN DEL CURSO</a></li>
-                <li  class="tab"><a data-toggle="tab" data-target="#menu2">Q&A</a></li>
+                <li ng-if="IsAuthenticated"><a data-toggle="tab" data-target="#menu1">DESCRIPCIÓN DEL CURSO</a></li>
+                <li  ng-if="IsAuthenticated" class="tab"><a data-toggle="tab" data-target="#menu2">Q&A</a></li>
             </ul>
             <div class="tab-content" >
                 <div id="home" class="tab-pane fade in active">
@@ -123,54 +123,9 @@
                     </div>
                 </div>
                  <!-- tab-pane_inactive -->
-                <div id="menu2" class="tab-pane fade">
+                <div id="menu2" class="tab-pane fade" ng-controller="commentController as comment">
                      <!--TAB 3 -->
                      <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 details-tabs-qya-1">
-                            <div class="details-tabs-qya-1-box-1">
-                                <div class="details-tabs-qya-1-box-img">
-                                    <img src="images/empleado_1.jpg" alt="perfil profesor">
-                                </div>
-                                <div class="details-tabs-qya-1-box-text">
-                                    <h3>CÓMO PUEDO IMPLEMENTAR LA TÉCNICA? </h3>
-                                    <p>Jorge Perez <span>Fecha: 04/03/17</span></p>
-                                </div>
-                                <div class="details-tabs-qya-1-box-1-box-float-inactive">
-                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                            <div class="details-tabs-qya-1-box-2-inactive"></div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 details-tabs-qya-1">
-                            <div class="details-tabs-qya-1-box-1">
-                                <div class="details-tabs-qya-1-box-img">
-                                    <img src="images/empleado_1.jpg" alt="perfil profesor">
-                                </div>
-                                <div class="details-tabs-qya-1-box-text">
-                                    <h3>CÓMO PUEDO IMPLEMENTAR LA TÉCNICA? </h3>
-                                    <p>Jorge Perez <span>Fecha: 04/03/17</span></p>
-                                </div>
-                                <div class="details-tabs-qya-1-box-1-box-float-inactive">
-                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                            <div class="details-tabs-qya-1-box-2-inactive"></div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 details-tabs-qya-1">
-                            <div class="details-tabs-qya-1-box-1">
-                                <div class="details-tabs-qya-1-box-img">
-                                    <img src="images/empleado_1.jpg" alt="perfil profesor">
-                                </div>
-                                <div class="details-tabs-qya-1-box-text">
-                                    <h3>CÓMO PUEDO IMPLEMENTAR LA TÉCNICA? </h3>
-                                    <p>Jorge Perez <span>Fecha: 04/03/17</span></p>
-                                </div>
-                                <div class="details-tabs-qya-1-box-1-box-float-inactive">
-                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                            <div class="details-tabs-qya-1-box-2-inactive"></div>
-                        </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 details-tabs-qya-1 details-tabs-qya-1-active ">
                             <div class="details-tabs-qya-1-box-1">
                                 <div class="details-tabs-qya-1-box-img">
@@ -186,24 +141,25 @@
                             </div>
                             <div class="details-tabs-qya-1-box-2-active">
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 details-tabs-qya-1-box-2-answers">
-                                        <h4>SEBASTIAN PEREZ</h4>
-                                        <p>La técnica puede ser implementada mediante discursos, charlas, o prácticas propias. Podémos organizar una reunión y hacer una práctica virtual.</p>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 details-tabs-qya-1-box-2-answers" ng-repeat="com in comentarios">
+                                      <div ng-if="com.nombre == 'pregunta'">
+                                        <h4>{{com.name}}</h4>
+                                        <p>{{com.descripcion}}</p>
+                                      </div>
+                                      <div ng-if="com.nombre == 'respuesta'">
+                                        <h4 style="color:#d5d5d5!important;">Respuesta:</h4>
+                                        <p style="color:#d5d5d5!important;">{{com.descripcion}}</p>
+                                      </div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 details-tabs-qya-1-box-2-answers">
-                                        <h4>TU RESPUESTA</h4>
-                                        <p>La técnica puede ser implementada mediante discursos, charlas, o prácticas propias. Podémos organizar una reunión y hacer una práctica virtual.</p>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 details-tabs-qya-1-box-2-answers">
-                                        <h4>SEBASTIAN PEREZ</h4>
-                                        <p>La técnica puede ser implementada mediante discursos, charlas, o prácticas propias. Podémos organizar una reunión y hacer una práctica virtual.</p>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 details-tabs-qya-1-box-2-answers details-tabs-qya-1-box-2-form">
-                                        <form action="" method="POST" accept-charset="utf-8">
-                                            <textarea name="message" id="message" class="form-control" placeholder="Escribe tu respuesta aquí"></textarea>
-                                            <input type="submit" class="btn btn-primary" value="ENVIAR">  
-                                        </form> 
-                                    </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 details-tabs-qya-1-box-2-answers details-tabs-qya-1-box-2-form">
+                                      <form ng-submit="submit()" accept-charset="utf-8">
+                                          <input type="hidden" name="nombre" id="nombre" ng-model="comment.nombre">
+                                          <textarea name="descripcion" id="descripcion" class="form-control" ng-model="comment.descripcion" placeholder="Escribe tu respuesta aquí"></textarea>
+                                          <input type="submit" class="btn btn-primary" value="ENVIAR">  
+                                      </form> 
+                                  </div>
                                 </div>
                             </div>
                         </div>

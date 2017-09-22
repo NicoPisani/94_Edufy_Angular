@@ -8,7 +8,7 @@
  * Controller of the yeomanApp
  */
 angular.module('yeomanApp')
-  .controller('DetalleCursoCtrl', function (GLOBAL, $http, $scope, $resource, $routeParams ) {
+.controller('DetalleCursoCtrl', function (GLOBAL, $http, $scope, $resource, $routeParams ) {
 
     var nv = this;
 
@@ -19,36 +19,80 @@ angular.module('yeomanApp')
       url : 'views/footer/footer.html'
     }
 
-	   //trae datos del curso
-     //nv.Curso = $resource(GLOBAL.URL_API+"curso/:id", {id: "@id"});
-     //$scope.curso = nv.Curso.get({id: $routeParams.id})
     /*------------------------------------------------------------*/
+
     $http.get(GLOBAL.URL_API+"curso/"+$routeParams.id)    
     .then(
      function (response) {
        $scope.curso = response.data;
-       console.log(response.data);
         nv.User = $resource(GLOBAL.URL_API+"user-public/:id", {id: "@id"});
         $scope.user = nv.User.get({ id: $scope.curso.user_id });
      },
      function (error) {
-       if(error.data.error === 'token_not_provided') {
-         console.log('error')
-       }
      });
-
 
     $scope.comprar = function(_curso){
       alert("Gracias por comprar el curso -> "+_curso)
     }
-  })
+})// end controller
 
-  .controller('tabController', function ($scope) {
+// modulos
+.controller('tabController', function ($scope, authUser) {
 
-	 // modulos
+    var C = authUser.isLoggedIn();
+    $scope.IsAuthenticated = (C||null)==null?false:true;
+
     $scope.IsVisible = true;
     $scope.ShowHide = function () {
         $scope.IsVisible = $scope.IsVisible ? false : true;
     };
 
-  })
+})
+
+//comentarios
+.controller('commentController', function (GLOBAL, authUser, $http, $scope, $resource, $routeParams, sessionControl, toastr){
+
+    var nv = this;
+
+    var C = authUser.isLoggedIn();
+    $scope.IsAuthenticated = (C||null)==null?false:true;
+
+    $scope.comment.nombre = 'pregunta';
+
+    if(C){
+      $http.get(GLOBAL.URL_API+"faqs/"+$routeParams.id)
+      .then(
+       function (response) {
+         $scope.comentarios = response.data;
+       },
+       function (error) {
+       });
+    }
+
+
+
+    $scope.submit = function() {
+
+      nv.comment = {
+        'nombre': $scope.comment.nombre,
+        'descripcion': $scope.comment.descripcion,
+        'curso_id': $routeParams.id,
+        'user_id': sessionControl.get('id')
+      }
+
+      console.log(nv.comment);
+      $http({
+        url: GLOBAL.URL_API+"faqs/store",
+        method: "POST",
+        data:  nv.comment,
+      }).then(
+        function (response){
+          $scope.comentarios = response.data;
+          $scope.comment.descripcion='';
+        },
+        function (error) {
+           toastr.error('Algo salio mal, vuelve a intentarlo', 'Mensaje');
+       });
+    };
+
+})
