@@ -123,6 +123,12 @@ angular
         controllerAs: 'ProfePagos',
         authorized: ROLES.PROFE.ROL
       })
+       .when('/panel/profesor/comentarios', {
+        templateUrl: 'views/'+ROLES.PROFE.PATH+'/profe-comentarios.html',
+        controller: 'ProfeCommentCtrl',
+        controllerAs: 'ProfeComment',
+        authorized: ROLES.PROFE.ROL
+      })
        .when('/panel/profesor/archivos', {
         templateUrl: 'views/'+ROLES.PROFE.PATH+'/profe-archivos.html',
         controller: 'ProfeArchivosCtrl',
