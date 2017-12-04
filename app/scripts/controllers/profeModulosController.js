@@ -92,7 +92,9 @@ angular.module('yeomanApp')
     angular.forEach(nv.modulos, function(value,key) {
       value.visible = false;
     })
-    nv.modulos.push(angular.copy(modulo));
+	// console.log(modulo);
+    // nv.modulos.push(angular.copy(modulo));
+    nv.modulos.push(modulo);
   }
 
 /*---------------------------------------------------------*/
@@ -106,7 +108,7 @@ angular.module('yeomanApp')
   }
 
   nv.setearClaseVisible = function(idModulo, idClase, nombre_clase, descripcion_clase) {
-    nv.modulos[idModulo].clases[idClase].visible = !nv.modulos[idModulo].clases[idClase].visible
+	  if( nv.modulos[idModulo] !== undefined ) { nv.modulos[idModulo].clases[idClase].visible = !nv.modulos[idModulo].clases[idClase].visible; }
   }
 
   nv.removerClase = function(idModulo, idClase) {
@@ -126,12 +128,28 @@ angular.module('yeomanApp')
       //$scope.formData = new FormData();
       //$scope.formData.append('curso',  $scope.curso);
       //$scope.formData.append('imagen',  file[0]);
+	if ($scope.curso.id !== undefined) {
+		$http({
+			url: GLOBAL.URL_API+"curso/store",
+			method: "POST",
+			data:   $scope.curso,
+			headers: {'Content-Type': 'Application/json'}
+		}).then({
+			function (respuesta) {
+				toastr.success('Datos actualizados!', 'Mensaje');
+			},
+			function (error) {
+				toastr.error('Algo salio mal.', 'Mensaje');
+			}
+		});
+	} else {
       $http({
         //url: GLOBAL.URL_API+"curso/" + $routeParams.id,
         url: GLOBAL.URL_API+"curso/store",
         method: "POST",
         data:   $scope.curso,
-        headers: {'Content-Type': undefined}
+        // headers: {'Content-Type': undefined}
+        headers: { 'Content-Type': 'Application/json' }
       }).then(
         function (respuesta){
           toastr.success('Datos actualizados!', 'Mensaje');
@@ -139,7 +157,7 @@ angular.module('yeomanApp')
         function (error) {
            toastr.error('Algo salio mal, vuelve a intentarlo', 'Mensaje');
        });
+	}
   };
 
 }) // fin controller
-

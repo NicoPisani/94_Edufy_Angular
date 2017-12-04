@@ -105,7 +105,8 @@
                   <div class="row">
 
                     <!-- Modulos -->
-                    <div ng-repeat = "(key, value) in curso.curso.modulos track by key" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profes-tabs-moduls">
+                    <!-- <div ng-repeat = "(key, value) in curso.curso.modulos track by key" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profes-tabs-moduls"> -->
+                    <div ng-repeat = "(key, value) in curso.modulos track by key" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profes-tabs-moduls">
 
                       <!-- Modulo Inactivo -->
                       <div ng-show = "!value.visible">
@@ -199,7 +200,7 @@
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profes-nuevocurso-zona-buttons">
                 <hr>
                 <div class="pull-right">
-                  <button class="btn btn-danger">ELIMINAR CURSO</button>
+                  <button type="button" class="btn btn-danger">ELIMINAR CURSO</button>
                   <button type="submit" class="btn btn-primary">GUARDAR</button>
                 </div>
               </div>
